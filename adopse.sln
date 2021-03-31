@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1433
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adopse", "adopse\adopse.csproj", "{280B45E8-C094-4B73-8197-85570D0A8E7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9111230E-30DC-420C-952E-3F35088F28FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{280B45E8-C094-4B73-8197-85570D0A8E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280B45E8-C094-4B73-8197-85570D0A8E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280B45E8-C094-4B73-8197-85570D0A8E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280B45E8-C094-4B73-8197-85570D0A8E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B12FA52-00B5-4A9A-AA16-405A56B46282}
+	EndGlobalSection
+EndGlobal
