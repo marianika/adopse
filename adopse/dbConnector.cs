@@ -19,7 +19,7 @@ namespace adopse
         {
             string connString =
                String.Format(
-                   "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
+                   "Server={0};Username={1};Database={2};Port={3};Password={4};",
                    Host,
                    User,
                    DBname,
