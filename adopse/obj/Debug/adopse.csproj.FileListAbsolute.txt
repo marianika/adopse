@@ -1,0 +1,10 @@
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\adopse.exe.config
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\adopse.exe
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\adopse.pdb
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csprojAssemblyReference.cache
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Form1.resources
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Properties.Resources.resources
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csproj.GenerateResource.cache
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csproj.CoreCompileInputs.cache
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.exe
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.pdb
