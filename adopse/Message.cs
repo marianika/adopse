@@ -10,15 +10,18 @@ using System.Windows.Forms;
 
 namespace adopse
 {
-    public partial class Form2 : Form
+    public partial class Message : Form
     {
-        public Form2()
-        {
+        public Message()
+        {   int val = Login.userid;
             InitializeComponent();
+            label1.Text = val.ToString();
         }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
+            
 
         }
     }

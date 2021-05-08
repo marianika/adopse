@@ -1,7 +1,7 @@
 ﻿
 namespace adopse
 {
-    partial class Form2
+    partial class Message
     {
         /// <summary>
         /// Required designer variable.

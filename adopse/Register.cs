@@ -11,9 +11,9 @@ using Npgsql;
 
 namespace adopse
 {
-    public partial class Form3 : Form
+    public partial class Register : Form
     {
-        public Form3()
+        public Register()
         {
             InitializeComponent();
         }
@@ -52,7 +52,7 @@ namespace adopse
             while (dr.Read())
             {
                 this.Hide();
-                Form2 f2 = new Form2();
+                Message f2 = new Message();
                 f2.ShowDialog();
 
             }

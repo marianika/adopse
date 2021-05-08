@@ -44,6 +44,7 @@ C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.csproj.CoreCompile
 C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.csproj.CopyComplete
 C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.exe
 C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.pdb
+C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.Register.resources
+C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.Login.resources
 C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.Form1.resources
-C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.Form2.resources
-C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.Form3.resources
+C:\Users\mike\Documents\GitHub\adopse\adopse\obj\Debug\adopse.Message.resources
