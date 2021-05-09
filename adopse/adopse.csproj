@@ -76,6 +76,12 @@
     <Compile Include="Forms\DiaxeirisiForm.Designer.cs">
       <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EpeksergasiaAggeliasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EpeksergasiaAggeliasForm.Designer.cs">
+      <DependentUpon>EpeksergasiaAggeliasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProsthikiNeasAggeliasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DiaxeirisiForm.resx">
       <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EpeksergasiaAggeliasForm.resx">
+      <DependentUpon>EpeksergasiaAggeliasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProsthikiNeasAggeliasForm.resx">
       <DependentUpon>ProsthikiNeasAggeliasForm.cs</DependentUpon>
