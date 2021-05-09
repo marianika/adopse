@@ -96,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AggeliesForm.resx">
+      <DependentUpon>AggeliesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProsthikiAggelias.resx">
       <DependentUpon>ProsthikiAggelias.cs</DependentUpon>
     </EmbeddedResource>

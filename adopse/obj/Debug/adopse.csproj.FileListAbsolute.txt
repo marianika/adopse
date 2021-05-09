@@ -50,3 +50,4 @@ D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Forms.ViografikoFo
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.MainFrame.resources
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csproj.CopyComplete
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Forms.ProsthikiAggelias.resources
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Forms.AggeliesForm.resources

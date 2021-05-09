@@ -21,7 +21,14 @@ namespace adopse
             aggeliesPanel.HorizontalScroll.Visible = false;
             aggeliesPanel.HorizontalScroll.Maximum = 0;
             aggeliesPanel.AutoScroll = true;
+            userAggeliesPanel.AutoScroll = false;
+            userAggeliesPanel.HorizontalScroll.Enabled = false;
+            userAggeliesPanel.HorizontalScroll.Visible = false;
+            userAggeliesPanel.HorizontalScroll.Maximum = 0;
+            aggeliesPanel.AutoScroll = true;
             loginPanel.Visible = false;
+            myFavoritesPanel.Visible = false;
+            userAggeliesFrame.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,7 +40,9 @@ namespace adopse
         {
             System.Diagnostics.Debug.WriteLine("Aggelies Clicked!");
             loginPanel.Visible = false;
-            aggeliesPanel.Visible = true;
+            userAggeliesFrame.Visible = false;
+            myFavoritesPanel.Visible = false;
+            mainPanel.Visible = true;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -48,10 +57,7 @@ namespace adopse
 
         private void button2_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Biografiko Clicked!");
-            Forms.ViografikoForm viografikoF = new Forms.ViografikoForm();
-            viografikoF.Show();
-            Visible = false;
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -77,7 +83,9 @@ namespace adopse
 
         private void button5_Click(object sender, EventArgs e)
         {
-            aggeliesPanel.Visible = false;
+            mainPanel.Visible = false;
+            userAggeliesFrame.Visible = false;
+            myFavoritesPanel.Visible = false;
             loginPanel.Visible = true;
         }
 
@@ -94,6 +102,37 @@ namespace adopse
         private void searchButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void mainPanel_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void aggeliesPanel_MouseEnter(object sender, EventArgs e)
+        {
+            aggeliesPanel.Focus();
+        }
+
+        private void userAggeliesPanel_MouseEnter(object sender, EventArgs e)
+        {
+            userAggeliesPanel.Focus();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            mainPanel.Visible = false;
+            loginPanel.Visible = false;
+            myFavoritesPanel.Visible = false;
+            userAggeliesFrame.Visible = true;
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            mainPanel.Visible = false;
+            loginPanel.Visible = false;
+            userAggeliesFrame.Visible = false;
+            myFavoritesPanel.Visible = true;
         }
     }
 }
