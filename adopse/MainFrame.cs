@@ -1,4 +1,5 @@
-﻿using System;
+﻿using adopse.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace adopse
         public MainFrame()
         {
             InitializeComponent();
+            aggeliesPanel.AutoScroll = false;
+            aggeliesPanel.HorizontalScroll.Enabled = false;
+            aggeliesPanel.HorizontalScroll.Visible = false;
+            aggeliesPanel.HorizontalScroll.Maximum = 0;
+            aggeliesPanel.AutoScroll = true;
+            loginPanel.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -25,6 +32,8 @@ namespace adopse
         private void button1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Aggelies Clicked!");
+            loginPanel.Visible = false;
+            aggeliesPanel.Visible = true;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -56,6 +65,33 @@ namespace adopse
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ProsthikiAggelias f = new ProsthikiAggelias(aggeliesPanel);
+            f.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            aggeliesPanel.Visible = false;
+            loginPanel.Visible = true;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
         {
 
         }

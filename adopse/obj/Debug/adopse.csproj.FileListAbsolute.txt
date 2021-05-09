@@ -2,7 +2,6 @@ D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\adopse.exe.config
 D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\adopse.exe
 D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\adopse.pdb
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csprojAssemblyReference.cache
-D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Form1.resources
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Properties.Resources.resources
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csproj.GenerateResource.cache
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csproj.CoreCompileInputs.cache
@@ -33,3 +32,21 @@ C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.csproj.CopyComplete
 C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.exe
 C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.pdb
 C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.Forms.ViografikoForm.resources
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\Npgsql.dll
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.Buffers.dll
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.Memory.dll
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.ValueTuple.dll
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\Npgsql.pdb
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\Npgsql.xml
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.Buffers.xml
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.Memory.xml
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Other Folders\Code Projects\adopse\adopse\bin\Debug\System.ValueTuple.xml
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Forms.LoginForm.resources
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Forms.ViografikoForm.resources
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.MainFrame.resources
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csproj.CopyComplete
+D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.Forms.ProsthikiAggelias.resources
