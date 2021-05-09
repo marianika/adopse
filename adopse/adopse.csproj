@@ -64,6 +64,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbConnector.cs" />
+    <Compile Include="Forms\AggeliesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AggeliesForm.Designer.cs">
+      <DependentUpon>AggeliesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViografikoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViografikoForm.Designer.cs">
+      <DependentUpon>ViografikoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ViografikoForm.resx">
+      <DependentUpon>ViografikoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </EmbeddedResource>

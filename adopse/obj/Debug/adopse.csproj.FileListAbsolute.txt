@@ -8,3 +8,28 @@ D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csproj.GenerateRes
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.csproj.CoreCompileInputs.cache
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.exe
 D:\Other Folders\Code Projects\adopse\adopse\obj\Debug\adopse.pdb
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\adopse.exe.config
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\adopse.exe
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\adopse.pdb
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\Npgsql.dll
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.Buffers.dll
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.Memory.dll
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.ValueTuple.dll
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\Npgsql.pdb
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\Npgsql.xml
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.Buffers.xml
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.Memory.xml
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\GEORG\Source\Repos\adopse\adopse\bin\Debug\System.ValueTuple.xml
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.csprojAssemblyReference.cache
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.MainFrame.resources
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.Properties.Resources.resources
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.csproj.GenerateResource.cache
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.csproj.CoreCompileInputs.cache
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.csproj.CopyComplete
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.exe
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.pdb
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.Forms.ViografikoForm.resources
