@@ -32,3 +32,4 @@ C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.csproj.CoreCompileInp
 C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.csproj.CopyComplete
 C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.exe
 C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.pdb
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.Forms.ViografikoForm.resources
