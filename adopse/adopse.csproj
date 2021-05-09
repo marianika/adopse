@@ -70,6 +70,12 @@
     <Compile Include="Forms\AggeliesForm.Designer.cs">
       <DependentUpon>AggeliesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ProsthikiNeasAggeliasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProsthikiNeasAggeliasForm.Designer.cs">
+      <DependentUpon>ProsthikiNeasAggeliasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ViografikoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AggeliesForm.resx">
+      <DependentUpon>AggeliesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProsthikiNeasAggeliasForm.resx">
+      <DependentUpon>ProsthikiNeasAggeliasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViografikoForm.resx">
       <DependentUpon>ViografikoForm.cs</DependentUpon>
     </EmbeddedResource>
