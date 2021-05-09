@@ -48,5 +48,18 @@ namespace adopse.Forms
             aggeliesF.Show();
             Visible = false;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("Biografiko Clicked!");
+            Forms.ViografikoForm viografikoF = new Forms.ViografikoForm();
+            viografikoF.Show();
+            Visible = false;
+        }
     }
 }

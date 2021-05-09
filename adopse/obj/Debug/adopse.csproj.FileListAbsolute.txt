@@ -35,3 +35,4 @@ C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.pdb
 C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.Forms.ViografikoForm.resources
 C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.Forms.AggeliesForm.resources
 C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.Forms.ProsthikiNeasAggeliasForm.resources
+C:\Users\GEORG\Source\Repos\adopse\adopse\obj\Debug\adopse.Forms.DiaxeirisiForm.resources

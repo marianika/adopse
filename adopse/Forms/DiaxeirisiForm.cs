@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace adopse.Forms
 {
-    public partial class ProsthikiNeasAggeliasForm : Form
+    public partial class DiaxeirisiForm : Form
     {
-        public ProsthikiNeasAggeliasForm()
+        public DiaxeirisiForm()
         {
             InitializeComponent();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProsthikiNeasAggeliasForm_Load(object sender, EventArgs e)
+        private void DiaxeirisiForm_Load(object sender, EventArgs e)
         {
             CenterToScreen();
             this.Text = string.Empty;
@@ -35,25 +25,15 @@ namespace adopse.Forms
             this.SetStyle(ControlStyles.ResizeRedraw, false);
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void richTextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Anevasma Aggelias Clicked!");
+            System.Diagnostics.Debug.WriteLine("Aggelies Clicked!");
             Forms.AggeliesForm aggeliesF = new Forms.AggeliesForm();
             aggeliesF.Show();
             Visible = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Biografiko Clicked!");
             Forms.ViografikoForm viografikoF = new Forms.ViografikoForm();
