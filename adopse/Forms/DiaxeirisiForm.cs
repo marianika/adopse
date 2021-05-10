@@ -63,11 +63,25 @@ namespace adopse.Forms
                     if (dataReader.HasRows)
                     {
                         System.Diagnostics.Debug.WriteLine("sidethike o admin");
-                        //AdminForm adminForm = new AdminForm();
-                        //AdminForm adminForm = new AdminForm("moderator");
-                        new AdministratorForm().ShowDialog();
-                        //adminForm.ShowDialog();
+                        AdministratorForm administratorForm = new AdministratorForm();
+                        administratorForm.ShowDialog();
+                        dataReader.Close();
                         return;
+                    }
+                    dataReader.Close();
+                }
+
+                using (var command = new NpgsqlCommand("select * from users where username = @u and pwd = @p and type = 'moderator'", connection))
+                {
+                    command.Parameters.AddWithValue("u", username);
+                    command.Parameters.AddWithValue("p", password);
+                    var dataReader = command.ExecuteReader();
+                    if (dataReader.HasRows)
+                    {
+                        System.Diagnostics.Debug.WriteLine("sidethike o moderator");
+                        ModeratorForm moderatorForm = new ModeratorForm();
+                        moderatorForm.ShowDialog();
+                        dataReader.Close();
                     }
                 }
             }
