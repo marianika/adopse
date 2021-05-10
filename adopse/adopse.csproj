@@ -64,11 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbConnector.cs" />
-    <Compile Include="Forms\AdminForm.cs">
+    <Compile Include="Forms\AdministratorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="Forms\AdministratorForm.Designer.cs">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AggeliesForm.cs">
       <SubType>Form</SubType>
@@ -81,6 +81,12 @@
     </Compile>
     <Compile Include="Forms\DiaxeirisiForm.Designer.cs">
       <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ModeratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModeratorForm.Designer.cs">
+      <DependentUpon>ModeratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ProsthikiNeasAggeliasForm.cs">
       <SubType>Form</SubType>
@@ -102,14 +108,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AdminForm.resx">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AdministratorForm.resx">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AggeliesForm.resx">
       <DependentUpon>AggeliesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DiaxeirisiForm.resx">
       <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModeratorForm.resx">
+      <DependentUpon>ModeratorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProsthikiNeasAggeliasForm.resx">
       <DependentUpon>ProsthikiNeasAggeliasForm.cs</DependentUpon>

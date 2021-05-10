@@ -11,87 +11,13 @@ using System.Windows.Forms;
 
 namespace adopse.Forms
 {
-    public partial class AdminForm : Form
+    public partial class ModeratorForm : Form
     {
-        public AdminForm()
+        public ModeratorForm()
         {
             InitializeComponent();
-            loadUsers();
-            loadlogfiles();
             loadAds();
         }
-
-        public AdminForm(string v)
-        {
-            InitializeComponent();
-            loadUsers();
-        }
-
-        private void AdminForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loadUsers()
-        {
-            using (var connection = dbConnector.GetConnection())
-            {
-                connection.Open();
-                string sql = "select id, username, type from users order by id";
-                using (var command = new NpgsqlCommand(sql, connection))
-                {
-                    var dataReader = command.ExecuteReader();
-                    if (dataReader.HasRows)
-                    {
-                        DataTable dataTable = new DataTable();
-                        dataTable.Load(dataReader);
-                        usersTable.DataSource = dataTable;
-                        System.Diagnostics.Debug.WriteLine("katevikan oi users");
-                    }
-                }
-            }
-        }
-
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            string text = used_id.Text;
-            int id;
-            bool success = Int32.TryParse(text, out id);
-            if (success)
-            {
-                using (var connection = dbConnector.GetConnection()) {                                                    
-                connection.Open();               
-                    using (var command = new NpgsqlCommand("UPDATE users SET type = 'moderator' WHERE id = @i", connection))
-                    {
-                        command.Parameters.AddWithValue("i", id);
-                        int nRows = command.ExecuteNonQuery();
-                        loadUsers();
-                    }
-                }
-            }
-        }
-
-
-        private void loadlogfiles()
-        {
-            using (var connection = dbConnector.GetConnection())
-            {
-                connection.Open();
-                string sql = "select * from log_files order by id";
-                using (var command = new NpgsqlCommand(sql, connection))
-                {
-                    var dataReader = command.ExecuteReader();
-                    if (dataReader.HasRows)
-                    {
-                        DataTable dataTable = new DataTable();
-                        dataTable.Load(dataReader);
-                        logFilesTable.DataSource = dataTable;
-                        System.Diagnostics.Debug.WriteLine("katevikan ta log files");
-                    }
-                }
-            }
-        }
-
 
         private void loadAds()
         {
@@ -111,6 +37,32 @@ namespace adopse.Forms
                     }
                 }
             }
+        }
+
+        
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            string text = textBox1.Text;
+            int id;
+            bool success = Int32.TryParse(text, out id);
+            if (success)
+            {
+                using (var connection = dbConnector.GetConnection())
+                {
+                    Console.Out.WriteLine("Opening connection");
+                    connection.Open();
+
+                    using (var command = new NpgsqlCommand("DELETE FROM ads WHERE id = @i", connection))
+                    {
+                        command.Parameters.AddWithValue("i", id);
+
+                        int nRows = command.ExecuteNonQuery();
+                        Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
+                        loadAds();
+                        resetForm();
+                    }
+                }
+            } 
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -146,32 +98,7 @@ namespace adopse.Forms
                         resetForm();
                     }
                 }
-            }
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            string text = textBox1.Text;
-            int id;
-            bool success = Int32.TryParse(text, out id);
-            if (success)
-            {
-                using (var connection = dbConnector.GetConnection())
-                {
-                    Console.Out.WriteLine("Opening connection");
-                    connection.Open();
-
-                    using (var command = new NpgsqlCommand("DELETE FROM ads WHERE id = @i", connection))
-                    {
-                        command.Parameters.AddWithValue("i", id);
-
-                        int nRows = command.ExecuteNonQuery();
-                        Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
-                        loadAds();
-                        resetForm();
-                    }
-                }
-            }
+            } 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -193,17 +120,17 @@ namespace adopse.Forms
 
                         var reader = command.ExecuteReader();
                         if (reader.Read())
-                        {   
+                        {
                             if (!reader.IsDBNull(1))
-                            textBox2.Text = reader.GetInt32(1).ToString();
+                                textBox2.Text = reader.GetInt32(1).ToString();
                             if (!reader.IsDBNull(2))
-                            textBox3.Text = reader.GetString(2);
+                                textBox3.Text = reader.GetString(2);
                             if (!reader.IsDBNull(3))
-                            textBox4.Text = reader.GetString(3);
+                                textBox4.Text = reader.GetString(3);
                             if (!reader.IsDBNull(4))
-                            textBox5.Text = reader.GetInt32(4).ToString();
+                                textBox5.Text = reader.GetInt32(4).ToString();
                             if (!reader.IsDBNull(6))
-                            textBox6.Text = reader.GetString(6);
+                                textBox6.Text = reader.GetString(6);
                         }
                         reader.Close();
                     }
@@ -214,6 +141,7 @@ namespace adopse.Forms
                 resetForm();
             }
         }
+
         private void resetForm()
         {
             textBox1.Clear();
@@ -223,5 +151,6 @@ namespace adopse.Forms
             textBox5.Clear();
             textBox6.Clear();
         }
+
     }
 }

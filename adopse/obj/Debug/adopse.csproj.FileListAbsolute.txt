@@ -64,4 +64,5 @@ C:\Users\Arios\Desktop\adopse\adopse\obj\Debug\adopse.csproj.CoreCompileInputs.c
 C:\Users\Arios\Desktop\adopse\adopse\obj\Debug\adopse.csproj.CopyComplete
 C:\Users\Arios\Desktop\adopse\adopse\obj\Debug\adopse.exe
 C:\Users\Arios\Desktop\adopse\adopse\obj\Debug\adopse.pdb
-C:\Users\Arios\Desktop\adopse\adopse\obj\Debug\adopse.Forms.AdminForm.resources
+C:\Users\Arios\Desktop\adopse\adopse\obj\Debug\adopse.Forms.ModeratorForm.resources
+C:\Users\Arios\Desktop\adopse\adopse\obj\Debug\adopse.Forms.AdministratorForm.resources

@@ -64,8 +64,9 @@ namespace adopse.Forms
                     {
                         System.Diagnostics.Debug.WriteLine("sidethike o admin");
                         //AdminForm adminForm = new AdminForm();
-                        AdminForm adminForm = new AdminForm("moderator");
-                        adminForm.ShowDialog();
+                        //AdminForm adminForm = new AdminForm("moderator");
+                        new AdministratorForm().ShowDialog();
+                        //adminForm.ShowDialog();
                         return;
                     }
                 }
