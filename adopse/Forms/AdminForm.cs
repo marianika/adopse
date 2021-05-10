@@ -18,6 +18,7 @@ namespace adopse.Forms
             InitializeComponent();
             loadUsers();
             loadlogfiles();
+            loadAds();
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -80,5 +81,27 @@ namespace adopse.Forms
                 }
             }
         }
+
+
+        private void loadAds()
+        {
+            using (var connection = dbConnector.GetConnection())
+            {
+                connection.Open();
+                string sql = "select * from ads order by id";
+                using (var command = new NpgsqlCommand(sql, connection))
+                {
+                    var dataReader = command.ExecuteReader();
+                    if (dataReader.HasRows)
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(dataReader);
+                        AdsTable.DataSource = dataTable;
+                        System.Diagnostics.Debug.WriteLine("katevikan ta ads");
+                    }
+                }
+            }
+        }
+
     }
 }
