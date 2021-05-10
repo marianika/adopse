@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,6 +40,41 @@ namespace adopse.Forms
             Forms.ViografikoForm viografikoF = new Forms.ViografikoForm();
             viografikoF.Show();
             Visible = false;
+        }
+
+        private void ConnectionButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("sundesh2 Clicked!");
+            string username = usernameText.Text;
+            string password = passwordText.Text;
+
+            string sql = "select * from admin where email='" + username +"'" + "and pwd='" + password + "'";
+
+            using (var connection = dbConnector.GetConnection())
+            {
+                Console.Out.WriteLine("Opening connection");
+                connection.Open();
+
+                using (var command = new NpgsqlCommand(sql, connection))
+                {
+                    var dataReader = command.ExecuteReader();
+                    if (dataReader.HasRows)
+                    {
+                        System.Diagnostics.Debug.WriteLine("sidethike o admin");
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine("kati pige lathos");
+                    }
+                }
+            }
+
+
+
+            //System.Diagnostics.Debug.WriteLine(username);
+            //System.Diagnostics.Debug.WriteLine(password);
+
+
         }
     }
 }
