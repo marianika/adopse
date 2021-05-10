@@ -17,6 +17,7 @@ namespace adopse.Forms
         {
             InitializeComponent();
             loadUsers();
+            loadlogfiles();
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -55,6 +56,27 @@ namespace adopse.Forms
                     command.Parameters.AddWithValue("n", id);
                     int nRows = command.ExecuteNonQuery();
                     loadUsers();
+                }
+            }
+        }
+
+
+        private void loadlogfiles()
+        {
+            using (var connection = dbConnector.GetConnection())
+            {
+                connection.Open();
+                string sql = "select * from log_files order by id";
+                using (var command = new NpgsqlCommand(sql, connection))
+                {
+                    var dataReader = command.ExecuteReader();
+                    if (dataReader.HasRows)
+                    {
+                        DataTable dataTable = new DataTable();
+                        dataTable.Load(dataReader);
+                        logFilesTable.DataSource = dataTable;
+                        System.Diagnostics.Debug.WriteLine("katevikan ta log files");
+                    }
                 }
             }
         }
