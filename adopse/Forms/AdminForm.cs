@@ -21,6 +21,12 @@ namespace adopse.Forms
             loadAds();
         }
 
+        public AdminForm(string v)
+        {
+            InitializeComponent();
+            loadUsers();
+        }
+
         private void AdminForm_Load(object sender, EventArgs e)
         {
 
@@ -188,7 +194,7 @@ namespace adopse.Forms
                         var reader = command.ExecuteReader();
                         if (reader.Read())
                         {   
-                            if(!reader.IsDBNull(1))
+                            if (!reader.IsDBNull(1))
                             textBox2.Text = reader.GetInt32(1).ToString();
                             if (!reader.IsDBNull(2))
                             textBox3.Text = reader.GetString(2);

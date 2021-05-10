@@ -55,21 +55,22 @@ namespace adopse.Forms
                 Console.Out.WriteLine("Opening connection");
                 connection.Open();
 
-                using (var command = new NpgsqlCommand(sql, connection))
+                using (var command = new NpgsqlCommand("select * from admin where email = @u and pwd = @p", connection))
                 {
+                    command.Parameters.AddWithValue("u", username);
+                    command.Parameters.AddWithValue("p", password);
                     var dataReader = command.ExecuteReader();
                     if (dataReader.HasRows)
                     {
                         System.Diagnostics.Debug.WriteLine("sidethike o admin");
-                        AdminForm adminForm = new AdminForm();
+                        //AdminForm adminForm = new AdminForm();
+                        AdminForm adminForm = new AdminForm("moderator");
                         adminForm.ShowDialog();
-                    }
-                    else
-                    {
-                        System.Diagnostics.Debug.WriteLine("kati pige lathos");
+                        return;
                     }
                 }
             }
         }
     }
 }
+
