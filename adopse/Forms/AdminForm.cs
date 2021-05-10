@@ -166,6 +166,36 @@ namespace adopse.Forms
             textBox6.Clear();
         }
 
-        
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBox1.Text;
+            int id;
+            bool success = Int32.TryParse(text, out id);
+            if (success)
+            {
+                Console.WriteLine("Converted '{0}' to {1}.", text, id);
+                using (var connection = dbConnector.GetConnection())
+                {
+                    Console.Out.WriteLine("Opening connection");
+                    connection.Open();
+
+                    using (var command = new NpgsqlCommand("select * from ads where id = @i", connection))
+                    {
+                        command.Parameters.AddWithValue("i", id);
+
+                        var reader = command.ExecuteReader();
+                        if (reader.Read())
+                        {                           
+                            textBox2.Text = reader.GetInt32(1).ToString();
+                            textBox3.Text = reader.GetString(2);
+                            textBox4.Text = reader.GetString(3);
+                            textBox5.Text = reader.GetInt32(4).ToString();
+                            textBox6.Text = reader.GetString(6);
+                        }
+                        reader.Close();
+                    }
+                }
+            }
+        }
     }
 }
