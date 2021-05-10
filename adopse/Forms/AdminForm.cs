@@ -48,15 +48,19 @@ namespace adopse.Forms
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            using (var connection = dbConnector.GetConnection())
+            string text = used_id.Text;
+            int id;
+            bool success = Int32.TryParse(text, out id);
+            if (success)
             {
-                connection.Open();
-                int id = int.Parse(used_id.Text);
-                using (var command = new NpgsqlCommand("UPDATE users SET type = 'moderator' WHERE id = @n", connection))
-                {
-                    command.Parameters.AddWithValue("n", id);
-                    int nRows = command.ExecuteNonQuery();
-                    loadUsers();
+                using (var connection = dbConnector.GetConnection()) {                                                    
+                connection.Open();               
+                    using (var command = new NpgsqlCommand("UPDATE users SET type = 'moderator' WHERE id = @i", connection))
+                    {
+                        command.Parameters.AddWithValue("i", id);
+                        int nRows = command.ExecuteNonQuery();
+                        loadUsers();
+                    }
                 }
             }
         }
@@ -105,65 +109,63 @@ namespace adopse.Forms
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(textBox1.Text);
+            string text = textBox1.Text;
+            int id;
+            bool success = Int32.TryParse(text, out id);
             int com_id = int.Parse(textBox2.Text);
             string position = textBox3.Text;
             string description = textBox4.Text;
             int salary = int.Parse(textBox5.Text);
             string tags = textBox6.Text;
 
-            using (var connection = dbConnector.GetConnection())
+            if (success)
             {
-                Console.Out.WriteLine("Opening connection");
-                connection.Open();
-
-                using (var command = new NpgsqlCommand(
-                    "UPDATE ads SET com_id = @c, position = @p, description = @d, salary = @s, tags = @t WHERE id = @i", connection))
+                using (var connection = dbConnector.GetConnection())
                 {
-                    command.Parameters.AddWithValue("c", com_id);
-                    command.Parameters.AddWithValue("p", position);
-                    command.Parameters.AddWithValue("d", description);
-                    command.Parameters.AddWithValue("s", salary);
-                    command.Parameters.AddWithValue("t", tags);
-                    command.Parameters.AddWithValue("i", id);
-                    int nRows = command.ExecuteNonQuery();
-                    Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
-                    loadAds();
-                    resetForm();
+                    Console.Out.WriteLine("Opening connection");
+                    connection.Open();
+
+                    using (var command = new NpgsqlCommand(
+                        "UPDATE ads SET com_id = @c, position = @p, description = @d, salary = @s, tags = @t WHERE id = @i", connection))
+                    {
+                        command.Parameters.AddWithValue("c", com_id);
+                        command.Parameters.AddWithValue("p", position);
+                        command.Parameters.AddWithValue("d", description);
+                        command.Parameters.AddWithValue("s", salary);
+                        command.Parameters.AddWithValue("t", tags);
+                        command.Parameters.AddWithValue("i", id);
+                        int nRows = command.ExecuteNonQuery();
+                        Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
+                        loadAds();
+                        resetForm();
+                    }
                 }
             }
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(textBox1.Text);
-
-            using (var connection = dbConnector.GetConnection())
+            string text = textBox1.Text;
+            int id;
+            bool success = Int32.TryParse(text, out id);
+            if (success)
             {
-                Console.Out.WriteLine("Opening connection");
-                connection.Open();
-
-                using (var command = new NpgsqlCommand("DELETE FROM ads WHERE id = @i", connection))
+                using (var connection = dbConnector.GetConnection())
                 {
-                    command.Parameters.AddWithValue("i", id);
+                    Console.Out.WriteLine("Opening connection");
+                    connection.Open();
 
-                    int nRows = command.ExecuteNonQuery();
-                    Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
-                    loadAds();
-                    resetForm();
+                    using (var command = new NpgsqlCommand("DELETE FROM ads WHERE id = @i", connection))
+                    {
+                        command.Parameters.AddWithValue("i", id);
+
+                        int nRows = command.ExecuteNonQuery();
+                        Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
+                        loadAds();
+                        resetForm();
+                    }
                 }
             }
-
-        }
-
-        private void resetForm()
-        {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -185,17 +187,35 @@ namespace adopse.Forms
 
                         var reader = command.ExecuteReader();
                         if (reader.Read())
-                        {                           
+                        {   
+                            if(!reader.IsDBNull(1))
                             textBox2.Text = reader.GetInt32(1).ToString();
+                            if (!reader.IsDBNull(2))
                             textBox3.Text = reader.GetString(2);
+                            if (!reader.IsDBNull(3))
                             textBox4.Text = reader.GetString(3);
+                            if (!reader.IsDBNull(4))
                             textBox5.Text = reader.GetInt32(4).ToString();
+                            if (!reader.IsDBNull(6))
                             textBox6.Text = reader.GetString(6);
                         }
                         reader.Close();
                     }
                 }
             }
+            else
+            {
+                resetForm();
+            }
+        }
+        private void resetForm()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
         }
     }
 }
