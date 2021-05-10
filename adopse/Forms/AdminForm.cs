@@ -103,5 +103,69 @@ namespace adopse.Forms
             }
         }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(textBox1.Text);
+            int com_id = int.Parse(textBox2.Text);
+            string position = textBox3.Text;
+            string description = textBox4.Text;
+            int salary = int.Parse(textBox5.Text);
+            string tags = textBox6.Text;
+
+            using (var connection = dbConnector.GetConnection())
+            {
+                Console.Out.WriteLine("Opening connection");
+                connection.Open();
+
+                using (var command = new NpgsqlCommand(
+                    "UPDATE ads SET com_id = @c, position = @p, description = @d, salary = @s, tags = @t WHERE id = @i", connection))
+                {
+                    command.Parameters.AddWithValue("c", com_id);
+                    command.Parameters.AddWithValue("p", position);
+                    command.Parameters.AddWithValue("d", description);
+                    command.Parameters.AddWithValue("s", salary);
+                    command.Parameters.AddWithValue("t", tags);
+                    command.Parameters.AddWithValue("i", id);
+                    int nRows = command.ExecuteNonQuery();
+                    Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
+                    loadAds();
+                    resetForm();
+                }
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(textBox1.Text);
+
+            using (var connection = dbConnector.GetConnection())
+            {
+                Console.Out.WriteLine("Opening connection");
+                connection.Open();
+
+                using (var command = new NpgsqlCommand("DELETE FROM ads WHERE id = @i", connection))
+                {
+                    command.Parameters.AddWithValue("i", id);
+
+                    int nRows = command.ExecuteNonQuery();
+                    Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
+                    loadAds();
+                    resetForm();
+                }
+            }
+
+        }
+
+        private void resetForm()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+        }
+
+        
     }
 }
