@@ -61,6 +61,8 @@ namespace adopse.Forms
                     if (dataReader.HasRows)
                     {
                         System.Diagnostics.Debug.WriteLine("sidethike o admin");
+                        AdminForm adminForm = new AdminForm();
+                        adminForm.ShowDialog();
                     }
                     else
                     {
@@ -68,13 +70,6 @@ namespace adopse.Forms
                     }
                 }
             }
-
-
-
-            //System.Diagnostics.Debug.WriteLine(username);
-            //System.Diagnostics.Debug.WriteLine(password);
-
-
         }
     }
 }
