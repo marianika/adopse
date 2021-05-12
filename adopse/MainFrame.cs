@@ -32,6 +32,7 @@ namespace adopse
             loginPanel.Visible = false;
             myFavoritesPanel.Visible = false;
             userAggeliesFrame.Visible = false;
+            registerPanel.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace adopse
             loginPanel.Visible = false;
             userAggeliesFrame.Visible = false;
             myFavoritesPanel.Visible = false;
+            registerPanel.Visible = false;
             mainPanel.Visible = true;
         }
 
@@ -89,6 +91,7 @@ namespace adopse
             mainPanel.Visible = false;
             userAggeliesFrame.Visible = false;
             myFavoritesPanel.Visible = false;
+            registerPanel.Visible = false;
             loginPanel.Visible = true;
         }
 
@@ -212,6 +215,7 @@ namespace adopse
             mainPanel.Visible = false;
             loginPanel.Visible = false;
             myFavoritesPanel.Visible = false;
+            registerPanel.Visible = false;
             userAggeliesFrame.Visible = true;
         }
 
@@ -223,6 +227,7 @@ namespace adopse
             mainPanel.Visible = false;
             loginPanel.Visible = false;
             userAggeliesFrame.Visible = false;
+            registerPanel.Visible = false;
             myFavoritesPanel.Visible = true;
 
 
@@ -314,6 +319,15 @@ namespace adopse
                 conn2.Close();
             }
 
+        }
+
+        private void registerNavButton_Click(object sender, EventArgs e)
+        {
+            mainPanel.Visible = false;
+            loginPanel.Visible = false;
+            userAggeliesFrame.Visible = false;
+            myFavoritesPanel.Visible = false;
+            registerPanel.Visible = true;
         }
     }
 }

@@ -54,7 +54,7 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.loginPanel = new System.Windows.Forms.Panel();
             this.usernameText = new System.Windows.Forms.TextBox();
-            this.registerButton = new System.Windows.Forms.Button();
+            this.registerNavButton = new System.Windows.Forms.Button();
             this.passwordText = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
@@ -82,6 +82,26 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.registerPanel = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.registerButton = new System.Windows.Forms.Button();
             this.navigationBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -99,6 +119,7 @@
             this.panel3.SuspendLayout();
             this.myFavoritesAdPanel.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.registerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationBar
@@ -421,7 +442,7 @@
             // 
             this.loginPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.loginPanel.Controls.Add(this.usernameText);
-            this.loginPanel.Controls.Add(this.registerButton);
+            this.loginPanel.Controls.Add(this.registerNavButton);
             this.loginPanel.Controls.Add(this.passwordText);
             this.loginPanel.Controls.Add(this.label7);
             this.loginPanel.Controls.Add(this.loginButton);
@@ -441,14 +462,15 @@
             this.usernameText.Size = new System.Drawing.Size(122, 20);
             this.usernameText.TabIndex = 5;
             // 
-            // registerButton
+            // registerNavButton
             // 
-            this.registerButton.Location = new System.Drawing.Point(371, 251);
-            this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(85, 23);
-            this.registerButton.TabIndex = 10;
-            this.registerButton.Text = "Εγγραφή";
-            this.registerButton.UseVisualStyleBackColor = true;
+            this.registerNavButton.Location = new System.Drawing.Point(371, 251);
+            this.registerNavButton.Name = "registerNavButton";
+            this.registerNavButton.Size = new System.Drawing.Size(85, 23);
+            this.registerNavButton.TabIndex = 10;
+            this.registerNavButton.Text = "Εγγραφή";
+            this.registerNavButton.UseVisualStyleBackColor = true;
+            this.registerNavButton.Click += new System.EventHandler(this.registerNavButton_Click);
             // 
             // passwordText
             // 
@@ -497,9 +519,9 @@
             this.userAggeliesFrame.Controls.Add(this.userAggeliesPanel);
             this.userAggeliesFrame.Controls.Add(this.label13);
             this.userAggeliesFrame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userAggeliesFrame.Location = new System.Drawing.Point(200, 129);
+            this.userAggeliesFrame.Location = new System.Drawing.Point(0, 0);
             this.userAggeliesFrame.Name = "userAggeliesFrame";
-            this.userAggeliesFrame.Size = new System.Drawing.Size(751, 448);
+            this.userAggeliesFrame.Size = new System.Drawing.Size(951, 577);
             this.userAggeliesFrame.TabIndex = 11;
             // 
             // label1
@@ -622,9 +644,9 @@
             this.myFavoritesPanel.Controls.Add(this.myFavoritesAdPanel);
             this.myFavoritesPanel.Controls.Add(this.label19);
             this.myFavoritesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myFavoritesPanel.Location = new System.Drawing.Point(200, 129);
+            this.myFavoritesPanel.Location = new System.Drawing.Point(0, 0);
             this.myFavoritesPanel.Name = "myFavoritesPanel";
-            this.myFavoritesPanel.Size = new System.Drawing.Size(751, 448);
+            this.myFavoritesPanel.Size = new System.Drawing.Size(951, 577);
             this.myFavoritesPanel.TabIndex = 12;
             // 
             // label14
@@ -728,18 +750,217 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "Τα Αγαπημένα Μου";
             // 
+            // registerPanel
+            // 
+            this.registerPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.registerPanel.Controls.Add(this.registerButton);
+            this.registerPanel.Controls.Add(this.textBox9);
+            this.registerPanel.Controls.Add(this.label28);
+            this.registerPanel.Controls.Add(this.label27);
+            this.registerPanel.Controls.Add(this.textBox8);
+            this.registerPanel.Controls.Add(this.textBox7);
+            this.registerPanel.Controls.Add(this.label26);
+            this.registerPanel.Controls.Add(this.comboBox1);
+            this.registerPanel.Controls.Add(this.label25);
+            this.registerPanel.Controls.Add(this.label24);
+            this.registerPanel.Controls.Add(this.textBox6);
+            this.registerPanel.Controls.Add(this.textBox5);
+            this.registerPanel.Controls.Add(this.label23);
+            this.registerPanel.Controls.Add(this.textBox4);
+            this.registerPanel.Controls.Add(this.label22);
+            this.registerPanel.Controls.Add(this.textBox2);
+            this.registerPanel.Controls.Add(this.label21);
+            this.registerPanel.Controls.Add(this.textBox1);
+            this.registerPanel.Controls.Add(this.label20);
+            this.registerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.registerPanel.Location = new System.Drawing.Point(200, 129);
+            this.registerPanel.Name = "registerPanel";
+            this.registerPanel.Size = new System.Drawing.Size(751, 448);
+            this.registerPanel.TabIndex = 11;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label20.Location = new System.Drawing.Point(74, 52);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(79, 16);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Username";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(77, 71);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(109, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label21.Location = new System.Drawing.Point(74, 109);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(76, 16);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "Password";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(77, 128);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(109, 20);
+            this.textBox2.TabIndex = 3;
+            this.textBox2.UseSystemPasswordChar = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label22.Location = new System.Drawing.Point(74, 166);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(52, 16);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "E-Mail";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(77, 185);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(131, 20);
+            this.textBox4.TabIndex = 5;
+            this.textBox4.UseSystemPasswordChar = true;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label23.Location = new System.Drawing.Point(320, 52);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(53, 16);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Όνομα";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(323, 71);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(122, 20);
+            this.textBox5.TabIndex = 7;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(560, 71);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(109, 20);
+            this.textBox6.TabIndex = 8;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label24.Location = new System.Drawing.Point(557, 52);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(64, 16);
+            this.label24.TabIndex = 9;
+            this.label24.Text = "Επίθετο";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label25.Location = new System.Drawing.Point(320, 109);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(46, 16);
+            this.label25.TabIndex = 10;
+            this.label25.Text = "Φύλο";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Άνδρας",
+            "Γυναίκα"});
+            this.comboBox1.Location = new System.Drawing.Point(323, 128);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(75, 21);
+            this.comboBox1.TabIndex = 11;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label26.Location = new System.Drawing.Point(557, 109);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(45, 16);
+            this.label26.TabIndex = 12;
+            this.label26.Text = "Πόλη";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(560, 129);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(109, 20);
+            this.textBox7.TabIndex = 13;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(323, 185);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(131, 20);
+            this.textBox8.TabIndex = 14;
+            this.textBox8.UseSystemPasswordChar = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label27.Location = new System.Drawing.Point(320, 166);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(79, 16);
+            this.label27.TabIndex = 15;
+            this.label27.Text = "Τηλέφωνο";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label28.Location = new System.Drawing.Point(557, 166);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(159, 16);
+            this.label28.TabIndex = 17;
+            this.label28.Text = "Ημερομηνία Γέννησης";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(560, 185);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(131, 20);
+            this.textBox9.TabIndex = 18;
+            this.textBox9.UseSystemPasswordChar = true;
+            // 
+            // registerButton
+            // 
+            this.registerButton.Location = new System.Drawing.Point(340, 282);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Size = new System.Drawing.Size(105, 22);
+            this.registerButton.TabIndex = 19;
+            this.registerButton.Text = "Εγγραφή";
+            this.registerButton.UseVisualStyleBackColor = true;
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
-            this.Controls.Add(this.myFavoritesPanel);
-            this.Controls.Add(this.userAggeliesFrame);
             this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.registerPanel);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.topBar);
             this.Controls.Add(this.navigationBar);
+            this.Controls.Add(this.myFavoritesPanel);
+            this.Controls.Add(this.userAggeliesFrame);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -771,6 +992,8 @@
             this.myFavoritesAdPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.registerPanel.ResumeLayout(false);
+            this.registerPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -799,7 +1022,7 @@
         private System.Windows.Forms.Button loginNav;
         private System.Windows.Forms.Panel loginPanel;
         private System.Windows.Forms.TextBox usernameText;
-        private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.Button registerNavButton;
         private System.Windows.Forms.TextBox passwordText;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button loginButton;
@@ -831,6 +1054,26 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel registerPanel;
+        private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label20;
     }
 }
 
