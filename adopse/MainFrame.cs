@@ -117,6 +117,10 @@ namespace adopse
                 {
                     myAggeliesNav.Visible = true;
                     myFavoritesNav.Visible = true;
+                    loginNav.Visible = false;
+                    loginPanel.Visible = false;
+                    mainPanel.Visible = true;
+                    mainPanel.Focus();
                 }
 
             }

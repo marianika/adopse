@@ -519,9 +519,9 @@
             this.userAggeliesFrame.Controls.Add(this.userAggeliesPanel);
             this.userAggeliesFrame.Controls.Add(this.label13);
             this.userAggeliesFrame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userAggeliesFrame.Location = new System.Drawing.Point(0, 0);
+            this.userAggeliesFrame.Location = new System.Drawing.Point(200, 129);
             this.userAggeliesFrame.Name = "userAggeliesFrame";
-            this.userAggeliesFrame.Size = new System.Drawing.Size(951, 577);
+            this.userAggeliesFrame.Size = new System.Drawing.Size(751, 448);
             this.userAggeliesFrame.TabIndex = 11;
             // 
             // label1
@@ -644,9 +644,9 @@
             this.myFavoritesPanel.Controls.Add(this.myFavoritesAdPanel);
             this.myFavoritesPanel.Controls.Add(this.label19);
             this.myFavoritesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myFavoritesPanel.Location = new System.Drawing.Point(0, 0);
+            this.myFavoritesPanel.Location = new System.Drawing.Point(200, 129);
             this.myFavoritesPanel.Name = "myFavoritesPanel";
-            this.myFavoritesPanel.Size = new System.Drawing.Size(951, 577);
+            this.myFavoritesPanel.Size = new System.Drawing.Size(751, 448);
             this.myFavoritesPanel.TabIndex = 12;
             // 
             // label14
@@ -954,13 +954,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.myFavoritesPanel);
+            this.Controls.Add(this.userAggeliesFrame);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.registerPanel);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.topBar);
             this.Controls.Add(this.navigationBar);
-            this.Controls.Add(this.myFavoritesPanel);
-            this.Controls.Add(this.userAggeliesFrame);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
