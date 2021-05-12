@@ -73,7 +73,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 45);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Ρυθμίσεις";
+            this.button3.Text = "Διαχείριση";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;

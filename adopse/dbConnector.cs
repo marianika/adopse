@@ -15,9 +15,7 @@ namespace adopse
         private static string Password = "adopse21";
         private static string Port = "5432";
 
-        public static void connect()
-        {
-            string connString =
+        private static string connString =
                String.Format(
                    "Server={0};Username={1};Database={2};Port={3};Password={4};",
                    Host,
@@ -26,18 +24,23 @@ namespace adopse
                    Port,
                    Password);
 
+        public static void connect()
+        {
             try
             {
                 NpgsqlConnection conn = new NpgsqlConnection(connString);
             
                 conn.Open();
-
                
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+        }
 
+        public static NpgsqlConnection GetConnection()
+        {
+            return new NpgsqlConnection(connString);
         }
     }
 }

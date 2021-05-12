@@ -25,6 +25,9 @@ namespace adopse
         private void button1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Aggelies Clicked!");
+            Forms.AggeliesForm aggeliesF = new Forms.AggeliesForm();
+            aggeliesF.Show();
+            Visible = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -47,7 +50,10 @@ namespace adopse
 
         private void button3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Rythmiseis Clicked!");
+            System.Diagnostics.Debug.WriteLine("Diaxeirisi Clicked!");
+            Forms.DiaxeirisiForm diaxeirisiF = new Forms.DiaxeirisiForm();
+            diaxeirisiF.Show();
+            Visible = false;
         }
 
         private void MainFrame_Load(object sender, EventArgs e)

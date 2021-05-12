@@ -64,11 +64,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbConnector.cs" />
+    <Compile Include="Forms\AdministratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdministratorForm.Designer.cs">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AggeliesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AggeliesForm.Designer.cs">
       <DependentUpon>AggeliesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DiaxeirisiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DiaxeirisiForm.Designer.cs">
+      <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ModeratorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModeratorForm.Designer.cs">
+      <DependentUpon>ModeratorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProsthikiNeasAggeliasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProsthikiNeasAggeliasForm.Designer.cs">
+      <DependentUpon>ProsthikiNeasAggeliasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ViografikoForm.cs">
       <SubType>Form</SubType>
@@ -84,6 +108,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AdministratorForm.resx">
+      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AggeliesForm.resx">
+      <DependentUpon>AggeliesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DiaxeirisiForm.resx">
+      <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModeratorForm.resx">
+      <DependentUpon>ModeratorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProsthikiNeasAggeliasForm.resx">
+      <DependentUpon>ProsthikiNeasAggeliasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViografikoForm.resx">
       <DependentUpon>ViografikoForm.cs</DependentUpon>
     </EmbeddedResource>
