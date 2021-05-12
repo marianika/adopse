@@ -1,6 +1,6 @@
 # JobFind
 
-Για περισσότερες πληροφορίες ρίξε μια ματια στο [Wiki](https://github.com/marianika/adopse/wiki) του prοject μας.
+Για περισσότερες πληροφορίες ρίξε μια ματιά στο [Wiki](https://github.com/marianika/adopse/wiki) του prοject μας!
 
 Μέλη project:<br>
 [Αλέξανδρος Μόσχος](https://github.com/TetsuyaGR) <br>
