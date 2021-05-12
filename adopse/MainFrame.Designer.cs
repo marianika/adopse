@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.navigationBar = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.myFavoritesNav = new System.Windows.Forms.Button();
+            this.myAggeliesNav = new System.Windows.Forms.Button();
             this.loginNav = new System.Windows.Forms.Button();
             this.settingsNav = new System.Windows.Forms.Button();
             this.biografikoNav = new System.Windows.Forms.Button();
@@ -63,6 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.userAggeliesButtons = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.userAggeliesPanel = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -70,12 +71,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.myFavoritesPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.myFavoritesAdPanel = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -97,15 +97,15 @@
             this.panel8.SuspendLayout();
             this.myFavoritesPanel.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.myFavoritesAdPanel.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationBar
             // 
             this.navigationBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.navigationBar.Controls.Add(this.button4);
-            this.navigationBar.Controls.Add(this.button1);
+            this.navigationBar.Controls.Add(this.myFavoritesNav);
+            this.navigationBar.Controls.Add(this.myAggeliesNav);
             this.navigationBar.Controls.Add(this.loginNav);
             this.navigationBar.Controls.Add(this.settingsNav);
             this.navigationBar.Controls.Add(this.biografikoNav);
@@ -118,37 +118,39 @@
             this.navigationBar.TabIndex = 0;
             this.navigationBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button4
+            // myFavoritesNav
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.button4.Location = new System.Drawing.Point(0, 354);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 45);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Τα Αγαπημένα Μου";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            this.myFavoritesNav.Dock = System.Windows.Forms.DockStyle.Top;
+            this.myFavoritesNav.FlatAppearance.BorderSize = 0;
+            this.myFavoritesNav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myFavoritesNav.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myFavoritesNav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.myFavoritesNav.Location = new System.Drawing.Point(0, 354);
+            this.myFavoritesNav.Name = "myFavoritesNav";
+            this.myFavoritesNav.Size = new System.Drawing.Size(200, 45);
+            this.myFavoritesNav.TabIndex = 5;
+            this.myFavoritesNav.Text = "Τα Αγαπημένα Μου";
+            this.myFavoritesNav.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.myFavoritesNav.UseVisualStyleBackColor = true;
+            this.myFavoritesNav.Visible = false;
+            this.myFavoritesNav.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // button1
+            // myAggeliesNav
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.button1.Location = new System.Drawing.Point(0, 309);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 45);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Οι Αγγελίες Μου";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.myAggeliesNav.Dock = System.Windows.Forms.DockStyle.Top;
+            this.myAggeliesNav.FlatAppearance.BorderSize = 0;
+            this.myAggeliesNav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.myAggeliesNav.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myAggeliesNav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.myAggeliesNav.Location = new System.Drawing.Point(0, 309);
+            this.myAggeliesNav.Name = "myAggeliesNav";
+            this.myAggeliesNav.Size = new System.Drawing.Size(200, 45);
+            this.myAggeliesNav.TabIndex = 4;
+            this.myAggeliesNav.Text = "Οι Αγγελίες Μου";
+            this.myAggeliesNav.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.myAggeliesNav.UseVisualStyleBackColor = true;
+            this.myAggeliesNav.Visible = false;
+            this.myAggeliesNav.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // loginNav
             // 
@@ -529,6 +531,15 @@
             this.button2.Text = "Διαγραφή";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(3, 8);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(95, 25);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Επεξεργασία";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // userAggeliesPanel
             // 
             this.userAggeliesPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -603,21 +614,12 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Οι Αγγελίες Μου";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(3, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 25);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Επεξεργασία";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // myFavoritesPanel
             // 
             this.myFavoritesPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.myFavoritesPanel.Controls.Add(this.label14);
             this.myFavoritesPanel.Controls.Add(this.panel3);
-            this.myFavoritesPanel.Controls.Add(this.panel4);
+            this.myFavoritesPanel.Controls.Add(this.myFavoritesAdPanel);
             this.myFavoritesPanel.Controls.Add(this.label19);
             this.myFavoritesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myFavoritesPanel.Location = new System.Drawing.Point(200, 129);
@@ -653,14 +655,14 @@
             this.button5.Text = "Διαγραφή";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // panel4
+            // myFavoritesAdPanel
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Location = new System.Drawing.Point(20, 37);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(543, 396);
-            this.panel4.TabIndex = 3;
+            this.myFavoritesAdPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.myFavoritesAdPanel.Controls.Add(this.panel6);
+            this.myFavoritesAdPanel.Location = new System.Drawing.Point(20, 37);
+            this.myFavoritesAdPanel.Name = "myFavoritesAdPanel";
+            this.myFavoritesAdPanel.Size = new System.Drawing.Size(543, 396);
+            this.myFavoritesAdPanel.TabIndex = 3;
             // 
             // panel6
             // 
@@ -766,7 +768,7 @@
             this.myFavoritesPanel.ResumeLayout(false);
             this.myFavoritesPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.myFavoritesAdPanel.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ResumeLayout(false);
@@ -804,7 +806,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button myAggeliesNav;
         private System.Windows.Forms.Panel userAggeliesFrame;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel userAggeliesButtons;
@@ -816,13 +818,13 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button myFavoritesNav;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel myFavoritesPanel;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel myFavoritesAdPanel;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
