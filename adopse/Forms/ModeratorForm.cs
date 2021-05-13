@@ -41,16 +41,17 @@ namespace adopse.Forms
 
         virtual protected void editButton_Click(object sender, EventArgs e)
         {
-            string text = textBox1.Text;
-            int id;
-            bool success = Int32.TryParse(text, out id);
-            int com_id = int.Parse(textBox2.Text);
-            string position = textBox3.Text;
-            string description = textBox4.Text;
-            int salary = int.Parse(textBox5.Text);
-            string tags = textBox6.Text;
 
-            if (success)
+            int id, company_id, salary;
+            bool success = Int32.TryParse(textBox_id.Text, out id);
+            bool success1 = Int32.TryParse(textBox_company_id.Text, out company_id);
+            bool success2 = Int32.TryParse(textBox_salary.Text, out salary);
+
+            string position = textBox_position.Text;
+            string description = textBox_description.Text;
+            string tags = textBox_tags.Text;
+
+            if (success && success1 && success2)
             {
                 using (var connection = dbConnector.GetConnection())
                 {
@@ -59,7 +60,7 @@ namespace adopse.Forms
                     using (var command = new NpgsqlCommand(
                         "UPDATE ads SET com_id = @c, position = @p, description = @d, salary = @s, tags = @t WHERE id = @i", connection))
                     {
-                        command.Parameters.AddWithValue("c", com_id);
+                        command.Parameters.AddWithValue("c", company_id);
                         command.Parameters.AddWithValue("p", position);
                         command.Parameters.AddWithValue("d", description);
                         command.Parameters.AddWithValue("s", salary);
@@ -77,7 +78,7 @@ namespace adopse.Forms
 
         virtual protected void deleteButton_Click(object sender, EventArgs e)
         {
-            string text = textBox1.Text;
+            string text = textBox_id.Text;
             int id;
             bool success = Int32.TryParse(text, out id);
             if (success)
@@ -100,7 +101,7 @@ namespace adopse.Forms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string text = textBox1.Text;
+            string text = textBox_id.Text;
             int id;
             bool success = Int32.TryParse(text, out id);
             if (success)
@@ -117,15 +118,15 @@ namespace adopse.Forms
                         if (reader.Read())
                         {
                             if (!reader.IsDBNull(1))
-                                textBox2.Text = reader.GetInt32(1).ToString();
+                                textBox_company_id.Text = reader.GetInt32(1).ToString();
                             if (!reader.IsDBNull(2))
-                                textBox3.Text = reader.GetString(2);
+                                textBox_position.Text = reader.GetString(2);
                             if (!reader.IsDBNull(3))
-                                textBox4.Text = reader.GetString(3);
+                                textBox_description.Text = reader.GetString(3);
                             if (!reader.IsDBNull(4))
-                                textBox5.Text = reader.GetInt32(4).ToString();
+                                textBox_salary.Text = reader.GetInt32(4).ToString();
                             if (!reader.IsDBNull(6))
-                                textBox6.Text = reader.GetString(6);
+                                textBox_tags.Text = reader.GetString(6);
                         }
                         reader.Close();
                     }
@@ -139,12 +140,12 @@ namespace adopse.Forms
 
         private void resetForm()
         {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
+            textBox_id.Clear();
+            textBox_company_id.Clear();
+            textBox_position.Clear();
+            textBox_description.Clear();
+            textBox_salary.Clear();
+            textBox_tags.Clear();
         }
 
     }
