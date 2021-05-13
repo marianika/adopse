@@ -51,20 +51,23 @@ namespace adopse.Forms
             string description = textBox_description.Text;
             string tags = textBox_tags.Text;
 
+            var date = dateTimePicker1.Value.Date;
+
             if (success && success1 && success2)
             {
                 using (var connection = dbConnector.GetConnection())
                 {
                     connection.Open();
-
+                    
                     using (var command = new NpgsqlCommand(
-                        "UPDATE ads SET com_id = @c, position = @p, description = @d, salary = @s, tags = @t WHERE id = @i", connection))
+                        "UPDATE ads SET com_id = @c, position = @p, description = @d, salary = @s,c_date = @date, tags = @t WHERE id = @i", connection))
                     {
                         command.Parameters.AddWithValue("c", company_id);
                         command.Parameters.AddWithValue("p", position);
                         command.Parameters.AddWithValue("d", description);
                         command.Parameters.AddWithValue("s", salary);
                         command.Parameters.AddWithValue("t", tags);
+                        command.Parameters.AddWithValue("date", date);
                         command.Parameters.AddWithValue("i", id);
                         int nRows = command.ExecuteNonQuery();
 

@@ -45,6 +45,9 @@ namespace adopse.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.AdsTable = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.npgsqlCommand1 = new Npgsql.NpgsqlCommand();
             ((System.ComponentModel.ISupportInitialize)(this.AdsTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,14 +104,14 @@ namespace adopse.Forms
             // 
             // textBox_company_id
             // 
-            this.textBox_company_id.Location = new System.Drawing.Point(350, 554);
+            this.textBox_company_id.Location = new System.Drawing.Point(350, 514);
             this.textBox_company_id.Name = "textBox_company_id";
             this.textBox_company_id.Size = new System.Drawing.Size(255, 20);
             this.textBox_company_id.TabIndex = 33;
             // 
             // textBox_id
             // 
-            this.textBox_id.Location = new System.Drawing.Point(350, 520);
+            this.textBox_id.Location = new System.Drawing.Point(350, 480);
             this.textBox_id.Name = "textBox_id";
             this.textBox_id.Size = new System.Drawing.Size(255, 20);
             this.textBox_id.TabIndex = 32;
@@ -153,7 +156,7 @@ namespace adopse.Forms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(197, 557);
+            this.label7.Location = new System.Drawing.Point(194, 524);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 13);
             this.label7.TabIndex = 27;
@@ -162,7 +165,7 @@ namespace adopse.Forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(220, 520);
+            this.label6.Location = new System.Drawing.Point(217, 487);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(15, 13);
             this.label6.TabIndex = 26;
@@ -172,7 +175,7 @@ namespace adopse.Forms
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label5.Location = new System.Drawing.Point(333, 48);
+            this.label5.Location = new System.Drawing.Point(345, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 29);
             this.label5.TabIndex = 25;
@@ -181,16 +184,40 @@ namespace adopse.Forms
             // AdsTable
             // 
             this.AdsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AdsTable.Location = new System.Drawing.Point(23, 104);
+            this.AdsTable.Location = new System.Drawing.Point(27, 75);
             this.AdsTable.Name = "AdsTable";
             this.AdsTable.Size = new System.Drawing.Size(747, 376);
             this.AdsTable.TabIndex = 24;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(350, 552);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(255, 20);
+            this.dateTimePicker1.TabIndex = 40;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(214, 558);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "date";
+            // 
+            // npgsqlCommand1
+            // 
+            this.npgsqlCommand1.AllResultTypesAreUnknown = false;
+            this.npgsqlCommand1.Transaction = null;
+            this.npgsqlCommand1.UnknownResultTypeList = null;
             // 
             // ModeratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 840);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.textBox_tags);
@@ -233,5 +260,8 @@ namespace adopse.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView AdsTable;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label1;
+        private Npgsql.NpgsqlCommand npgsqlCommand1;
     }
 }
