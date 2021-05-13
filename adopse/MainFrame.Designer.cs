@@ -983,11 +983,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
-            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.myFavoritesPanel);
             this.Controls.Add(this.userAggeliesFrame);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.registerPanel);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.topBar);
             this.Controls.Add(this.navigationBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
