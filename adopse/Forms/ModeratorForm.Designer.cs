@@ -51,7 +51,7 @@ namespace adopse.Forms
             // editButton
             // 
             this.editButton.BackColor = System.Drawing.Color.Yellow;
-            this.editButton.Location = new System.Drawing.Point(450, 755);
+            this.editButton.Location = new System.Drawing.Point(381, 755);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 34);
             this.editButton.TabIndex = 39;
@@ -63,7 +63,7 @@ namespace adopse.Forms
             // 
             this.deleteButton.BackColor = System.Drawing.Color.Red;
             this.deleteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.deleteButton.Location = new System.Drawing.Point(200, 755);
+            this.deleteButton.Location = new System.Drawing.Point(495, 755);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 34);
             this.deleteButton.TabIndex = 38;
