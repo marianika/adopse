@@ -195,6 +195,7 @@ namespace adopse.Forms
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(255, 20);
             this.dateTimePicker1.TabIndex = 40;
+            this.dateTimePicker1.Value = new System.DateTime(2021, 5, 14, 0, 49, 0, 0);
             // 
             // label1
             // 

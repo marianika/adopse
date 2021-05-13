@@ -17,6 +17,7 @@ namespace adopse.Forms
         {
             InitializeComponent();
             loadAds();
+            dateTimePicker1.Value = DateTime.Now;
         }
 
         private void loadAds()
@@ -128,6 +129,8 @@ namespace adopse.Forms
                                 textBox_description.Text = reader.GetString(3);
                             if (!reader.IsDBNull(4))
                                 textBox_salary.Text = reader.GetInt32(4).ToString();
+                            if (!reader.IsDBNull(5))
+                                dateTimePicker1.Value = (DateTime)reader.GetDate(5);
                             if (!reader.IsDBNull(6))
                                 textBox_tags.Text = reader.GetString(6);
                         }
@@ -149,6 +152,7 @@ namespace adopse.Forms
             textBox_description.Clear();
             textBox_salary.Clear();
             textBox_tags.Clear();
+            dateTimePicker1.Value = DateTime.Now;
         }
 
     }
