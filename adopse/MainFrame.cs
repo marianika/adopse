@@ -350,5 +350,27 @@ namespace adopse
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = true;
         }
+
+        /* Credits: https://stackoverflow.com/a/1592899
+         * Because WinForms don't bubble up events i can't simply put a MouseDown event handler
+         * in MainFrame because all the panels are stacked upon it so it doesn't fire up
+         * so i chose topBar panel which is the most empty panel so the dragging works only from the topBar
+         */
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void topBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
     }
 }

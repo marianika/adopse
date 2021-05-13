@@ -83,24 +83,26 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.registerPanel = new System.Windows.Forms.Panel();
+            this.userType = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.birthDate = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.phone = new System.Windows.Forms.TextBox();
+            this.city = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.gender = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lastName = new System.Windows.Forms.TextBox();
+            this.firstName = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.username = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.navigationBar.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -292,6 +294,7 @@
             this.topBar.Name = "topBar";
             this.topBar.Size = new System.Drawing.Size(751, 129);
             this.topBar.TabIndex = 1;
+            this.topBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topBar_MouseDown);
             // 
             // closeButton
             // 
@@ -753,24 +756,26 @@
             // registerPanel
             // 
             this.registerPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.registerPanel.Controls.Add(this.userType);
+            this.registerPanel.Controls.Add(this.label29);
             this.registerPanel.Controls.Add(this.registerButton);
-            this.registerPanel.Controls.Add(this.textBox9);
+            this.registerPanel.Controls.Add(this.birthDate);
             this.registerPanel.Controls.Add(this.label28);
             this.registerPanel.Controls.Add(this.label27);
-            this.registerPanel.Controls.Add(this.textBox8);
-            this.registerPanel.Controls.Add(this.textBox7);
+            this.registerPanel.Controls.Add(this.phone);
+            this.registerPanel.Controls.Add(this.city);
             this.registerPanel.Controls.Add(this.label26);
-            this.registerPanel.Controls.Add(this.comboBox1);
+            this.registerPanel.Controls.Add(this.gender);
             this.registerPanel.Controls.Add(this.label25);
             this.registerPanel.Controls.Add(this.label24);
-            this.registerPanel.Controls.Add(this.textBox6);
-            this.registerPanel.Controls.Add(this.textBox5);
+            this.registerPanel.Controls.Add(this.lastName);
+            this.registerPanel.Controls.Add(this.firstName);
             this.registerPanel.Controls.Add(this.label23);
-            this.registerPanel.Controls.Add(this.textBox4);
+            this.registerPanel.Controls.Add(this.email);
             this.registerPanel.Controls.Add(this.label22);
-            this.registerPanel.Controls.Add(this.textBox2);
+            this.registerPanel.Controls.Add(this.password);
             this.registerPanel.Controls.Add(this.label21);
-            this.registerPanel.Controls.Add(this.textBox1);
+            this.registerPanel.Controls.Add(this.username);
             this.registerPanel.Controls.Add(this.label20);
             this.registerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerPanel.Location = new System.Drawing.Point(200, 129);
@@ -778,22 +783,44 @@
             this.registerPanel.Size = new System.Drawing.Size(751, 448);
             this.registerPanel.TabIndex = 11;
             // 
+            // userType
+            // 
+            this.userType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.userType.FormattingEnabled = true;
+            this.userType.Items.AddRange(new object[] {
+            "Εργαζόμενος",
+            "Επιχείρηση"});
+            this.userType.Location = new System.Drawing.Point(78, 246);
+            this.userType.Name = "userType";
+            this.userType.Size = new System.Drawing.Size(108, 21);
+            this.userType.TabIndex = 21;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label29.Location = new System.Drawing.Point(74, 225);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(146, 16);
+            this.label29.TabIndex = 20;
+            this.label29.Text = "Τύπος Λογαριασμού";
+            // 
             // registerButton
             // 
-            this.registerButton.Location = new System.Drawing.Point(340, 282);
+            this.registerButton.Location = new System.Drawing.Point(323, 320);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(105, 22);
             this.registerButton.TabIndex = 19;
             this.registerButton.Text = "Εγγραφή";
             this.registerButton.UseVisualStyleBackColor = true;
             // 
-            // textBox9
+            // birthDate
             // 
-            this.textBox9.Location = new System.Drawing.Point(560, 185);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(131, 20);
-            this.textBox9.TabIndex = 18;
-            this.textBox9.UseSystemPasswordChar = true;
+            this.birthDate.Location = new System.Drawing.Point(560, 185);
+            this.birthDate.Name = "birthDate";
+            this.birthDate.Size = new System.Drawing.Size(131, 20);
+            this.birthDate.TabIndex = 18;
+            this.birthDate.UseSystemPasswordChar = true;
             // 
             // label28
             // 
@@ -815,20 +842,20 @@
             this.label27.TabIndex = 15;
             this.label27.Text = "Τηλέφωνο";
             // 
-            // textBox8
+            // phone
             // 
-            this.textBox8.Location = new System.Drawing.Point(323, 185);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(131, 20);
-            this.textBox8.TabIndex = 14;
-            this.textBox8.UseSystemPasswordChar = true;
+            this.phone.Location = new System.Drawing.Point(323, 185);
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(131, 20);
+            this.phone.TabIndex = 14;
+            this.phone.UseSystemPasswordChar = true;
             // 
-            // textBox7
+            // city
             // 
-            this.textBox7.Location = new System.Drawing.Point(560, 129);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(109, 20);
-            this.textBox7.TabIndex = 13;
+            this.city.Location = new System.Drawing.Point(560, 129);
+            this.city.Name = "city";
+            this.city.Size = new System.Drawing.Size(109, 20);
+            this.city.TabIndex = 13;
             // 
             // label26
             // 
@@ -840,16 +867,17 @@
             this.label26.TabIndex = 12;
             this.label26.Text = "Πόλη";
             // 
-            // comboBox1
+            // gender
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.gender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gender.FormattingEnabled = true;
+            this.gender.Items.AddRange(new object[] {
             "Άνδρας",
             "Γυναίκα"});
-            this.comboBox1.Location = new System.Drawing.Point(323, 128);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(75, 21);
-            this.comboBox1.TabIndex = 11;
+            this.gender.Location = new System.Drawing.Point(323, 128);
+            this.gender.Name = "gender";
+            this.gender.Size = new System.Drawing.Size(75, 21);
+            this.gender.TabIndex = 11;
             // 
             // label25
             // 
@@ -871,19 +899,19 @@
             this.label24.TabIndex = 9;
             this.label24.Text = "Επίθετο";
             // 
-            // textBox6
+            // lastName
             // 
-            this.textBox6.Location = new System.Drawing.Point(560, 71);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(109, 20);
-            this.textBox6.TabIndex = 8;
+            this.lastName.Location = new System.Drawing.Point(560, 71);
+            this.lastName.Name = "lastName";
+            this.lastName.Size = new System.Drawing.Size(109, 20);
+            this.lastName.TabIndex = 8;
             // 
-            // textBox5
+            // firstName
             // 
-            this.textBox5.Location = new System.Drawing.Point(323, 71);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(122, 20);
-            this.textBox5.TabIndex = 7;
+            this.firstName.Location = new System.Drawing.Point(323, 71);
+            this.firstName.Name = "firstName";
+            this.firstName.Size = new System.Drawing.Size(122, 20);
+            this.firstName.TabIndex = 7;
             // 
             // label23
             // 
@@ -895,13 +923,13 @@
             this.label23.TabIndex = 6;
             this.label23.Text = "Όνομα";
             // 
-            // textBox4
+            // email
             // 
-            this.textBox4.Location = new System.Drawing.Point(77, 185);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(131, 20);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.UseSystemPasswordChar = true;
+            this.email.Location = new System.Drawing.Point(77, 185);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(131, 20);
+            this.email.TabIndex = 5;
+            this.email.UseSystemPasswordChar = true;
             // 
             // label22
             // 
@@ -913,13 +941,13 @@
             this.label22.TabIndex = 4;
             this.label22.Text = "E-Mail";
             // 
-            // textBox2
+            // password
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 128);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(109, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.password.Location = new System.Drawing.Point(77, 128);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(109, 20);
+            this.password.TabIndex = 3;
+            this.password.UseSystemPasswordChar = true;
             // 
             // label21
             // 
@@ -931,12 +959,12 @@
             this.label21.TabIndex = 2;
             this.label21.Text = "Password";
             // 
-            // textBox1
+            // username
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(109, 20);
-            this.textBox1.TabIndex = 1;
+            this.username.Location = new System.Drawing.Point(77, 71);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(109, 20);
+            this.username.TabIndex = 1;
             // 
             // label20
             // 
@@ -1056,24 +1084,26 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel registerPanel;
         private System.Windows.Forms.Button registerButton;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox birthDate;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox phone;
+        private System.Windows.Forms.TextBox city;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox lastName;
+        private System.Windows.Forms.TextBox firstName;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.ComboBox userType;
+        private System.Windows.Forms.ComboBox gender;
     }
 }
 
