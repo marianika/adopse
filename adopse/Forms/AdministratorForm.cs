@@ -31,7 +31,6 @@ namespace adopse.Forms
                         DataTable dataTable = new DataTable();
                         dataTable.Load(dataReader);
                         usersTable.DataSource = dataTable;
-                        System.Diagnostics.Debug.WriteLine("katevikan oi users");
                     }
                 }
             }
@@ -71,7 +70,6 @@ namespace adopse.Forms
                         DataTable dataTable = new DataTable();
                         dataTable.Load(dataReader);
                         logFilesTable.DataSource = dataTable;
-                        System.Diagnostics.Debug.WriteLine("katevikan ta log files");
                     }
                 }
             }

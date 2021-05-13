@@ -33,7 +33,6 @@ namespace adopse.Forms
                         DataTable dataTable = new DataTable();
                         dataTable.Load(dataReader);
                         AdsTable.DataSource = dataTable;
-                        System.Diagnostics.Debug.WriteLine("katevikan ta ads");
                     }
                 }
             }
@@ -55,7 +54,6 @@ namespace adopse.Forms
             {
                 using (var connection = dbConnector.GetConnection())
                 {
-                    Console.Out.WriteLine("Opening connection");
                     connection.Open();
 
                     using (var command = new NpgsqlCommand(
@@ -68,7 +66,7 @@ namespace adopse.Forms
                         command.Parameters.AddWithValue("t", tags);
                         command.Parameters.AddWithValue("i", id);
                         int nRows = command.ExecuteNonQuery();
-                        Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
+
                         loadAds();
                         resetForm();
                     }
@@ -86,15 +84,13 @@ namespace adopse.Forms
             {
                 using (var connection = dbConnector.GetConnection())
                 {
-                    Console.Out.WriteLine("Opening connection");
                     connection.Open();
 
                     using (var command = new NpgsqlCommand("DELETE FROM ads WHERE id = @i", connection))
                     {
                         command.Parameters.AddWithValue("i", id);
-
                         int nRows = command.ExecuteNonQuery();
-                        Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
+
                         loadAds();
                         resetForm();
                     }
@@ -109,10 +105,8 @@ namespace adopse.Forms
             bool success = Int32.TryParse(text, out id);
             if (success)
             {
-                Console.WriteLine("Converted '{0}' to {1}.", text, id);
                 using (var connection = dbConnector.GetConnection())
                 {
-                    Console.Out.WriteLine("Opening connection");
                     connection.Open();
 
                     using (var command = new NpgsqlCommand("select * from ads where id = @i", connection))
