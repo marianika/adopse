@@ -88,6 +88,20 @@ namespace adopse
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (String.Equals(loginNav.Name, "logout"))
+            {
+                userid = 0;
+                myAggeliesNav.Visible = false;
+                myFavoritesNav.Visible = false;
+                userAggeliesFrame.Visible = false;
+                myFavoritesPanel.Visible = false;
+                loginNav.Text = "Σύνδεση";
+                loginNav.Name = "login";
+                loginPanel.Visible = false;
+                mainPanel.Visible = true;
+                mainPanel.Focus();
+                return;
+            }
             mainPanel.Visible = false;
             userAggeliesFrame.Visible = false;
             myFavoritesPanel.Visible = false;
@@ -117,7 +131,8 @@ namespace adopse
                 {
                     myAggeliesNav.Visible = true;
                     myFavoritesNav.Visible = true;
-                    loginNav.Visible = false;
+                    loginNav.Text = "Αποσύνδεση";
+                    loginNav.Name = "logout";
                     loginPanel.Visible = false;
                     mainPanel.Visible = true;
                     mainPanel.Focus();
@@ -149,9 +164,11 @@ namespace adopse
             while (dr.Read())
             {
                 int val = dr.GetInt32(4);
+                int adId = 0;
                 Panel adPanel = new Panel();
                 Label title, description, salary, currDate;
                 adPanel.BackColor = SystemColors.Highlight;
+                adPanel.Name = adId.ToString();
                 title = new Label();
                 description = new Label();
                 salary = new Label();

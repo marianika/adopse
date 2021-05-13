@@ -12,6 +12,8 @@
 
 /.vs/adopse/v15
 
+/adopse/bin/
+/adopse/obj/
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
