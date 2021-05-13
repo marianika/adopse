@@ -27,7 +27,7 @@ namespace adopse.Forms
         {
             Panel adPanel = new Panel();
             Label title, description, salary, currDate;
-            adPanel.BackColor = SystemColors.Highlight;
+            adPanel.BackColor = System.Drawing.Color.LightSkyBlue;
             title = new Label();
             description = new Label();
             salary = new Label();

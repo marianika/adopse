@@ -16,6 +16,7 @@ namespace adopse
     public partial class MainFrame : Form
     {
         static public int userid = 0;
+        private Panel selectedUserAd, selectedFavoriteAd, selectedSearchAd = null;
         public MainFrame()
         {
             InitializeComponent();
@@ -80,10 +81,11 @@ namespace adopse
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void addToFavorites_Click(object sender, EventArgs e)
         {
-            ProsthikiAggelias f = new ProsthikiAggelias(aggeliesPanel);
-            f.Show();
+            // selectedSearchAd is the selected panel
+            selectedSearchAd.BackColor = Color.LightSkyBlue;
+            selectedSearchAd = null;
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -95,6 +97,7 @@ namespace adopse
                 myFavoritesNav.Visible = false;
                 userAggeliesFrame.Visible = false;
                 myFavoritesPanel.Visible = false;
+                addToFavoritesButton.Visible = false;
                 loginNav.Text = "Σύνδεση";
                 loginNav.Name = "login";
                 loginPanel.Visible = false;
@@ -113,9 +116,7 @@ namespace adopse
         {
             NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
             conn.Open();
-
-
-
+            
             NpgsqlCommand cmd = new NpgsqlCommand("login", conn);
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -131,6 +132,7 @@ namespace adopse
                 {
                     myAggeliesNav.Visible = true;
                     myFavoritesNav.Visible = true;
+                    addToFavoritesButton.Visible = true;
                     loginNav.Text = "Αποσύνδεση";
                     loginNav.Name = "logout";
                     loginPanel.Visible = false;
@@ -167,8 +169,9 @@ namespace adopse
                 int adId = 0;
                 Panel adPanel = new Panel();
                 Label title, description, salary, currDate;
-                adPanel.BackColor = SystemColors.Highlight;
+                adPanel.BackColor = System.Drawing.Color.LightSkyBlue;
                 adPanel.Name = adId.ToString();
+                adPanel.Click += new System.EventHandler(this.adPanel_Click);
                 title = new Label();
                 description = new Label();
                 salary = new Label();
@@ -214,6 +217,17 @@ namespace adopse
 
             conn.Close();
 
+        }
+
+        private void adPanel_Click(object sender, EventArgs e)
+        {
+            if(selectedSearchAd != null)
+            {
+                selectedSearchAd.BackColor = Color.LightSkyBlue;
+                selectedSearchAd = null;
+            }
+            selectedSearchAd = (Panel)sender;
+            selectedSearchAd.BackColor = SystemColors.Highlight;
         }
 
         private void mainPanel_MouseEnter(object sender, EventArgs e)
@@ -294,7 +308,7 @@ namespace adopse
                     ads++;
                     Panel adPanel = new Panel();
                     Label title, description, salary, currDate;
-                    adPanel.BackColor = SystemColors.Highlight;
+                    adPanel.BackColor = Color.LightSkyBlue;
                     title = new Label();
                     description = new Label();
                     salary = new Label();
@@ -361,6 +375,7 @@ namespace adopse
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 

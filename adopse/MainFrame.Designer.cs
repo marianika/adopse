@@ -42,7 +42,7 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.addButton = new System.Windows.Forms.Button();
+            this.addToFavoritesButton = new System.Windows.Forms.Button();
             this.aggeliesPanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -326,7 +326,7 @@
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.mainPanel.Controls.Add(this.addButton);
+            this.mainPanel.Controls.Add(this.addToFavoritesButton);
             this.mainPanel.Controls.Add(this.aggeliesPanel);
             this.mainPanel.Controls.Add(this.pictureBox2);
             this.mainPanel.Controls.Add(this.textBox3);
@@ -338,15 +338,16 @@
             this.mainPanel.TabIndex = 13;
             this.mainPanel.MouseEnter += new System.EventHandler(this.mainPanel_MouseEnter);
             // 
-            // addButton
+            // addToFavoritesButton
             // 
-            this.addButton.Location = new System.Drawing.Point(618, 116);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(86, 23);
-            this.addButton.TabIndex = 3;
-            this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.button4_Click);
+            this.addToFavoritesButton.Location = new System.Drawing.Point(588, 88);
+            this.addToFavoritesButton.Name = "addToFavoritesButton";
+            this.addToFavoritesButton.Size = new System.Drawing.Size(145, 35);
+            this.addToFavoritesButton.TabIndex = 3;
+            this.addToFavoritesButton.Text = "Προσθήκη στα Αγαπημένα";
+            this.addToFavoritesButton.UseVisualStyleBackColor = true;
+            this.addToFavoritesButton.Visible = false;
+            this.addToFavoritesButton.Click += new System.EventHandler(this.addToFavorites_Click);
             // 
             // aggeliesPanel
             // 
@@ -360,7 +361,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel5.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.label5);
@@ -577,7 +578,7 @@
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel8.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel8.Controls.Add(this.label9);
             this.panel8.Controls.Add(this.label10);
             this.panel8.Controls.Add(this.label11);
@@ -691,7 +692,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel6.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel6.Controls.Add(this.label15);
             this.panel6.Controls.Add(this.label16);
             this.panel6.Controls.Add(this.label17);
@@ -982,11 +983,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.myFavoritesPanel);
             this.Controls.Add(this.userAggeliesFrame);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.registerPanel);
-            this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.topBar);
             this.Controls.Add(this.navigationBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1038,7 +1039,7 @@
         private System.Windows.Forms.Panel topBar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel mainPanel;
-        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button addToFavoritesButton;
         private System.Windows.Forms.Panel aggeliesPanel;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
