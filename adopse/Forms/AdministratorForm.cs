@@ -76,5 +76,18 @@ namespace adopse.Forms
                 }
             }
         }
+
+        protected override void editButton_Click(object sender, EventArgs e)
+        {
+            base.editButton_Click(sender, e);
+            loadlogfiles();
+        }
+
+        override protected void deleteButton_Click(object sender, EventArgs e)
+        {
+            base.deleteButton_Click(sender, e);
+            loadlogfiles();
+        }
+
     }
 }

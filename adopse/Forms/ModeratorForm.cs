@@ -39,33 +39,8 @@ namespace adopse.Forms
             }
         }
 
-        
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            string text = textBox1.Text;
-            int id;
-            bool success = Int32.TryParse(text, out id);
-            if (success)
-            {
-                using (var connection = dbConnector.GetConnection())
-                {
-                    Console.Out.WriteLine("Opening connection");
-                    connection.Open();
 
-                    using (var command = new NpgsqlCommand("DELETE FROM ads WHERE id = @i", connection))
-                    {
-                        command.Parameters.AddWithValue("i", id);
-
-                        int nRows = command.ExecuteNonQuery();
-                        Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
-                        loadAds();
-                        resetForm();
-                    }
-                }
-            } 
-        }
-
-        private void editButton_Click(object sender, EventArgs e)
+        virtual protected void editButton_Click(object sender, EventArgs e)
         {
             string text = textBox1.Text;
             int id;
@@ -99,6 +74,32 @@ namespace adopse.Forms
                     }
                 }
             } 
+        }
+
+
+        virtual protected void deleteButton_Click(object sender, EventArgs e)
+        {
+            string text = textBox1.Text;
+            int id;
+            bool success = Int32.TryParse(text, out id);
+            if (success)
+            {
+                using (var connection = dbConnector.GetConnection())
+                {
+                    Console.Out.WriteLine("Opening connection");
+                    connection.Open();
+
+                    using (var command = new NpgsqlCommand("DELETE FROM ads WHERE id = @i", connection))
+                    {
+                        command.Parameters.AddWithValue("i", id);
+
+                        int nRows = command.ExecuteNonQuery();
+                        Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
+                        loadAds();
+                        resetForm();
+                    }
+                }
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
