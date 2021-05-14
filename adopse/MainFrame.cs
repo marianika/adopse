@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
 using System.Collections;
+using NpgsqlTypes;
 
 namespace adopse
 {
@@ -35,6 +36,7 @@ namespace adopse
             myFavoritesPanel.Visible = false;
             userAggeliesFrame.Visible = false;
             registerPanel.Visible = false;
+            createAdPanel.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,6 +51,7 @@ namespace adopse
             userAggeliesFrame.Visible = false;
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = false;
+            createAdPanel.Visible = false;
             mainPanel.Visible = true;
         }
 
@@ -99,6 +102,7 @@ namespace adopse
                 userAggeliesFrame.Visible = false;
                 myFavoritesPanel.Visible = false;
                 addToFavoritesButton.Visible = false;
+                createAdPanel.Visible = false;
                 loginNav.Text = "Σύνδεση";
                 loginNav.Name = "login";
                 loginPanel.Visible = false;
@@ -110,6 +114,7 @@ namespace adopse
             userAggeliesFrame.Visible = false;
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = false;
+            createAdPanel.Visible = false;
             loginPanel.Visible = true;
         }
 
@@ -253,6 +258,7 @@ namespace adopse
             loginPanel.Visible = false;
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = false;
+            createAdPanel.Visible = false;
             userAggeliesFrame.Visible = true;
         }
 
@@ -265,6 +271,7 @@ namespace adopse
             loginPanel.Visible = false;
             userAggeliesFrame.Visible = false;
             registerPanel.Visible = false;
+            createAdPanel.Visible = false;
             myFavoritesPanel.Visible = true;
 
 
@@ -372,6 +379,7 @@ namespace adopse
             loginPanel.Visible = false;
             userAggeliesFrame.Visible = false;
             myFavoritesPanel.Visible = false;
+            createAdPanel.Visible = false;
             registerPanel.Visible = true;
         }
 
@@ -385,6 +393,51 @@ namespace adopse
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void topBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void createAdButton_Click(object sender, EventArgs e)
+        {
+            mainPanel.Visible = false;
+            loginPanel.Visible = false;
+            userAggeliesFrame.Visible = false;
+            myFavoritesPanel.Visible = false;
+            registerPanel.Visible = false;
+            createAdPanel.Visible = true;
+        }
+
+        private void createAd_Click(object sender, EventArgs e)
+        {
+            NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+            conn.Open();
+
+            NpgsqlCommand cmd = new NpgsqlCommand("createads", conn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue(userid);
+            cmd.Parameters.AddWithValue(adTitle.Text);
+            cmd.Parameters.AddWithValue(adDescription.Text);
+            cmd.Parameters.AddWithValue(Int32.Parse(adSalary.Text));
+            cmd.Parameters.AddWithValue(new NpgsqlDate(DateTime.Now.Date));
+            cmd.Parameters.AddWithValue(adTags.SelectedItem.ToString());
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+
+            createAdPanel.Visible = false;
+            mainPanel.Visible = true;
+            mainPanel.Focus();
+        }
 
         private void registerButton_Click(object sender, EventArgs e)
         {
@@ -416,19 +469,6 @@ namespace adopse
             conn.Close();
 
         }
-
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        private void topBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
 
         //gets last user id
         static int maxnum()
