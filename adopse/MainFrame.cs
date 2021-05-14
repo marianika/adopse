@@ -85,6 +85,27 @@ namespace adopse
 
         }
 
+        private void editAdButton_Click(object sender, EventArgs e)
+        {
+            foreach(Control c in selectedUserAd.Controls)
+            {
+                if (c.Name.StartsWith("adTitle"))
+                {
+                    adTitle.Text = c.Text;
+                    adTitle.Name = new String(c.Name.Where(Char.IsDigit).ToArray());
+                }
+                else if (c.Name.StartsWith("adDescription"))
+                    adDescription.Text = c.Text;
+                else if (c.Name.StartsWith("adSalary"))
+                    adSalary.Text = c.Text;
+            }
+            createAd.Text = "Επεξεργασία";
+            selectedUserAd.BackColor = Color.LightSkyBlue;
+            selectedUserAd = null;
+            userAggeliesFrame.Visible = false;
+            createAdPanel.Visible = true;
+        }
+
         private void addToFavorites_Click(object sender, EventArgs e)
         {
             // selectedSearchAd is the selected panel
@@ -237,6 +258,17 @@ namespace adopse
             selectedSearchAd.BackColor = SystemColors.Highlight;
         }
 
+        private void userAdPanel_Click(object sender, EventArgs e)
+        {
+            if (selectedUserAd != null)
+            {
+                selectedUserAd.BackColor = Color.LightSkyBlue;
+                selectedUserAd = null;
+            }
+            selectedUserAd = (Panel)sender;
+            selectedUserAd.BackColor = SystemColors.Highlight;
+        }
+
         private void mainPanel_MouseEnter(object sender, EventArgs e)
         {
 
@@ -259,6 +291,81 @@ namespace adopse
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+            conn.Open();
+
+            NpgsqlCommand cmd = new NpgsqlCommand("getmyads", conn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue(userid);
+
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            int lastPos = 3;
+            userAggeliesPanel.Controls.Clear();
+            while (dr.Read())
+            {
+
+                if (dr.IsDBNull(0))
+                {
+                }
+                else
+                {
+                    int db_id = dr.GetInt32(0);
+                    int db_com_id = dr.GetInt32(1);
+                    string db_title = dr.GetString(2);
+                    string db_description = dr.GetString(3);
+                    int db_salary = dr.GetInt32(4);
+                    NpgsqlDate db_date = dr.GetDate(5);
+                    string db_tags = dr.GetString(6);
+                    Panel adPanel = new Panel();
+                    Label title, description, salary, currDate;
+                    adPanel.BackColor = Color.LightSkyBlue;
+                    adPanel.Click += new System.EventHandler(this.userAdPanel_Click);
+                    title = new Label();
+                    description = new Label();
+                    salary = new Label();
+                    currDate = new Label();
+                    title.Text = db_title;
+                    title.AutoSize = true;
+                    title.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+                    title.Location = new Point(3, 9);
+                    title.Name = "adTitle" + db_id;
+                    title.Size = new Size(163, 16);
+                    description.Text = db_description;
+                    description.AutoSize = true;
+                    description.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                    description.Location = new Point(3, 35);
+                    description.Name = "adDescription" + db_id;
+                    description.MaximumSize = new Size(520, 0);
+                    description.Size = new Size(477, 32);
+                    salary.Text = "Μισθός " + db_salary.ToString();
+                    salary.AutoSize = true;
+                    salary.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+                    salary.Location = new Point(435, 9);
+                    salary.Name = "adSalary" + db_id;
+                    salary.Size = new Size(99, 16);
+                    currDate.Text = db_date.ToString();
+                    currDate.AutoSize = true;
+                    currDate.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+                    currDate.Location = new Point(462, 67);
+                    currDate.Name = "adCurrDate" + db_id;
+                    currDate.Size = new Size(72, 16);
+                    adPanel.Controls.Add(title);
+                    adPanel.Controls.Add(description);
+                    adPanel.Controls.Add(salary);
+                    adPanel.Controls.Add(currDate);
+                    adPanel.Size = new Size(537, 100);
+                    adPanel.Name = "adPanel" + db_com_id;
+                    adPanel.Location = new Point(3, lastPos);
+                    lastPos += 106;
+                    userAggeliesPanel.Controls.Add(adPanel);
+                    adPanel.Show();
+                }
+            }
+
+            conn.Close();
+
             userAggeliesFrame.Visible = true;
         }
 
@@ -290,7 +397,7 @@ namespace adopse
             {
                 
                 if (dr.IsDBNull(0))
-                  {
+                {
                   
                 }
                 else
@@ -417,6 +524,14 @@ namespace adopse
 
         private void createAd_Click(object sender, EventArgs e)
         {
+            if(createAd.Text.Equals("Επεξεργασία"))
+            {
+                createAd.Text = "Δημιουργία";
+                createAdPanel.Visible = false;
+                mainPanel.Visible = true;
+                mainPanel.Focus();
+                return;
+            }
             NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
             conn.Open();
 

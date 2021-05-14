@@ -1000,6 +1000,7 @@
             this.editAdButton.TabIndex = 0;
             this.editAdButton.Text = "Επεξεργασία";
             this.editAdButton.UseVisualStyleBackColor = true;
+            this.editAdButton.Click += new System.EventHandler(this.editAdButton_Click);
             // 
             // createAdPanel
             // 
@@ -1107,8 +1108,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
-            this.Controls.Add(this.createAdPanel);
             this.Controls.Add(this.userAggeliesFrame);
+            this.Controls.Add(this.createAdPanel);
             this.Controls.Add(this.myFavoritesPanel);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.registerPanel);
