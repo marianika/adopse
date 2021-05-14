@@ -48,13 +48,14 @@ namespace adopse.Forms
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.npgsqlCommand1 = new Npgsql.NpgsqlCommand();
+            this.addButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AdsTable)).BeginInit();
             this.SuspendLayout();
             // 
             // editButton
             // 
             this.editButton.BackColor = System.Drawing.Color.Yellow;
-            this.editButton.Location = new System.Drawing.Point(381, 755);
+            this.editButton.Location = new System.Drawing.Point(440, 755);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 34);
             this.editButton.TabIndex = 39;
@@ -66,7 +67,7 @@ namespace adopse.Forms
             // 
             this.deleteButton.BackColor = System.Drawing.Color.Red;
             this.deleteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.deleteButton.Location = new System.Drawing.Point(495, 755);
+            this.deleteButton.Location = new System.Drawing.Point(530, 755);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 34);
             this.deleteButton.TabIndex = 38;
@@ -212,11 +213,24 @@ namespace adopse.Forms
             this.npgsqlCommand1.Transaction = null;
             this.npgsqlCommand1.UnknownResultTypeList = null;
             // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.addButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.addButton.Location = new System.Drawing.Point(350, 755);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 34);
+            this.addButton.TabIndex = 42;
+            this.addButton.Text = "ADD";
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
             // ModeratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 840);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.editButton);
@@ -264,5 +278,6 @@ namespace adopse.Forms
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
         private Npgsql.NpgsqlCommand npgsqlCommand1;
+        private System.Windows.Forms.Button addButton;
     }
 }

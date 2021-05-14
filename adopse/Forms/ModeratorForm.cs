@@ -39,10 +39,46 @@ namespace adopse.Forms
             }
         }
 
+        virtual protected void addButton_Click(object sender, EventArgs e)
+        {
+            int company_id, salary;
+            bool success1 = Int32.TryParse(textBox_company_id.Text, out company_id);
+            bool success2 = Int32.TryParse(textBox_salary.Text, out salary);
+
+            string position = textBox_position.Text;
+            string description = textBox_description.Text;
+            string tags = textBox_tags.Text;
+
+            var date = dateTimePicker1.Value.Date;
+
+            if (success1 && success2)
+            {
+                using (var connection = dbConnector.GetConnection())
+                {
+                    connection.Open();
+
+                    using (var command = new NpgsqlCommand(
+                        "INSERT INTO ads (com_id, position, description, salary, c_date, tags) VALUES (@c, @p, @d, @s, @date, @t)", connection))
+                    {
+                        command.Parameters.AddWithValue("c", company_id);
+                        command.Parameters.AddWithValue("p", position);
+                        command.Parameters.AddWithValue("d", description);
+                        command.Parameters.AddWithValue("s", salary);
+                        command.Parameters.AddWithValue("t", tags);
+                        command.Parameters.AddWithValue("date", date);
+                        int nRows = command.ExecuteNonQuery();
+
+                        loadAds();
+                        resetForm();
+                    }
+                }
+            }
+
+        }
+
 
         virtual protected void editButton_Click(object sender, EventArgs e)
         {
-
             int id, company_id, salary;
             bool success = Int32.TryParse(textBox_id.Text, out id);
             bool success1 = Int32.TryParse(textBox_company_id.Text, out company_id);
