@@ -36,25 +36,6 @@ namespace adopse.Forms
             }
         }
 
-        private void AddButton_Click(object sender, EventArgs e)
-        {
-            string text = used_id.Text;
-            int id;
-            bool success = Int32.TryParse(text, out id);
-            if (success)
-            {
-                using (var connection = dbConnector.GetConnection())
-                {
-                    connection.Open();
-                    using (var command = new NpgsqlCommand("UPDATE users SET type = 'moderator' WHERE id = @i", connection))
-                    {
-                        command.Parameters.AddWithValue("i", id);
-                        int nRows = command.ExecuteNonQuery();
-                        loadUsers();
-                    }
-                }
-            }
-        }
 
         private void loadlogfiles()
         {
@@ -93,5 +74,26 @@ namespace adopse.Forms
             loadlogfiles();
         }
 
+
+
+        private void AddModeratorButton_Click(object sender, EventArgs e)
+        {
+            string text = used_id.Text;
+            int id;
+            bool success = Int32.TryParse(text, out id);
+            if (success)
+            {
+                using (var connection = dbConnector.GetConnection())
+                {
+                    connection.Open();
+                    using (var command = new NpgsqlCommand("UPDATE users SET type = 'moderator' WHERE id = @i", connection))
+                    {
+                        command.Parameters.AddWithValue("i", id);
+                        int nRows = command.ExecuteNonQuery();
+                        loadUsers();
+                    }
+                }
+            }
+        }
     }
 }
