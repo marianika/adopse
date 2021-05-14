@@ -17,43 +17,17 @@ namespace adopse.Forms
             loadUsers();
             loadlogfiles();
         }
+
         private void loadUsers()
         {
-            using (var connection = dbConnector.GetConnection())
-            {
-                connection.Open();
-                string sql = "select id, username, type from users order by id";
-                using (var command = new NpgsqlCommand(sql, connection))
-                {
-                    var dataReader = command.ExecuteReader();
-                    if (dataReader.HasRows)
-                    {
-                        DataTable dataTable = new DataTable();
-                        dataTable.Load(dataReader);
-                        usersTable.DataSource = dataTable;
-                    }
-                }
-            }
+            string sql = "select id, username, type from users order by id";
+            createTable(sql, usersTable);
         }
-
 
         private void loadlogfiles()
         {
-            using (var connection = dbConnector.GetConnection())
-            {
-                connection.Open();
-                string sql = "select * from log_files order by id";
-                using (var command = new NpgsqlCommand(sql, connection))
-                {
-                    var dataReader = command.ExecuteReader();
-                    if (dataReader.HasRows)
-                    {
-                        DataTable dataTable = new DataTable();
-                        dataTable.Load(dataReader);
-                        logFilesTable.DataSource = dataTable;
-                    }
-                }
-            }
+            string sql = "select * from log_files order by id";
+            createTable(sql, logFilesTable);
         }
 
         protected override void addButton_Click(object sender, EventArgs e)
@@ -75,12 +49,10 @@ namespace adopse.Forms
         }
 
 
-
         private void AddModeratorButton_Click(object sender, EventArgs e)
         {
-            string text = used_id.Text;
             int id;
-            bool success = Int32.TryParse(text, out id);
+            bool success = Int32.TryParse(used_id.Text, out id);
             if (success)
             {
                 using (var connection = dbConnector.GetConnection())

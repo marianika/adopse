@@ -17,15 +17,20 @@ namespace adopse.Forms
         {
             InitializeComponent();
             loadAds();
-            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker.Value = DateTime.Now;
         }
 
         private void loadAds()
         {
+            string sql = "select * from ads order by id";
+            createTable(sql, AdsTable);
+        }
+
+        protected void createTable(string sql, DataGridView dataGridView)
+        {
             using (var connection = dbConnector.GetConnection())
             {
                 connection.Open();
-                string sql = "select * from ads order by id";
                 using (var command = new NpgsqlCommand(sql, connection))
                 {
                     var dataReader = command.ExecuteReader();
@@ -33,7 +38,7 @@ namespace adopse.Forms
                     {
                         DataTable dataTable = new DataTable();
                         dataTable.Load(dataReader);
-                        AdsTable.DataSource = dataTable;
+                        dataGridView.DataSource = dataTable;
                     }
                 }
             }
@@ -49,7 +54,7 @@ namespace adopse.Forms
             string description = textBox_description.Text;
             string tags = textBox_tags.Text;
 
-            var date = dateTimePicker1.Value.Date;
+            var date = dateTimePicker.Value.Date;
 
             if (success1 && success2)
             {
@@ -88,7 +93,7 @@ namespace adopse.Forms
             string description = textBox_description.Text;
             string tags = textBox_tags.Text;
 
-            var date = dateTimePicker1.Value.Date;
+            var date = dateTimePicker.Value.Date;
 
             if (success && success1 && success2)
             {
@@ -118,9 +123,8 @@ namespace adopse.Forms
 
         virtual protected void deleteButton_Click(object sender, EventArgs e)
         {
-            string text = textBox_id.Text;
             int id;
-            bool success = Int32.TryParse(text, out id);
+            bool success = Int32.TryParse(textBox_id.Text, out id);
             if (success)
             {
                 using (var connection = dbConnector.GetConnection())
@@ -166,7 +170,7 @@ namespace adopse.Forms
                             if (!reader.IsDBNull(4))
                                 textBox_salary.Text = reader.GetInt32(4).ToString();
                             if (!reader.IsDBNull(5))
-                                dateTimePicker1.Value = (DateTime)reader.GetDate(5);
+                                dateTimePicker.Value = (DateTime)reader.GetDate(5);
                             if (!reader.IsDBNull(6))
                                 textBox_tags.Text = reader.GetString(6);
                         }
@@ -188,7 +192,7 @@ namespace adopse.Forms
             textBox_description.Clear();
             textBox_salary.Clear();
             textBox_tags.Clear();
-            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker.Value = DateTime.Now;
         }
 
     }

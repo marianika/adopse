@@ -45,7 +45,7 @@ namespace adopse.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.AdsTable = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.npgsqlCommand1 = new Npgsql.NpgsqlCommand();
             this.addButton = new System.Windows.Forms.Button();
@@ -190,13 +190,13 @@ namespace adopse.Forms
             this.AdsTable.Size = new System.Drawing.Size(747, 376);
             this.AdsTable.TabIndex = 24;
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(350, 552);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(255, 20);
-            this.dateTimePicker1.TabIndex = 40;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 5, 14, 0, 49, 0, 0);
+            this.dateTimePicker.Location = new System.Drawing.Point(350, 552);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(255, 20);
+            this.dateTimePicker.TabIndex = 40;
+            this.dateTimePicker.Value = new System.DateTime(2021, 5, 14, 0, 49, 0, 0);
             // 
             // label1
             // 
@@ -232,7 +232,7 @@ namespace adopse.Forms
             this.ClientSize = new System.Drawing.Size(815, 840);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.textBox_tags);
@@ -275,7 +275,7 @@ namespace adopse.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView AdsTable;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label label1;
         private Npgsql.NpgsqlCommand npgsqlCommand1;
         private System.Windows.Forms.Button addButton;
