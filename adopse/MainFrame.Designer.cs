@@ -63,6 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.userAggeliesButtons = new System.Windows.Forms.Panel();
             this.deleteAdButton = new System.Windows.Forms.Button();
+            this.editAdButton = new System.Windows.Forms.Button();
             this.createAdButton = new System.Windows.Forms.Button();
             this.userAggeliesPanel = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -104,17 +105,16 @@
             this.label21 = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.editAdButton = new System.Windows.Forms.Button();
             this.createAdPanel = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
-            this.adTitle = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.adDescription = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.adSalary = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.adTags = new System.Windows.Forms.CheckedListBox();
             this.createAd = new System.Windows.Forms.Button();
+            this.adTags = new System.Windows.Forms.CheckedListBox();
+            this.adDescription = new System.Windows.Forms.TextBox();
+            this.adSalary = new System.Windows.Forms.TextBox();
+            this.adTitle = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.navigationBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -570,6 +570,16 @@
             this.deleteAdButton.Text = "Διαγραφή";
             this.deleteAdButton.UseVisualStyleBackColor = true;
             // 
+            // editAdButton
+            // 
+            this.editAdButton.Location = new System.Drawing.Point(3, 39);
+            this.editAdButton.Name = "editAdButton";
+            this.editAdButton.Size = new System.Drawing.Size(95, 25);
+            this.editAdButton.TabIndex = 0;
+            this.editAdButton.Text = "Επεξεργασία";
+            this.editAdButton.UseVisualStyleBackColor = true;
+            this.editAdButton.Click += new System.EventHandler(this.editAdButton_Click);
+            // 
             // createAdButton
             // 
             this.createAdButton.Location = new System.Drawing.Point(3, 8);
@@ -992,16 +1002,6 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "Username";
             // 
-            // editAdButton
-            // 
-            this.editAdButton.Location = new System.Drawing.Point(3, 39);
-            this.editAdButton.Name = "editAdButton";
-            this.editAdButton.Size = new System.Drawing.Size(95, 25);
-            this.editAdButton.TabIndex = 0;
-            this.editAdButton.Text = "Επεξεργασία";
-            this.editAdButton.UseVisualStyleBackColor = true;
-            this.editAdButton.Click += new System.EventHandler(this.editAdButton_Click);
-            // 
             // createAdPanel
             // 
             this.createAdPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -1020,67 +1020,15 @@
             this.createAdPanel.Size = new System.Drawing.Size(744, 448);
             this.createAdPanel.TabIndex = 6;
             // 
-            // label30
+            // createAd
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label30.Location = new System.Drawing.Point(288, 36);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(123, 16);
-            this.label30.TabIndex = 1;
-            this.label30.Text = "Τίτλος Αγγελίας";
-            // 
-            // adTitle
-            // 
-            this.adTitle.Location = new System.Drawing.Point(185, 55);
-            this.adTitle.Name = "adTitle";
-            this.adTitle.Size = new System.Drawing.Size(318, 20);
-            this.adTitle.TabIndex = 2;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label31.Location = new System.Drawing.Point(299, 88);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(83, 16);
-            this.label31.TabIndex = 1;
-            this.label31.Text = "Περιγραφή";
-            // 
-            // adDescription
-            // 
-            this.adDescription.Location = new System.Drawing.Point(185, 110);
-            this.adDescription.Multiline = true;
-            this.adDescription.Name = "adDescription";
-            this.adDescription.Size = new System.Drawing.Size(318, 70);
-            this.adDescription.TabIndex = 2;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label32.Location = new System.Drawing.Point(308, 195);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(58, 16);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "Μισθός";
-            // 
-            // adSalary
-            // 
-            this.adSalary.Location = new System.Drawing.Point(302, 214);
-            this.adSalary.Name = "adSalary";
-            this.adSalary.Size = new System.Drawing.Size(64, 20);
-            this.adSalary.TabIndex = 2;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label33.Location = new System.Drawing.Point(303, 246);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(70, 16);
-            this.label33.TabIndex = 1;
-            this.label33.Text = "Ετικέτες";
+            this.createAd.Location = new System.Drawing.Point(278, 393);
+            this.createAd.Name = "createAd";
+            this.createAd.Size = new System.Drawing.Size(121, 22);
+            this.createAd.TabIndex = 4;
+            this.createAd.Text = "Δημιουργία";
+            this.createAd.UseVisualStyleBackColor = true;
+            this.createAd.Click += new System.EventHandler(this.createAd_Click);
             // 
             // adTags
             // 
@@ -1092,15 +1040,67 @@
             this.adTags.Size = new System.Drawing.Size(120, 94);
             this.adTags.TabIndex = 3;
             // 
-            // createAd
+            // adDescription
             // 
-            this.createAd.Location = new System.Drawing.Point(278, 393);
-            this.createAd.Name = "createAd";
-            this.createAd.Size = new System.Drawing.Size(121, 22);
-            this.createAd.TabIndex = 4;
-            this.createAd.Text = "Δημιουργία";
-            this.createAd.UseVisualStyleBackColor = true;
-            this.createAd.Click += new System.EventHandler(this.createAd_Click);
+            this.adDescription.Location = new System.Drawing.Point(185, 110);
+            this.adDescription.Multiline = true;
+            this.adDescription.Name = "adDescription";
+            this.adDescription.Size = new System.Drawing.Size(318, 70);
+            this.adDescription.TabIndex = 2;
+            // 
+            // adSalary
+            // 
+            this.adSalary.Location = new System.Drawing.Point(302, 214);
+            this.adSalary.Name = "adSalary";
+            this.adSalary.Size = new System.Drawing.Size(64, 20);
+            this.adSalary.TabIndex = 2;
+            // 
+            // adTitle
+            // 
+            this.adTitle.Location = new System.Drawing.Point(185, 55);
+            this.adTitle.Name = "adTitle";
+            this.adTitle.Size = new System.Drawing.Size(318, 20);
+            this.adTitle.TabIndex = 2;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label33.Location = new System.Drawing.Point(303, 246);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(70, 16);
+            this.label33.TabIndex = 1;
+            this.label33.Text = "Ετικέτες";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label32.Location = new System.Drawing.Point(308, 195);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(58, 16);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "Μισθός";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label31.Location = new System.Drawing.Point(299, 88);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(83, 16);
+            this.label31.TabIndex = 1;
+            this.label31.Text = "Περιγραφή";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label30.Location = new System.Drawing.Point(288, 36);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(123, 16);
+            this.label30.TabIndex = 1;
+            this.label30.Text = "Τίτλος Αγγελίας";
             // 
             // MainFrame
             // 
