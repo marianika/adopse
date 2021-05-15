@@ -17,7 +17,7 @@ namespace adopse
     public partial class MainFrame : Form
     {
         static public int userid = 0;
-        
+
         private Panel selectedUserAd, selectedFavoriteAd, selectedSearchAd = null;
         public MainFrame()
         {
@@ -87,7 +87,7 @@ namespace adopse
 
         private void editAdButton_Click(object sender, EventArgs e)
         {
-            foreach(Control c in selectedUserAd.Controls)
+            foreach (Control c in selectedUserAd.Controls)
             {
                 if (c.Name.StartsWith("adTitle"))
                 {
@@ -108,7 +108,28 @@ namespace adopse
 
         private void addToFavorites_Click(object sender, EventArgs e)
         {
-            // selectedSearchAd is the selected panel
+            String pname = selectedSearchAd.Name;
+            Console.WriteLine(pname);
+            int val = Int32.Parse(pname);
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+            conn.Open();
+
+
+
+            NpgsqlCommand cmd = new NpgsqlCommand("addfavorite", conn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue(userid);
+            cmd.Parameters.AddWithValue(val);
+
+
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            conn.Close();
+
+
+            //selectedSearchAd is the selected panel
             selectedSearchAd.BackColor = Color.LightSkyBlue;
             selectedSearchAd = null;
         }
@@ -117,6 +138,7 @@ namespace adopse
         {
             if (String.Equals(loginNav.Name, "logout"))
             {
+                profileLabel.Text = "Επισκεπτης";
                 userid = 0;
                 myAggeliesNav.Visible = false;
                 myFavoritesNav.Visible = false;
@@ -194,8 +216,8 @@ namespace adopse
             while (dr.Read())
             {
                 int val = dr.GetInt32(4);
-                int adId = 0;
                 Panel adPanel = new Panel();
+                int adId = dr.GetInt32(0);
                 Label title, description, salary, currDate;
                 adPanel.BackColor = System.Drawing.Color.LightSkyBlue;
                 adPanel.Name = adId.ToString();
@@ -234,7 +256,6 @@ namespace adopse
                 adPanel.Controls.Add(salary);
                 adPanel.Controls.Add(currDate);
                 adPanel.Size = new Size(537, 100);
-                adPanel.Name = "adPanel" + ProsthikiAggelias.ads;
                 adPanel.Location = new Point(3, ProsthikiAggelias.lastPos);
                 ProsthikiAggelias.lastPos += 106;
                 ProsthikiAggelias.ads++;
@@ -371,7 +392,7 @@ namespace adopse
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-           
+
 
 
             mainPanel.Visible = false;
@@ -395,88 +416,88 @@ namespace adopse
             int i = 0;
             while (dr.Read())
             {
-                
+
                 if (dr.IsDBNull(0))
                 {
-                  
+
                 }
                 else
                 {
                     favids.Add(dr.GetInt32(0));
                 }
             }
-           
-            conn.Close();         
 
-                for (i = 0; i < favids.Count; i++)
+            conn.Close();
+
+            for (i = 0; i < favids.Count; i++)
+            {
+
+                NpgsqlConnection conn2 = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+                conn2.Open();
+
+
+                NpgsqlCommand cmd2 = new NpgsqlCommand("getads", conn2);
+                cmd2.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd2.Parameters.AddWithValue(favids[i]);
+
+                NpgsqlDataReader dr2 = cmd2.ExecuteReader();
+
+
+                int lastPos = 3;
+                int ads = 0;
+                while (dr2.Read())
                 {
-
-                    NpgsqlConnection conn2 = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
-                    conn2.Open();
-
-
-                    NpgsqlCommand cmd2 = new NpgsqlCommand("getads", conn2);
-                    cmd2.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd2.Parameters.AddWithValue(favids[i]);
-
-                    NpgsqlDataReader dr2 = cmd2.ExecuteReader();
-
-
-                    int lastPos = 3;
-                    int ads = 0;
-                    while (dr2.Read())
-                    {
-                        int val = dr2.GetInt32(4);
-                        myFavoritesAdPanel.Controls.Clear();
-                        ads++;
-                        Panel adPanel = new Panel();
-                        Label title, description, salary, currDate;
-                        adPanel.BackColor = Color.LightSkyBlue;
-                        title = new Label();
-                        description = new Label();
-                        salary = new Label();
-                        currDate = new Label();
-                        title.Text = dr2.GetString(2);
-                        title.AutoSize = true;
-                        title.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-                        title.Location = new Point(3, 9);
-                        title.Name = "adTitle" + ads;
-                        title.Size = new Size(163, 16);
-                        description.Text = dr2.GetString(3);
-                        description.AutoSize = true;
-                        description.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-                        description.Location = new Point(3, 35);
-                        description.Name = "adDescription" + ads;
-                        description.MaximumSize = new Size(520, 0);
-                        description.Size = new Size(477, 32);
-                        salary.Text = "Μισθός " + val.ToString();
-                        salary.AutoSize = true;
-                        salary.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-                        salary.Location = new Point(435, 9);
-                        salary.Name = "adSalary" + ads;
-                        salary.Size = new Size(99, 16);
-                        currDate.Text = "date";
-                        currDate.AutoSize = true;
-                        currDate.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-                        currDate.Location = new Point(462, 67);
-                        currDate.Name = "adCurrDate" + ads;
-                        currDate.Size = new Size(72, 16);
-                        adPanel.Controls.Add(title);
-                        adPanel.Controls.Add(description);
-                        adPanel.Controls.Add(salary);
-                        adPanel.Controls.Add(currDate);
-                        adPanel.Size = new Size(537, 100);
-                        adPanel.Name = "adPanel" + ads;
-                        adPanel.Location = new Point(3, lastPos);
-                        lastPos += 106;
-                        myFavoritesAdPanel.Controls.Add(adPanel);
-                        adPanel.Show();
+                    int val = dr2.GetInt32(4);
+                    myFavoritesAdPanel.Controls.Clear();
+                    ads++;
+                    Panel adPanel = new Panel();
+                    Label title, description, salary, currDate;
+                    adPanel.BackColor = Color.LightSkyBlue;
+                    title = new Label();
+                    description = new Label();
+                    salary = new Label();
+                    currDate = new Label();
+                    title.Text = dr2.GetString(2);
+                    title.AutoSize = true;
+                    title.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+                    title.Location = new Point(3, 9);
+                    title.Name = "adTitle" + ads;
+                    title.Size = new Size(163, 16);
+                    description.Text = dr2.GetString(3);
+                    description.AutoSize = true;
+                    description.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                    description.Location = new Point(3, 35);
+                    description.Name = "adDescription" + ads;
+                    description.MaximumSize = new Size(520, 0);
+                    description.Size = new Size(477, 32);
+                    salary.Text = "Μισθός " + val.ToString();
+                    salary.AutoSize = true;
+                    salary.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+                    salary.Location = new Point(435, 9);
+                    salary.Name = "adSalary" + ads;
+                    salary.Size = new Size(99, 16);
+                    currDate.Text = "date";
+                    currDate.AutoSize = true;
+                    currDate.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+                    currDate.Location = new Point(462, 67);
+                    currDate.Name = "adCurrDate" + ads;
+                    currDate.Size = new Size(72, 16);
+                    adPanel.Controls.Add(title);
+                    adPanel.Controls.Add(description);
+                    adPanel.Controls.Add(salary);
+                    adPanel.Controls.Add(currDate);
+                    adPanel.Size = new Size(537, 100);
+                    adPanel.Name = "adPanel" + ads;
+                    adPanel.Location = new Point(3, lastPos);
+                    lastPos += 106;
+                    myFavoritesAdPanel.Controls.Add(adPanel);
+                    adPanel.Show();
 
 
-                    }
-                    conn2.Close();
                 }
-            
+                conn2.Close();
+            }
+
 
         }
 
@@ -524,7 +545,7 @@ namespace adopse
 
         private void createAd_Click(object sender, EventArgs e)
         {
-            if(createAd.Text.Equals("Επεξεργασία"))
+            if (createAd.Text.Equals("Επεξεργασία"))
             {
                 createAd.Text = "Δημιουργία";
                 createAdPanel.Visible = false;
@@ -571,7 +592,7 @@ namespace adopse
             cmd.Parameters.AddWithValue(email.Text);
             cmd.Parameters.AddWithValue(password.Text);
             cmd.Parameters.AddWithValue(firstName.Text);
-            cmd.Parameters.AddWithValue(lastName.Text);                      
+            cmd.Parameters.AddWithValue(lastName.Text);
             cmd.Parameters.AddWithValue(phone.Text);
             cmd.Parameters.AddWithValue(birthDate.Text);
             cmd.Parameters.AddWithValue(city.Text);
