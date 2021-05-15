@@ -1,18 +1,13 @@
 ﻿using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace adopse.Forms
 {
     public partial class ModeratorForm : Form
     {
+
         public ModeratorForm()
         {
             InitializeComponent();
@@ -46,15 +41,8 @@ namespace adopse.Forms
 
         virtual protected void addButton_Click(object sender, EventArgs e)
         {
-            int company_id, salary;
-            bool success1 = Int32.TryParse(textBox_company_id.Text, out company_id);
-            bool success2 = Int32.TryParse(textBox_salary.Text, out salary);
-
-            string position = textBox_position.Text;
-            string description = textBox_description.Text;
-            string tags = textBox_tags.Text;
-
-            var date = dateTimePicker.Value.Date;
+            bool success1 = Int32.TryParse(textBox_company_id.Text, out int company_id);
+            bool success2 = Int32.TryParse(textBox_salary.Text, out int salary);
 
             if (success1 && success2)
             {
@@ -66,11 +54,11 @@ namespace adopse.Forms
                         "INSERT INTO ads (com_id, position, description, salary, c_date, tags) VALUES (@c, @p, @d, @s, @date, @t)", connection))
                     {
                         command.Parameters.AddWithValue("c", company_id);
-                        command.Parameters.AddWithValue("p", position);
-                        command.Parameters.AddWithValue("d", description);
+                        command.Parameters.AddWithValue("p", textBox_position.Text);
+                        command.Parameters.AddWithValue("d", textBox_description.Text);
                         command.Parameters.AddWithValue("s", salary);
-                        command.Parameters.AddWithValue("t", tags);
-                        command.Parameters.AddWithValue("date", date);
+                        command.Parameters.AddWithValue("t", textBox_tags.Text);
+                        command.Parameters.AddWithValue("date", dateTimePicker.Value.Date);
                         int nRows = command.ExecuteNonQuery();
 
                         loadAds();
@@ -78,22 +66,13 @@ namespace adopse.Forms
                     }
                 }
             }
-
         }
-
 
         virtual protected void editButton_Click(object sender, EventArgs e)
         {
-            int id, company_id, salary;
-            bool success = Int32.TryParse(textBox_id.Text, out id);
-            bool success1 = Int32.TryParse(textBox_company_id.Text, out company_id);
-            bool success2 = Int32.TryParse(textBox_salary.Text, out salary);
-
-            string position = textBox_position.Text;
-            string description = textBox_description.Text;
-            string tags = textBox_tags.Text;
-
-            var date = dateTimePicker.Value.Date;
+            bool success = Int32.TryParse(textBox_id.Text, out int id);
+            bool success1 = Int32.TryParse(textBox_company_id.Text, out int company_id);
+            bool success2 = Int32.TryParse(textBox_salary.Text, out int salary);
 
             if (success && success1 && success2)
             {
@@ -105,11 +84,11 @@ namespace adopse.Forms
                         "UPDATE ads SET com_id = @c, position = @p, description = @d, salary = @s,c_date = @date, tags = @t WHERE id = @i", connection))
                     {
                         command.Parameters.AddWithValue("c", company_id);
-                        command.Parameters.AddWithValue("p", position);
-                        command.Parameters.AddWithValue("d", description);
+                        command.Parameters.AddWithValue("p", textBox_position.Text);
+                        command.Parameters.AddWithValue("d", textBox_description.Text);
                         command.Parameters.AddWithValue("s", salary);
-                        command.Parameters.AddWithValue("t", tags);
-                        command.Parameters.AddWithValue("date", date);
+                        command.Parameters.AddWithValue("t", textBox_tags.Text);
+                        command.Parameters.AddWithValue("date", dateTimePicker.Value.Date);
                         command.Parameters.AddWithValue("i", id);
                         int nRows = command.ExecuteNonQuery();
 
@@ -123,8 +102,7 @@ namespace adopse.Forms
 
         virtual protected void deleteButton_Click(object sender, EventArgs e)
         {
-            int id;
-            bool success = Int32.TryParse(textBox_id.Text, out id);
+            bool success = Int32.TryParse(textBox_id.Text, out int id);
             if (success)
             {
                 using (var connection = dbConnector.GetConnection())
@@ -145,9 +123,7 @@ namespace adopse.Forms
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string text = textBox_id.Text;
-            int id;
-            bool success = Int32.TryParse(text, out id);
+            bool success = Int32.TryParse(textBox_id.Text, out int id);
             if (success)
             {
                 using (var connection = dbConnector.GetConnection())

@@ -1,11 +1,5 @@
 ﻿using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace adopse.Forms
 {
@@ -51,8 +45,7 @@ namespace adopse.Forms
 
         private void AddModeratorButton_Click(object sender, EventArgs e)
         {
-            int id;
-            bool success = Int32.TryParse(used_id.Text, out id);
+            bool success = Int32.TryParse(used_id.Text, out int id);
             if (success)
             {
                 using (var connection = dbConnector.GetConnection())
