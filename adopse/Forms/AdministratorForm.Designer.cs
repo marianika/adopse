@@ -97,9 +97,9 @@ namespace adopse.Forms
             // logFilesTable
             // 
             this.logFilesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.logFilesTable.Location = new System.Drawing.Point(935, 82);
+            this.logFilesTable.Location = new System.Drawing.Point(916, 82);
             this.logFilesTable.Name = "logFilesTable";
-            this.logFilesTable.Size = new System.Drawing.Size(545, 376);
+            this.logFilesTable.Size = new System.Drawing.Size(566, 376);
             this.logFilesTable.TabIndex = 45;
             // 
             // AddModeratorButton
