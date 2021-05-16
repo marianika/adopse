@@ -115,6 +115,12 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.viografikoPanel = new System.Windows.Forms.Panel();
+            this.selectedCVTextBox = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.uploadCVButton = new System.Windows.Forms.Button();
+            this.label34 = new System.Windows.Forms.Label();
+            this.downloadCVButton = new System.Windows.Forms.Button();
             this.navigationBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -134,6 +140,7 @@
             this.panel6.SuspendLayout();
             this.registerPanel.SuspendLayout();
             this.createAdPanel.SuspendLayout();
+            this.viografikoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationBar
@@ -239,7 +246,7 @@
             this.biografikoNav.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.biografikoNav.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.biografikoNav.UseVisualStyleBackColor = true;
-            this.biografikoNav.Click += new System.EventHandler(this.button2_Click);
+            this.biografikoNav.Click += new System.EventHandler(this.biografikoNav_Click);
             // 
             // aggeliesNav
             // 
@@ -330,9 +337,9 @@
             this.label2.Location = new System.Drawing.Point(0, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(669, 55);
+            this.label2.Size = new System.Drawing.Size(428, 55);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Καλώς ήρθατε στο JobFinder!";
+            this.label2.Text = "Το βιογραφικό μου";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // mainPanel
@@ -843,11 +850,13 @@
             // 
             // birthDate
             // 
+            this.birthDate.ForeColor = System.Drawing.Color.Gray;
             this.birthDate.Location = new System.Drawing.Point(560, 185);
             this.birthDate.Name = "birthDate";
             this.birthDate.Size = new System.Drawing.Size(131, 20);
             this.birthDate.TabIndex = 18;
-            this.birthDate.UseSystemPasswordChar = true;
+            this.birthDate.Text = "mm-dd-yyyy";
+            this.birthDate.Enter += new System.EventHandler(this.birthDate_Enter);
             // 
             // label28
             // 
@@ -875,7 +884,6 @@
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(131, 20);
             this.phone.TabIndex = 14;
-            this.phone.UseSystemPasswordChar = true;
             // 
             // city
             // 
@@ -956,7 +964,6 @@
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(131, 20);
             this.email.TabIndex = 5;
-            this.email.UseSystemPasswordChar = true;
             // 
             // label22
             // 
@@ -1103,12 +1110,79 @@
             this.label30.TabIndex = 1;
             this.label30.Text = "Τίτλος Αγγελίας";
             // 
+            // viografikoPanel
+            // 
+            this.viografikoPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.viografikoPanel.Controls.Add(this.selectedCVTextBox);
+            this.viografikoPanel.Controls.Add(this.label35);
+            this.viografikoPanel.Controls.Add(this.downloadCVButton);
+            this.viografikoPanel.Controls.Add(this.uploadCVButton);
+            this.viografikoPanel.Controls.Add(this.label34);
+            this.viografikoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viografikoPanel.Location = new System.Drawing.Point(207, 129);
+            this.viografikoPanel.Name = "viografikoPanel";
+            this.viografikoPanel.Size = new System.Drawing.Size(744, 448);
+            this.viografikoPanel.TabIndex = 6;
+            // 
+            // selectedCVTextBox
+            // 
+            this.selectedCVTextBox.Location = new System.Drawing.Point(271, 38);
+            this.selectedCVTextBox.Name = "selectedCVTextBox";
+            this.selectedCVTextBox.Size = new System.Drawing.Size(443, 20);
+            this.selectedCVTextBox.TabIndex = 11;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label35.Location = new System.Drawing.Point(428, 423);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(305, 16);
+            this.label35.TabIndex = 10;
+            this.label35.Text = "Τελευταία ενημέρωση βιογραφικού DD/MM/YYYY";
+            // 
+            // uploadCVButton
+            // 
+            this.uploadCVButton.Location = new System.Drawing.Point(494, 67);
+            this.uploadCVButton.Name = "uploadCVButton";
+            this.uploadCVButton.Size = new System.Drawing.Size(222, 23);
+            this.uploadCVButton.TabIndex = 9;
+            this.uploadCVButton.Text = "Άνοιγμα Βιογραφικού";
+            this.uploadCVButton.UseVisualStyleBackColor = true;
+            this.uploadCVButton.Click += new System.EventHandler(this.selectCVButton_Click);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label34.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label34.Location = new System.Drawing.Point(6, 15);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(722, 16);
+            this.label34.TabIndex = 8;
+            this.label34.Text = "Για να ανεβάσετε το βιογραφικό σας για πρώτη φορά ή να ενημερώσετε το ήδη υπάρχον" +
+    ", πατήστε \"Άνοιγμα Βιογραφικού\"";
+            // 
+            // downloadCVButton
+            // 
+            this.downloadCVButton.Location = new System.Drawing.Point(494, 94);
+            this.downloadCVButton.Name = "downloadCVButton";
+            this.downloadCVButton.Size = new System.Drawing.Size(222, 23);
+            this.downloadCVButton.TabIndex = 9;
+            this.downloadCVButton.Text = "Αποθήκευση Βιογραφικού";
+            this.downloadCVButton.UseVisualStyleBackColor = true;
+            this.downloadCVButton.Click += new System.EventHandler(this.downloadCVButton_Click);
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.viografikoPanel);
             this.Controls.Add(this.userAggeliesFrame);
             this.Controls.Add(this.createAdPanel);
             this.Controls.Add(this.myFavoritesPanel);
@@ -1152,6 +1226,8 @@
             this.registerPanel.PerformLayout();
             this.createAdPanel.ResumeLayout(false);
             this.createAdPanel.PerformLayout();
+            this.viografikoPanel.ResumeLayout(false);
+            this.viografikoPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1245,6 +1321,12 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Panel viografikoPanel;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button uploadCVButton;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox selectedCVTextBox;
+        private System.Windows.Forms.Button downloadCVButton;
     }
 }
 

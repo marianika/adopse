@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Npgsql;
 using System.Collections;
 using NpgsqlTypes;
+using System.IO;
 
 namespace adopse
 {
@@ -37,6 +38,7 @@ namespace adopse
             userAggeliesFrame.Visible = false;
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
+            viografikoPanel.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -52,6 +54,7 @@ namespace adopse
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
+            viografikoPanel.Visible = false;
             mainPanel.Visible = true;
         }
 
@@ -61,11 +64,6 @@ namespace adopse
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
         {
 
         }
@@ -151,6 +149,7 @@ namespace adopse
                 myFavoritesPanel.Visible = false;
                 addToFavoritesButton.Visible = false;
                 createAdPanel.Visible = false;
+                viografikoPanel.Visible = false;
                 loginNav.Text = "Σύνδεση";
                 loginNav.Name = "login";
                 loginPanel.Visible = false;
@@ -163,6 +162,7 @@ namespace adopse
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
+            viografikoPanel.Visible = false;
             loginPanel.Visible = true;
         }
 
@@ -317,6 +317,7 @@ namespace adopse
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
+            viografikoPanel.Visible = false;
 
             NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
             conn.Open();
@@ -405,6 +406,7 @@ namespace adopse
             userAggeliesFrame.Visible = false;
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
+            viografikoPanel.Visible = false;
             myFavoritesPanel.Visible = true;
 
 
@@ -513,6 +515,7 @@ namespace adopse
             userAggeliesFrame.Visible = false;
             myFavoritesPanel.Visible = false;
             createAdPanel.Visible = false;
+            viografikoPanel.Visible = false;
             registerPanel.Visible = true;
         }
 
@@ -545,6 +548,7 @@ namespace adopse
             userAggeliesFrame.Visible = false;
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = false;
+            viografikoPanel.Visible = false;
             createAdPanel.Visible = true;
         }
 
@@ -623,10 +627,117 @@ namespace adopse
             }
         }
 
+        private void birthDate_Enter(object sender, EventArgs e)
+        {
+            if(birthDate.ForeColor == Color.Gray)
+            {
+                birthDate.Text = "";
+                birthDate.ForeColor = Color.Black;
+            }
+        }
+
+        private Button selectCVButton;
+        private OpenFileDialog openFileDialog1;
+        private TextBox CVTextBox;
+
+        private void biografikoNav_Click(object sender, EventArgs e)
+        {
+            mainPanel.Visible = false;
+            loginPanel.Visible = false;
+            userAggeliesFrame.Visible = false;
+            myFavoritesPanel.Visible = false;
+            registerPanel.Visible = false;
+            createAdPanel.Visible = false;
+            viografikoPanel.Visible = true;
+        }
+
+        private void selectCVButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Browse PDF Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "pdf",
+                Filter = "PDF files (*.pdf)|*.pdf",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                selectedCVTextBox.Text = openFileDialog1.FileName;
+                byte[] pdfFile = File.ReadAllBytes(selectedCVTextBox.Text);
+
+                NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+                conn.Open();
+
+                NpgsqlCommand cmd = new NpgsqlCommand("addcv", conn);
+
+                NpgsqlDate currDate = new NpgsqlDate(DateTime.Now.Date);
+
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue(userid);
+                cmd.Parameters.AddWithValue(10); // TODO: this is ad_id but we need CV per user, not only per AD
+                cmd.Parameters.AddWithValue(pdfFile);
+                cmd.Parameters.AddWithValue(currDate);
+
+                cmd.ExecuteReader();
+
+                conn.Close();
+            }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void downloadCVButton_Click(object sender, EventArgs e)
+        {
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                {
+                    NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+                    conn.Open();
+
+                    NpgsqlCommand cmd = new NpgsqlCommand("getcv", conn);
+
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue(userid);
+
+                    NpgsqlDataReader dr = cmd.ExecuteReader();
+                    
+                    //shows an window if the inserted tag finds a match
+                    while (dr.Read())
+                    {
+                        long len = dr.GetBytes(3, 0, null, 0, 0);
+                        byte[] buffer = new byte[len];
+                        dr.GetBytes(3, 0, buffer, 0, (int)len);
+                        myStream.Write(buffer, 0, (int) len);
+                    }
+                    myStream.Close();
+                }
+            }
+        }
+
         private void registerButton_Click(object sender, EventArgs e)
         {
             int number = maxnum() + 1;
-
 
             NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
             conn.Open();
@@ -652,6 +763,9 @@ namespace adopse
 
             conn.Close();
 
+            registerPanel.Visible = false;
+            loginPanel.Visible = true;
+            loginPanel.Focus();
         }
 
         //gets last user id
