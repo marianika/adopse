@@ -85,6 +85,11 @@ namespace adopse
 
         }
 
+        private string extractNumber(string str)
+        {
+            return new String(str.Where(Char.IsDigit).ToArray());
+        }
+
         private void editAdButton_Click(object sender, EventArgs e)
         {
             foreach (Control c in selectedUserAd.Controls)
@@ -92,12 +97,12 @@ namespace adopse
                 if (c.Name.StartsWith("adTitle"))
                 {
                     adTitle.Text = c.Text;
-                    adTitle.Name = new String(c.Name.Where(Char.IsDigit).ToArray());
+                    adTitle.Name = extractNumber(c.Name);
                 }
                 else if (c.Name.StartsWith("adDescription"))
                     adDescription.Text = c.Text;
                 else if (c.Name.StartsWith("adSalary"))
-                    adSalary.Text = c.Text;
+                    adSalary.Text = extractNumber(c.Text);
             }
             createAd.Text = "Επεξεργασία";
             selectedUserAd.BackColor = Color.LightSkyBlue;
@@ -377,7 +382,7 @@ namespace adopse
                     adPanel.Controls.Add(salary);
                     adPanel.Controls.Add(currDate);
                     adPanel.Size = new Size(537, 100);
-                    adPanel.Name = "adPanel" + db_com_id;
+                    adPanel.Name = "adPanel" + db_id;
                     adPanel.Location = new Point(3, lastPos);
                     lastPos += 106;
                     userAggeliesPanel.Controls.Add(adPanel);
@@ -545,18 +550,37 @@ namespace adopse
 
         private void createAd_Click(object sender, EventArgs e)
         {
+            NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+            conn.Open();
+
+            NpgsqlCommand cmd;
+
             if (createAd.Text.Equals("Επεξεργασία"))
             {
+
+                // TODO: execute sql query for ad edit with functin updateads
+                cmd = new NpgsqlCommand("updateads", conn);
+
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue(Int32.Parse(adTitle.Name)); // ad id
+                cmd.Parameters.AddWithValue(adTitle.Text);
+                cmd.Parameters.AddWithValue(adDescription.Text);
+                cmd.Parameters.AddWithValue(Int32.Parse(extractNumber(adSalary.Text)));
+                cmd.Parameters.AddWithValue(new NpgsqlDate(DateTime.Now.Date));
+                cmd.Parameters.AddWithValue(adTags.SelectedItem.ToString());
+
+                cmd.ExecuteReader();
+
+                conn.Close();
+
                 createAd.Text = "Δημιουργία";
                 createAdPanel.Visible = false;
                 mainPanel.Visible = true;
                 mainPanel.Focus();
                 return;
             }
-            NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
-            conn.Open();
 
-            NpgsqlCommand cmd = new NpgsqlCommand("createads", conn);
+            cmd = new NpgsqlCommand("createads", conn);
 
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue(userid);
@@ -573,6 +597,30 @@ namespace adopse
             createAdPanel.Visible = false;
             mainPanel.Visible = true;
             mainPanel.Focus();
+        }
+
+        private void deleteAdButton_Click(object sender, EventArgs e)
+        {
+            if (selectedUserAd == null)
+                return;
+            DialogResult dialog = MessageBox.Show("Θέλετε να διαγράψετε την επιλεγμένη αγγελία;", "JobFinder", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+                conn.Open();
+
+                NpgsqlCommand cmd = new NpgsqlCommand("dropads", conn);
+
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue(Int32.Parse(extractNumber(selectedUserAd.Name)));
+                // FIXME: if i attempt to delete an ad that's been favorited, it will throw an exception because of foreign key relation
+                cmd.ExecuteReader();
+
+                conn.Close();
+
+                selectedUserAd.Dispose();
+                selectedUserAd = null;
+            }
         }
 
         private void registerButton_Click(object sender, EventArgs e)

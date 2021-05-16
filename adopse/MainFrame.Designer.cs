@@ -569,6 +569,7 @@
             this.deleteAdButton.TabIndex = 0;
             this.deleteAdButton.Text = "Διαγραφή";
             this.deleteAdButton.UseVisualStyleBackColor = true;
+            this.deleteAdButton.Click += new System.EventHandler(this.deleteAdButton_Click);
             // 
             // editAdButton
             // 
