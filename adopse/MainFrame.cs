@@ -17,7 +17,17 @@ namespace adopse
 {
     public partial class MainFrame : Form
     {
-        static public int userid = 0;
+        public enum UserType
+        {
+            Guest,
+            User,
+            Employer,
+            Moderator
+        }
+
+        public static int userid = 0;
+        public static UserType type = 0;
+        private static bool hasCompany = false;
 
         private Panel selectedUserAd, selectedFavoriteAd, selectedSearchAd = null;
         public MainFrame()
@@ -39,7 +49,7 @@ namespace adopse
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
-
+            rythmiseisPanel.Visible = false;
             loadAds();
         }
 
@@ -133,6 +143,7 @@ namespace adopse
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
+            rythmiseisPanel.Visible = false;
             mainPanel.Visible = true;
         }
 
@@ -148,7 +159,43 @@ namespace adopse
 
         private void button3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Rythmiseis Clicked!");
+            if (type != UserType.Employer)
+                return;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+            conn.Open();
+            
+            NpgsqlCommand cmd = new NpgsqlCommand("getcompany", conn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue(userid);
+
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+
+            hasCompany = false;
+            if(dr.HasRows)
+            {
+                hasCompany = true;
+                while(dr.Read())
+                {
+                    textboxEpwnymiaEpixeirhshs.Text = dr.GetString(2);
+                    textboxIstotoposEpixeirhshs.Text = dr.GetString(3);
+                    textboxEdraEpixeirhshs.Text = dr.GetString(4);
+                    textboxTyposEpixeirhshs.Text = dr.GetString(5);
+                    textboxArErgEpixeirhshs.Text = dr.GetInt32(6).ToString();
+                }
+            }
+
+            conn.Close();
+
+            mainPanel.Visible = false;
+            loginPanel.Visible = false;
+            userAggeliesFrame.Visible = false;
+            myFavoritesPanel.Visible = false;
+            registerPanel.Visible = false;
+            createAdPanel.Visible = false;
+            viografikoPanel.Visible = false;
+            rythmiseisPanel.Visible = true;
         }
 
         private void MainFrame_Load(object sender, EventArgs e)
@@ -180,6 +227,8 @@ namespace adopse
                 else if (c.Name.StartsWith("adSalary"))
                     adSalary.Text = extractNumber(c.Text);
             }
+            adTags.SetItemChecked(0, true);
+            adTags.SetSelected(0, true);
             createAd.Text = "Επεξεργασία";
             selectedUserAd.BackColor = Color.LightSkyBlue;
             selectedUserAd = null;
@@ -220,6 +269,7 @@ namespace adopse
             {
                 profileLabel.Text = "Επισκεπτης";
                 userid = 0;
+                type = UserType.Guest;
                 myAggeliesNav.Visible = false;
                 myFavoritesNav.Visible = false;
                 userAggeliesFrame.Visible = false;
@@ -228,6 +278,7 @@ namespace adopse
                 sendCVButton.Visible = false;
                 createAdPanel.Visible = false;
                 viografikoPanel.Visible = false;
+                rythmiseisPanel.Visible = false;
                 loginNav.Text = "Σύνδεση";
                 loginNav.Name = "login";
                 loginPanel.Visible = false;
@@ -241,6 +292,7 @@ namespace adopse
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
+            rythmiseisPanel.Visible = false;
             loginPanel.Visible = true;
         }
 
@@ -260,7 +312,9 @@ namespace adopse
             while (dr.Read())
             {
                 userid = dr.GetInt32(0);
-                if (userid != 0)
+                type = getUserType(dr.GetString(10));
+
+                if (type > UserType.Guest)
                 {
                     profileLabel.Text = dr.GetString(3);
                     myAggeliesNav.Visible = true;
@@ -277,6 +331,22 @@ namespace adopse
             }
 
             conn.Close();
+        }
+
+        private UserType getUserType(string v)
+        {
+            switch(v)
+            {
+                case "Εργαζόμενος": return UserType.User;
+                case "Επιχείρηση": return UserType.Employer;
+                case "moderator": return UserType.Moderator;
+                default:
+                    {
+                        if (userid != 0)
+                            return UserType.User;
+                        return UserType.Guest;
+                    }
+            }
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -418,6 +488,7 @@ namespace adopse
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
+            rythmiseisPanel.Visible = false;
 
             NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
             conn.Open();
@@ -507,6 +578,7 @@ namespace adopse
             registerPanel.Visible = false;
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
+            rythmiseisPanel.Visible = false;
             myFavoritesPanel.Visible = true;
 
 
@@ -614,6 +686,7 @@ namespace adopse
             myFavoritesPanel.Visible = false;
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
+            rythmiseisPanel.Visible = false;
             registerPanel.Visible = true;
         }
 
@@ -653,6 +726,7 @@ namespace adopse
             myFavoritesPanel.Visible = false;
             registerPanel.Visible = false;
             viografikoPanel.Visible = false;
+            rythmiseisPanel.Visible = false;
             createAdPanel.Visible = true;
         }
 
@@ -866,6 +940,51 @@ namespace adopse
 
         }
 
+        private void buttonProsthikiEnimerwshEpixeirhshs_Click(object sender, EventArgs e)
+        {
+            if(textboxEpwnymiaEpixeirhshs.Equals(""))
+            {
+                MessageBox.Show("Παρακαλώ συμπληρώστε όλα τα υποχρεωτικά πεδία!");
+                return;
+            }
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+            conn.Open();
+            NpgsqlCommand cmd;
+
+            if (hasCompany)
+            {
+                cmd = new NpgsqlCommand("updatecompany", conn);
+
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue(userid);
+                cmd.Parameters.AddWithValue(textboxEpwnymiaEpixeirhshs.Text);
+                cmd.Parameters.AddWithValue(textboxIstotoposEpixeirhshs.Text);
+                cmd.Parameters.AddWithValue(textboxEdraEpixeirhshs.Text);
+                cmd.Parameters.AddWithValue(textboxTyposEpixeirhshs.Text);
+                cmd.Parameters.AddWithValue(Int32.Parse(textboxArErgEpixeirhshs.Text));
+
+                cmd.ExecuteNonQuery();
+            } else
+            {
+                cmd = new NpgsqlCommand("addcompany", conn);
+
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue(userid);
+                cmd.Parameters.AddWithValue(textboxEpwnymiaEpixeirhshs.Text);
+                cmd.Parameters.AddWithValue(textboxIstotoposEpixeirhshs.Text);
+                cmd.Parameters.AddWithValue(textboxEdraEpixeirhshs.Text);
+                cmd.Parameters.AddWithValue(textboxTyposEpixeirhshs.Text);
+                cmd.Parameters.AddWithValue(Int32.Parse(textboxArErgEpixeirhshs.Text));
+
+                cmd.ExecuteNonQuery();
+            }
+
+            conn.Close();
+
+            MessageBox.Show("Τα στοιχεία σας ενημερώθηκαν επιτυχώς!");
+        }
+
         private void registerButton_Click(object sender, EventArgs e)
         {
             int number = maxnum() + 1;
@@ -888,7 +1007,7 @@ namespace adopse
             cmd.Parameters.AddWithValue(city.Text);
             cmd.Parameters.AddWithValue(gender.Text);
             cmd.Parameters.AddWithValue(username.Text);
-            cmd.Parameters.AddWithValue(userType.Text);
+            cmd.Parameters.AddWithValue(userTypeComboBox.Text);
 
             NpgsqlDataReader dr = cmd.ExecuteReader();
 

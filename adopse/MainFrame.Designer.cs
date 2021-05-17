@@ -42,6 +42,7 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.sendCVButton = new System.Windows.Forms.Button();
             this.addToFavoritesButton = new System.Windows.Forms.Button();
             this.aggeliesPanel = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -84,7 +85,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.registerPanel = new System.Windows.Forms.Panel();
-            this.userType = new System.Windows.Forms.ComboBox();
+            this.userTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
             this.birthDate = new System.Windows.Forms.TextBox();
@@ -121,7 +122,22 @@
             this.downloadCVButton = new System.Windows.Forms.Button();
             this.uploadCVButton = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
-            this.sendCVButton = new System.Windows.Forms.Button();
+            this.rythmiseisPanel = new System.Windows.Forms.Panel();
+            this.buttonProsthikiEnimerwshEpixeirhshs = new System.Windows.Forms.Button();
+            this.textboxTyposEpixeirhshs = new System.Windows.Forms.TextBox();
+            this.labelTyposEpixeirhshs = new System.Windows.Forms.Label();
+            this.textboxEdraEpixeirhshs = new System.Windows.Forms.TextBox();
+            this.labelEdraEpixeirhshs = new System.Windows.Forms.Label();
+            this.textboxArErgEpixeirhshs = new System.Windows.Forms.TextBox();
+            this.labelArErgEpixeirhshs = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.textboxIstotoposEpixeirhshs = new System.Windows.Forms.TextBox();
+            this.labelIstotoposEpixeirhshs = new System.Windows.Forms.Label();
+            this.textboxEpwnymiaEpixeirhshs = new System.Windows.Forms.TextBox();
+            this.labelEwnymiaEpixeirhshs = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.navigationBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -142,6 +158,7 @@
             this.registerPanel.SuspendLayout();
             this.createAdPanel.SuspendLayout();
             this.viografikoPanel.SuspendLayout();
+            this.rythmiseisPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationBar
@@ -358,6 +375,17 @@
             this.mainPanel.Size = new System.Drawing.Size(744, 448);
             this.mainPanel.TabIndex = 13;
             this.mainPanel.MouseEnter += new System.EventHandler(this.mainPanel_MouseEnter);
+            // 
+            // sendCVButton
+            // 
+            this.sendCVButton.Location = new System.Drawing.Point(607, 123);
+            this.sendCVButton.Name = "sendCVButton";
+            this.sendCVButton.Size = new System.Drawing.Size(126, 35);
+            this.sendCVButton.TabIndex = 3;
+            this.sendCVButton.Text = "Αποστολή Βιογραφικού";
+            this.sendCVButton.UseVisualStyleBackColor = true;
+            this.sendCVButton.Visible = false;
+            this.sendCVButton.Click += new System.EventHandler(this.sendCVButton_Click);
             // 
             // addToFavoritesButton
             // 
@@ -792,7 +820,7 @@
             // registerPanel
             // 
             this.registerPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.registerPanel.Controls.Add(this.userType);
+            this.registerPanel.Controls.Add(this.userTypeComboBox);
             this.registerPanel.Controls.Add(this.label29);
             this.registerPanel.Controls.Add(this.registerButton);
             this.registerPanel.Controls.Add(this.birthDate);
@@ -819,17 +847,17 @@
             this.registerPanel.Size = new System.Drawing.Size(744, 448);
             this.registerPanel.TabIndex = 11;
             // 
-            // userType
+            // userTypeComboBox
             // 
-            this.userType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.userType.FormattingEnabled = true;
-            this.userType.Items.AddRange(new object[] {
+            this.userTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.userTypeComboBox.FormattingEnabled = true;
+            this.userTypeComboBox.Items.AddRange(new object[] {
             "Εργαζόμενος",
             "Επιχείρηση"});
-            this.userType.Location = new System.Drawing.Point(78, 246);
-            this.userType.Name = "userType";
-            this.userType.Size = new System.Drawing.Size(108, 21);
-            this.userType.TabIndex = 21;
+            this.userTypeComboBox.Location = new System.Drawing.Point(78, 246);
+            this.userTypeComboBox.Name = "userTypeComboBox";
+            this.userTypeComboBox.Size = new System.Drawing.Size(108, 21);
+            this.userTypeComboBox.TabIndex = 21;
             // 
             // label29
             // 
@@ -1179,16 +1207,194 @@
             this.label34.Text = "Για να ανεβάσετε το βιογραφικό σας για πρώτη φορά ή να ενημερώσετε το ήδη υπάρχον" +
     ", πατήστε \"Άνοιγμα Βιογραφικού\"";
             // 
-            // sendCVButton
+            // rythmiseisPanel
             // 
-            this.sendCVButton.Location = new System.Drawing.Point(607, 123);
-            this.sendCVButton.Name = "sendCVButton";
-            this.sendCVButton.Size = new System.Drawing.Size(126, 35);
-            this.sendCVButton.TabIndex = 3;
-            this.sendCVButton.Text = "Αποστολή Βιογραφικού";
-            this.sendCVButton.UseVisualStyleBackColor = true;
-            this.sendCVButton.Visible = false;
-            this.sendCVButton.Click += new System.EventHandler(this.sendCVButton_Click);
+            this.rythmiseisPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.rythmiseisPanel.Controls.Add(this.buttonProsthikiEnimerwshEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.textboxTyposEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.labelTyposEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.textboxEdraEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.labelEdraEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.textboxArErgEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.labelArErgEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.label37);
+            this.rythmiseisPanel.Controls.Add(this.textboxIstotoposEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.labelIstotoposEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.textboxEpwnymiaEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.labelEwnymiaEpixeirhshs);
+            this.rythmiseisPanel.Controls.Add(this.label40);
+            this.rythmiseisPanel.Controls.Add(this.label41);
+            this.rythmiseisPanel.Controls.Add(this.label42);
+            this.rythmiseisPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rythmiseisPanel.Location = new System.Drawing.Point(207, 129);
+            this.rythmiseisPanel.Name = "rythmiseisPanel";
+            this.rythmiseisPanel.Size = new System.Drawing.Size(744, 448);
+            this.rythmiseisPanel.TabIndex = 12;
+            this.rythmiseisPanel.Visible = false;
+            // 
+            // buttonProsthikiEnimerwshEpixeirhshs
+            // 
+            this.buttonProsthikiEnimerwshEpixeirhshs.Location = new System.Drawing.Point(479, 372);
+            this.buttonProsthikiEnimerwshEpixeirhshs.Name = "buttonProsthikiEnimerwshEpixeirhshs";
+            this.buttonProsthikiEnimerwshEpixeirhshs.Size = new System.Drawing.Size(244, 23);
+            this.buttonProsthikiEnimerwshEpixeirhshs.TabIndex = 37;
+            this.buttonProsthikiEnimerwshEpixeirhshs.Text = "Προσθήκη / Ενημέρωση!";
+            this.buttonProsthikiEnimerwshEpixeirhshs.UseVisualStyleBackColor = true;
+            this.buttonProsthikiEnimerwshEpixeirhshs.Click += new System.EventHandler(this.buttonProsthikiEnimerwshEpixeirhshs_Click);
+            // 
+            // textboxTyposEpixeirhshs
+            // 
+            this.textboxTyposEpixeirhshs.Location = new System.Drawing.Point(8, 315);
+            this.textboxTyposEpixeirhshs.Name = "textboxTyposEpixeirhshs";
+            this.textboxTyposEpixeirhshs.Size = new System.Drawing.Size(286, 20);
+            this.textboxTyposEpixeirhshs.TabIndex = 36;
+            // 
+            // labelTyposEpixeirhshs
+            // 
+            this.labelTyposEpixeirhshs.AutoSize = true;
+            this.labelTyposEpixeirhshs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelTyposEpixeirhshs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTyposEpixeirhshs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.labelTyposEpixeirhshs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelTyposEpixeirhshs.Location = new System.Drawing.Point(5, 296);
+            this.labelTyposEpixeirhshs.Name = "labelTyposEpixeirhshs";
+            this.labelTyposEpixeirhshs.Size = new System.Drawing.Size(296, 16);
+            this.labelTyposEpixeirhshs.TabIndex = 35;
+            this.labelTyposEpixeirhshs.Text = "Τύπος Εταιρίας (Εστίαση, Ψυχαγωγία, Εμπόριο...)";
+            // 
+            // textboxEdraEpixeirhshs
+            // 
+            this.textboxEdraEpixeirhshs.Location = new System.Drawing.Point(8, 263);
+            this.textboxEdraEpixeirhshs.Name = "textboxEdraEpixeirhshs";
+            this.textboxEdraEpixeirhshs.Size = new System.Drawing.Size(286, 20);
+            this.textboxEdraEpixeirhshs.TabIndex = 34;
+            // 
+            // labelEdraEpixeirhshs
+            // 
+            this.labelEdraEpixeirhshs.AutoSize = true;
+            this.labelEdraEpixeirhshs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelEdraEpixeirhshs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEdraEpixeirhshs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.labelEdraEpixeirhshs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelEdraEpixeirhshs.Location = new System.Drawing.Point(5, 244);
+            this.labelEdraEpixeirhshs.Name = "labelEdraEpixeirhshs";
+            this.labelEdraEpixeirhshs.Size = new System.Drawing.Size(84, 16);
+            this.labelEdraEpixeirhshs.TabIndex = 33;
+            this.labelEdraEpixeirhshs.Text = "Έδρα (Πόλη)";
+            // 
+            // textboxArErgEpixeirhshs
+            // 
+            this.textboxArErgEpixeirhshs.Location = new System.Drawing.Point(8, 367);
+            this.textboxArErgEpixeirhshs.Name = "textboxArErgEpixeirhshs";
+            this.textboxArErgEpixeirhshs.Size = new System.Drawing.Size(286, 20);
+            this.textboxArErgEpixeirhshs.TabIndex = 32;
+            // 
+            // labelArErgEpixeirhshs
+            // 
+            this.labelArErgEpixeirhshs.AutoSize = true;
+            this.labelArErgEpixeirhshs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelArErgEpixeirhshs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelArErgEpixeirhshs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.labelArErgEpixeirhshs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelArErgEpixeirhshs.Location = new System.Drawing.Point(5, 348);
+            this.labelArErgEpixeirhshs.Name = "labelArErgEpixeirhshs";
+            this.labelArErgEpixeirhshs.Size = new System.Drawing.Size(295, 16);
+            this.labelArErgEpixeirhshs.TabIndex = 31;
+            this.labelArErgEpixeirhshs.Text = "Αριθμός Εργαζομένων ( <10, 11-50, 51-100, >100)";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label37.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label37.Location = new System.Drawing.Point(5, 117);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(193, 16);
+            this.label37.TabIndex = 30;
+            this.label37.Text = "Τα πεδία με (*) είνα απαραίτητα.";
+            // 
+            // textboxIstotoposEpixeirhshs
+            // 
+            this.textboxIstotoposEpixeirhshs.Location = new System.Drawing.Point(8, 211);
+            this.textboxIstotoposEpixeirhshs.Name = "textboxIstotoposEpixeirhshs";
+            this.textboxIstotoposEpixeirhshs.Size = new System.Drawing.Size(286, 20);
+            this.textboxIstotoposEpixeirhshs.TabIndex = 29;
+            // 
+            // labelIstotoposEpixeirhshs
+            // 
+            this.labelIstotoposEpixeirhshs.AutoSize = true;
+            this.labelIstotoposEpixeirhshs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelIstotoposEpixeirhshs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIstotoposEpixeirhshs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.labelIstotoposEpixeirhshs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelIstotoposEpixeirhshs.Location = new System.Drawing.Point(5, 192);
+            this.labelIstotoposEpixeirhshs.Name = "labelIstotoposEpixeirhshs";
+            this.labelIstotoposEpixeirhshs.Size = new System.Drawing.Size(126, 16);
+            this.labelIstotoposEpixeirhshs.TabIndex = 28;
+            this.labelIstotoposEpixeirhshs.Text = "Ιστότοπος Εταιρίας";
+            // 
+            // textboxEpwnymiaEpixeirhshs
+            // 
+            this.textboxEpwnymiaEpixeirhshs.Location = new System.Drawing.Point(8, 159);
+            this.textboxEpwnymiaEpixeirhshs.Name = "textboxEpwnymiaEpixeirhshs";
+            this.textboxEpwnymiaEpixeirhshs.Size = new System.Drawing.Size(286, 20);
+            this.textboxEpwnymiaEpixeirhshs.TabIndex = 27;
+            // 
+            // labelEwnymiaEpixeirhshs
+            // 
+            this.labelEwnymiaEpixeirhshs.AutoSize = true;
+            this.labelEwnymiaEpixeirhshs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelEwnymiaEpixeirhshs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEwnymiaEpixeirhshs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.labelEwnymiaEpixeirhshs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelEwnymiaEpixeirhshs.Location = new System.Drawing.Point(5, 140);
+            this.labelEwnymiaEpixeirhshs.Name = "labelEwnymiaEpixeirhshs";
+            this.labelEwnymiaEpixeirhshs.Size = new System.Drawing.Size(156, 16);
+            this.labelEwnymiaEpixeirhshs.TabIndex = 26;
+            this.labelEwnymiaEpixeirhshs.Text = "Επωνυμία Επιχείρησης (*)";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label40.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label40.Location = new System.Drawing.Point(5, 72);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(718, 16);
+            this.label40.TabIndex = 25;
+            this.label40.Text = "Συμπληρώστε τα πεδία, προκειμένου ένας χρήστης να μπορεί να βρει εύκολα στοιχεία " +
+    "που αφορούν την επιχείρησή σας!\r\n";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label41.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label41.Location = new System.Drawing.Point(4, 43);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(523, 16);
+            this.label41.TabIndex = 24;
+            this.label41.Text = "Οι χρήστες που θα δουν την αγγελία σας θα μπορούν να δουν και τα παρακάτω στοιχεί" +
+    "α.";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label42.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label42.Location = new System.Drawing.Point(4, 13);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(491, 16);
+            this.label42.TabIndex = 23;
+            this.label42.Text = "Στα παρακάτω πεδία μπορείτε να συμπληρώσετε τα στοιχεία της επιχείρησής σας.\r\n";
             // 
             // MainFrame
             // 
@@ -1196,6 +1402,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.rythmiseisPanel);
             this.Controls.Add(this.viografikoPanel);
             this.Controls.Add(this.myFavoritesPanel);
             this.Controls.Add(this.userAggeliesFrame);
@@ -1242,6 +1449,8 @@
             this.createAdPanel.PerformLayout();
             this.viografikoPanel.ResumeLayout(false);
             this.viografikoPanel.PerformLayout();
+            this.rythmiseisPanel.ResumeLayout(false);
+            this.rythmiseisPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1322,7 +1531,7 @@
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.ComboBox userType;
+        private System.Windows.Forms.ComboBox userTypeComboBox;
         private System.Windows.Forms.ComboBox gender;
         private System.Windows.Forms.Button editAdButton;
         private System.Windows.Forms.Panel createAdPanel;
@@ -1342,6 +1551,22 @@
         private System.Windows.Forms.TextBox selectedCVTextBox;
         private System.Windows.Forms.Button downloadCVButton;
         private System.Windows.Forms.Button sendCVButton;
+        private System.Windows.Forms.Panel rythmiseisPanel;
+        private System.Windows.Forms.Button buttonProsthikiEnimerwshEpixeirhshs;
+        private System.Windows.Forms.TextBox textboxTyposEpixeirhshs;
+        private System.Windows.Forms.Label labelTyposEpixeirhshs;
+        private System.Windows.Forms.TextBox textboxEdraEpixeirhshs;
+        private System.Windows.Forms.Label labelEdraEpixeirhshs;
+        private System.Windows.Forms.TextBox textboxArErgEpixeirhshs;
+        private System.Windows.Forms.Label labelArErgEpixeirhshs;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox textboxIstotoposEpixeirhshs;
+        private System.Windows.Forms.Label labelIstotoposEpixeirhshs;
+        private System.Windows.Forms.TextBox textboxEpwnymiaEpixeirhshs;
+        private System.Windows.Forms.Label labelEwnymiaEpixeirhshs;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
     }
 }
 
