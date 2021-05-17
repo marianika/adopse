@@ -30,13 +30,13 @@ namespace adopse.Forms
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.AddButton = new System.Windows.Forms.Button();
             this.used_id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.usersTable = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.logFilesTable = new System.Windows.Forms.DataGridView();
+            this.AddModeratorButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logFilesTable)).BeginInit();
             this.SuspendLayout();
@@ -50,18 +50,6 @@ namespace adopse.Forms
             this.label2.Size = new System.Drawing.Size(113, 29);
             this.label2.TabIndex = 44;
             this.label2.Text = "User List";
-            // 
-            // AddButton
-            // 
-            this.AddButton.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.AddButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.AddButton.Location = new System.Drawing.Point(1364, 672);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(100, 39);
-            this.AddButton.TabIndex = 43;
-            this.AddButton.Text = "Add Moderator";
-            this.AddButton.UseVisualStyleBackColor = false;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // used_id
             // 
@@ -109,20 +97,32 @@ namespace adopse.Forms
             // logFilesTable
             // 
             this.logFilesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.logFilesTable.Location = new System.Drawing.Point(935, 82);
+            this.logFilesTable.Location = new System.Drawing.Point(916, 82);
             this.logFilesTable.Name = "logFilesTable";
-            this.logFilesTable.Size = new System.Drawing.Size(545, 376);
+            this.logFilesTable.Size = new System.Drawing.Size(566, 376);
             this.logFilesTable.TabIndex = 45;
+            // 
+            // AddModeratorButton
+            // 
+            this.AddModeratorButton.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.AddModeratorButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.AddModeratorButton.Location = new System.Drawing.Point(1364, 676);
+            this.AddModeratorButton.Name = "AddModeratorButton";
+            this.AddModeratorButton.Size = new System.Drawing.Size(100, 39);
+            this.AddModeratorButton.TabIndex = 48;
+            this.AddModeratorButton.Text = "Add Moderator";
+            this.AddModeratorButton.UseVisualStyleBackColor = false;
+            this.AddModeratorButton.Click += new System.EventHandler(this.AddModeratorButton_Click);
             // 
             // AdministratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1588, 839);
+            this.Controls.Add(this.AddModeratorButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.logFilesTable);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.used_id);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.usersTable);
@@ -130,11 +130,11 @@ namespace adopse.Forms
             this.Controls.SetChildIndex(this.usersTable, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.used_id, 0);
-            this.Controls.SetChildIndex(this.AddButton, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.logFilesTable, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.AddModeratorButton, 0);
             ((System.ComponentModel.ISupportInitialize)(this.usersTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logFilesTable)).EndInit();
             this.ResumeLayout(false);
@@ -145,12 +145,12 @@ namespace adopse.Forms
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox used_id;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView usersTable;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView logFilesTable;
+        private System.Windows.Forms.Button AddModeratorButton;
     }
 }
