@@ -43,23 +43,12 @@ namespace adopse.Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Aggelies Clicked!");
-            Forms.AggeliesForm aggeliesF = new Forms.AggeliesForm();
-            aggeliesF.Show();
-            Visible = false;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Diaxeirisi Clicked!");
-            Forms.DiaxeirisiForm diaxeirisiF = new Forms.DiaxeirisiForm();
-            diaxeirisiF.Show();
-            Visible = false;
+
         }
     }
 }

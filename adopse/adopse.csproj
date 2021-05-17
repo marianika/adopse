@@ -43,6 +43,7 @@
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard1.1\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -64,35 +65,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbConnector.cs" />
-    <Compile Include="Forms\AdminForms\AdministratorForm.cs">
+    <Compile Include="Forms\EpixeirisiInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdminForms\AdministratorForm.Designer.cs">
-      <DependentUpon>AdministratorForm.cs</DependentUpon>
+    <Compile Include="Forms\EpixeirisiInfoForm.Designer.cs">
+      <DependentUpon>EpixeirisiInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProsthikiAggelias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProsthikiAggelias.Designer.cs">
+      <DependentUpon>ProsthikiAggelias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AggeliesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AggeliesForm.Designer.cs">
       <DependentUpon>AggeliesForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\DiaxeirisiForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DiaxeirisiForm.Designer.cs">
-      <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AdminForms\ModeratorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AdminForms\ModeratorForm.Designer.cs">
-      <DependentUpon>ModeratorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ProsthikiNeasAggeliasForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ProsthikiNeasAggeliasForm.Designer.cs">
-      <DependentUpon>ProsthikiNeasAggeliasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ViografikoForm.cs">
       <SubType>Form</SubType>
@@ -108,20 +103,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AdminForms\AdministratorForm.resx">
-      <DependentUpon>AdministratorForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AggeliesForm.resx">
       <DependentUpon>AggeliesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DiaxeirisiForm.resx">
-      <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EpixeirisiInfoForm.resx">
+      <DependentUpon>EpixeirisiInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AdminForms\ModeratorForm.resx">
-      <DependentUpon>ModeratorForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ProsthikiAggelias.resx">
+      <DependentUpon>ProsthikiAggelias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ProsthikiNeasAggeliasForm.resx">
-      <DependentUpon>ProsthikiNeasAggeliasForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViografikoForm.resx">
       <DependentUpon>ViografikoForm.cs</DependentUpon>
@@ -164,6 +156,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
