@@ -31,6 +31,7 @@
             this.navigationBar = new System.Windows.Forms.Panel();
             this.myFavoritesNav = new System.Windows.Forms.Button();
             this.myAggeliesNav = new System.Windows.Forms.Button();
+            this.aithmataNav = new System.Windows.Forms.Button();
             this.loginNav = new System.Windows.Forms.Button();
             this.settingsNav = new System.Windows.Forms.Button();
             this.biografikoNav = new System.Windows.Forms.Button();
@@ -138,6 +139,17 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
+            this.aithmataPanel = new System.Windows.Forms.Panel();
+            this.aithmaDownloadPDF = new System.Windows.Forms.Button();
+            this.aithmataCVPanel = new System.Windows.Forms.Panel();
+            this.tempWorkPanel = new System.Windows.Forms.Panel();
+            this.tempDate = new System.Windows.Forms.Label();
+            this.tempGender = new System.Windows.Forms.Label();
+            this.tempCity = new System.Windows.Forms.Label();
+            this.tempPhone = new System.Windows.Forms.Label();
+            this.tempTemp = new System.Windows.Forms.Label();
+            this.tempName = new System.Windows.Forms.Label();
+            this.aithmataLabel = new System.Windows.Forms.Label();
             this.navigationBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -159,6 +171,9 @@
             this.createAdPanel.SuspendLayout();
             this.viografikoPanel.SuspendLayout();
             this.rythmiseisPanel.SuspendLayout();
+            this.aithmataPanel.SuspendLayout();
+            this.aithmataCVPanel.SuspendLayout();
+            this.tempWorkPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationBar
@@ -166,6 +181,7 @@
             this.navigationBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.navigationBar.Controls.Add(this.myFavoritesNav);
             this.navigationBar.Controls.Add(this.myAggeliesNav);
+            this.navigationBar.Controls.Add(this.aithmataNav);
             this.navigationBar.Controls.Add(this.loginNav);
             this.navigationBar.Controls.Add(this.settingsNav);
             this.navigationBar.Controls.Add(this.biografikoNav);
@@ -185,7 +201,7 @@
             this.myFavoritesNav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.myFavoritesNav.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myFavoritesNav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.myFavoritesNav.Location = new System.Drawing.Point(0, 354);
+            this.myFavoritesNav.Location = new System.Drawing.Point(0, 399);
             this.myFavoritesNav.Name = "myFavoritesNav";
             this.myFavoritesNav.Size = new System.Drawing.Size(207, 45);
             this.myFavoritesNav.TabIndex = 5;
@@ -202,7 +218,7 @@
             this.myAggeliesNav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.myAggeliesNav.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.myAggeliesNav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.myAggeliesNav.Location = new System.Drawing.Point(0, 309);
+            this.myAggeliesNav.Location = new System.Drawing.Point(0, 354);
             this.myAggeliesNav.Name = "myAggeliesNav";
             this.myAggeliesNav.Size = new System.Drawing.Size(207, 45);
             this.myAggeliesNav.TabIndex = 4;
@@ -211,6 +227,23 @@
             this.myAggeliesNav.UseVisualStyleBackColor = true;
             this.myAggeliesNav.Visible = false;
             this.myAggeliesNav.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // aithmataNav
+            // 
+            this.aithmataNav.Dock = System.Windows.Forms.DockStyle.Top;
+            this.aithmataNav.FlatAppearance.BorderSize = 0;
+            this.aithmataNav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.aithmataNav.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aithmataNav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.aithmataNav.Location = new System.Drawing.Point(0, 309);
+            this.aithmataNav.Name = "aithmataNav";
+            this.aithmataNav.Size = new System.Drawing.Size(207, 45);
+            this.aithmataNav.TabIndex = 6;
+            this.aithmataNav.Text = "Τα Αιτήματα Μου";
+            this.aithmataNav.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.aithmataNav.UseVisualStyleBackColor = true;
+            this.aithmataNav.Visible = false;
+            this.aithmataNav.Click += new System.EventHandler(this.aithmataButton_Click);
             // 
             // loginNav
             // 
@@ -1396,15 +1429,131 @@
             this.label42.TabIndex = 23;
             this.label42.Text = "Στα παρακάτω πεδία μπορείτε να συμπληρώσετε τα στοιχεία της επιχείρησής σας.\r\n";
             // 
+            // aithmataPanel
+            // 
+            this.aithmataPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.aithmataPanel.Controls.Add(this.aithmaDownloadPDF);
+            this.aithmataPanel.Controls.Add(this.aithmataCVPanel);
+            this.aithmataPanel.Controls.Add(this.aithmataLabel);
+            this.aithmataPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aithmataPanel.Location = new System.Drawing.Point(207, 129);
+            this.aithmataPanel.Name = "aithmataPanel";
+            this.aithmataPanel.Size = new System.Drawing.Size(744, 448);
+            this.aithmataPanel.TabIndex = 38;
+            // 
+            // aithmaDownloadPDF
+            // 
+            this.aithmaDownloadPDF.Location = new System.Drawing.Point(602, 59);
+            this.aithmaDownloadPDF.Name = "aithmaDownloadPDF";
+            this.aithmaDownloadPDF.Size = new System.Drawing.Size(126, 35);
+            this.aithmaDownloadPDF.TabIndex = 6;
+            this.aithmaDownloadPDF.Text = "Λήψη Βιογραφικού";
+            this.aithmaDownloadPDF.UseVisualStyleBackColor = true;
+            this.aithmaDownloadPDF.Click += new System.EventHandler(this.aithmaDownloadPDF_Click);
+            // 
+            // aithmataCVPanel
+            // 
+            this.aithmataCVPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.aithmataCVPanel.Controls.Add(this.tempWorkPanel);
+            this.aithmataCVPanel.Location = new System.Drawing.Point(20, 38);
+            this.aithmataCVPanel.Name = "aithmataCVPanel";
+            this.aithmataCVPanel.Size = new System.Drawing.Size(556, 396);
+            this.aithmataCVPanel.TabIndex = 5;
+            // 
+            // tempWorkPanel
+            // 
+            this.tempWorkPanel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tempWorkPanel.Controls.Add(this.tempDate);
+            this.tempWorkPanel.Controls.Add(this.tempGender);
+            this.tempWorkPanel.Controls.Add(this.tempCity);
+            this.tempWorkPanel.Controls.Add(this.tempPhone);
+            this.tempWorkPanel.Controls.Add(this.tempTemp);
+            this.tempWorkPanel.Controls.Add(this.tempName);
+            this.tempWorkPanel.Location = new System.Drawing.Point(3, 3);
+            this.tempWorkPanel.Name = "tempWorkPanel";
+            this.tempWorkPanel.Size = new System.Drawing.Size(537, 100);
+            this.tempWorkPanel.TabIndex = 0;
+            // 
+            // tempDate
+            // 
+            this.tempDate.AutoSize = true;
+            this.tempDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tempDate.Location = new System.Drawing.Point(4, 70);
+            this.tempDate.Name = "tempDate";
+            this.tempDate.Size = new System.Drawing.Size(159, 16);
+            this.tempDate.TabIndex = 4;
+            this.tempDate.Text = "Ημ. Γέννησης: 2000-05-05";
+            // 
+            // tempGender
+            // 
+            this.tempGender.AutoSize = true;
+            this.tempGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tempGender.Location = new System.Drawing.Point(206, 70);
+            this.tempGender.Name = "tempGender";
+            this.tempGender.Size = new System.Drawing.Size(95, 16);
+            this.tempGender.TabIndex = 4;
+            this.tempGender.Text = "Φύλλο: Αρρέν";
+            // 
+            // tempCity
+            // 
+            this.tempCity.AutoSize = true;
+            this.tempCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tempCity.Location = new System.Drawing.Point(206, 43);
+            this.tempCity.Name = "tempCity";
+            this.tempCity.Size = new System.Drawing.Size(127, 16);
+            this.tempCity.TabIndex = 4;
+            this.tempCity.Text = "Πόλη: Θεσσαλονίκη";
+            // 
+            // tempPhone
+            // 
+            this.tempPhone.AutoSize = true;
+            this.tempPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tempPhone.Location = new System.Drawing.Point(4, 43);
+            this.tempPhone.Name = "tempPhone";
+            this.tempPhone.Size = new System.Drawing.Size(147, 16);
+            this.tempPhone.TabIndex = 4;
+            this.tempPhone.Text = "Τηλέφωνο: 6912345678";
+            // 
+            // tempTemp
+            // 
+            this.tempTemp.AutoSize = true;
+            this.tempTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tempTemp.Location = new System.Drawing.Point(456, 70);
+            this.tempTemp.Name = "tempTemp";
+            this.tempTemp.Size = new System.Drawing.Size(72, 16);
+            this.tempTemp.TabIndex = 3;
+            this.tempTemp.Text = "2020-05-05";
+            // 
+            // tempName
+            // 
+            this.tempName.AutoSize = true;
+            this.tempName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tempName.Location = new System.Drawing.Point(206, 13);
+            this.tempName.Name = "tempName";
+            this.tempName.Size = new System.Drawing.Size(113, 16);
+            this.tempName.TabIndex = 0;
+            this.tempName.Text = "Επίθετο Όνομα";
+            // 
+            // aithmataLabel
+            // 
+            this.aithmataLabel.AutoSize = true;
+            this.aithmataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.aithmataLabel.Location = new System.Drawing.Point(17, 19);
+            this.aithmataLabel.Name = "aithmataLabel";
+            this.aithmataLabel.Size = new System.Drawing.Size(138, 16);
+            this.aithmataLabel.TabIndex = 4;
+            this.aithmataLabel.Text = "Αιτήματα Εργασίας";
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.aithmataPanel);
+            this.Controls.Add(this.myFavoritesPanel);
             this.Controls.Add(this.rythmiseisPanel);
             this.Controls.Add(this.viografikoPanel);
-            this.Controls.Add(this.myFavoritesPanel);
             this.Controls.Add(this.userAggeliesFrame);
             this.Controls.Add(this.createAdPanel);
             this.Controls.Add(this.loginPanel);
@@ -1451,6 +1600,11 @@
             this.viografikoPanel.PerformLayout();
             this.rythmiseisPanel.ResumeLayout(false);
             this.rythmiseisPanel.PerformLayout();
+            this.aithmataPanel.ResumeLayout(false);
+            this.aithmataPanel.PerformLayout();
+            this.aithmataCVPanel.ResumeLayout(false);
+            this.tempWorkPanel.ResumeLayout(false);
+            this.tempWorkPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1567,6 +1721,18 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Button aithmataNav;
+        private System.Windows.Forms.Panel aithmataPanel;
+        private System.Windows.Forms.Panel aithmataCVPanel;
+        private System.Windows.Forms.Panel tempWorkPanel;
+        private System.Windows.Forms.Label tempTemp;
+        private System.Windows.Forms.Label tempName;
+        private System.Windows.Forms.Label aithmataLabel;
+        private System.Windows.Forms.Button aithmaDownloadPDF;
+        private System.Windows.Forms.Label tempDate;
+        private System.Windows.Forms.Label tempGender;
+        private System.Windows.Forms.Label tempCity;
+        private System.Windows.Forms.Label tempPhone;
     }
 }
 

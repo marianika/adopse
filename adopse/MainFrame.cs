@@ -29,7 +29,7 @@ namespace adopse
         public static UserType type = 0;
         private static bool hasCompany = false;
 
-        private Panel selectedUserAd, selectedFavoriteAd, selectedSearchAd = null;
+        private Panel selectedUserAd, selectedFavoriteAd, selectedSearchAd, selectedAithma = null;
         public MainFrame()
         {
             InitializeComponent();
@@ -43,6 +43,11 @@ namespace adopse
             userAggeliesPanel.HorizontalScroll.Visible = false;
             userAggeliesPanel.HorizontalScroll.Maximum = 0;
             userAggeliesPanel.AutoScroll = true;
+            aithmataCVPanel.AutoScroll = false;
+            aithmataCVPanel.HorizontalScroll.Enabled = false;
+            aithmataCVPanel.HorizontalScroll.Visible = false;
+            aithmataCVPanel.HorizontalScroll.Maximum = 0;
+            aithmataCVPanel.AutoScroll = true;
             loginPanel.Visible = false;
             myFavoritesPanel.Visible = false;
             userAggeliesFrame.Visible = false;
@@ -50,6 +55,7 @@ namespace adopse
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
+            aithmataPanel.Visible = false;
             loadAds();
         }
 
@@ -144,6 +150,7 @@ namespace adopse
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
+            aithmataPanel.Visible = false;
             mainPanel.Visible = true;
         }
 
@@ -272,6 +279,7 @@ namespace adopse
                 type = UserType.Guest;
                 myAggeliesNav.Visible = false;
                 myFavoritesNav.Visible = false;
+                aithmataNav.Visible = false;
                 userAggeliesFrame.Visible = false;
                 myFavoritesPanel.Visible = false;
                 addToFavoritesButton.Visible = false;
@@ -279,6 +287,7 @@ namespace adopse
                 createAdPanel.Visible = false;
                 viografikoPanel.Visible = false;
                 rythmiseisPanel.Visible = false;
+                aithmataPanel.Visible = false;
                 loginNav.Text = "Σύνδεση";
                 loginNav.Name = "login";
                 loginPanel.Visible = false;
@@ -293,6 +302,7 @@ namespace adopse
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
+            aithmataPanel.Visible = false;
             loginPanel.Visible = true;
         }
 
@@ -321,6 +331,8 @@ namespace adopse
                     myFavoritesNav.Visible = true;
                     addToFavoritesButton.Visible = true;
                     sendCVButton.Visible = true;
+                    if (type == UserType.Employer)
+                        aithmataNav.Visible = true;
                     loginNav.Text = "Αποσύνδεση";
                     loginNav.Name = "logout";
                     loginPanel.Visible = false;
@@ -465,6 +477,17 @@ namespace adopse
             selectedFavoriteAd.BackColor = SystemColors.Highlight;
         }
 
+        private void aithmaPanel_Click(object sender, EventArgs e)
+        {
+            if (selectedAithma != null)
+            {
+                selectedAithma.BackColor = Color.LightSkyBlue;
+                selectedAithma = null;
+            }
+            selectedAithma = (Panel)sender;
+            selectedAithma.BackColor = SystemColors.Highlight;
+        }
+
         private void mainPanel_MouseEnter(object sender, EventArgs e)
         {
 
@@ -489,6 +512,7 @@ namespace adopse
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
+            aithmataPanel.Visible = false;
 
             NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
             conn.Open();
@@ -579,6 +603,7 @@ namespace adopse
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
+            aithmataPanel.Visible = false;
             myFavoritesPanel.Visible = true;
 
 
@@ -687,6 +712,7 @@ namespace adopse
             createAdPanel.Visible = false;
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
+            aithmataPanel.Visible = false;
             registerPanel.Visible = true;
         }
 
@@ -727,6 +753,7 @@ namespace adopse
             registerPanel.Visible = false;
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
+            aithmataPanel.Visible = false;
             createAdPanel.Visible = true;
         }
 
@@ -937,7 +964,22 @@ namespace adopse
 
         private void sendCVButton_Click(object sender, EventArgs e)
         {
+            if (selectedSearchAd == null)
+                return;
+            NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+            conn.Open();
 
+            NpgsqlCommand cmd = new NpgsqlCommand("sendcv", conn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue(userid);
+            cmd.Parameters.AddWithValue(Int32.Parse(extractNumber(selectedSearchAd.Name)));
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+
+            MessageBox.Show("Το βιογραφικό σας στάλθηκε επιτυχώς!");
         }
 
         private void buttonProsthikiEnimerwshEpixeirhshs_Click(object sender, EventArgs e)
@@ -983,6 +1025,134 @@ namespace adopse
             conn.Close();
 
             MessageBox.Show("Τα στοιχεία σας ενημερώθηκαν επιτυχώς!");
+        }
+
+        private void aithmaDownloadPDF_Click(object sender, EventArgs e)
+        {
+            Stream fileStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((fileStream = saveFileDialog1.OpenFile()) != null)
+                {
+                    NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+                    conn.Open();
+
+                    NpgsqlCommand cmd = new NpgsqlCommand("getcv", conn);
+
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue(Int32.Parse(extractNumber(selectedAithma.Name)));
+
+                    NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        long len = dr.GetBytes(0, 0, null, 0, 0);
+                        byte[] buffer = new byte[len];
+                        dr.GetBytes(0, 0, buffer, 0, (int)len);
+                        fileStream.Write(buffer, 0, (int)len);
+                    }
+                    fileStream.Close();
+                }
+            }
+        }
+
+        private void aithmataButton_Click(object sender, EventArgs e)
+        {
+            mainPanel.Visible = false;
+            loginPanel.Visible = false;
+            myFavoritesPanel.Visible = false;
+            registerPanel.Visible = false;
+            createAdPanel.Visible = false;
+            viografikoPanel.Visible = false;
+            rythmiseisPanel.Visible = false;
+            aithmataPanel.Visible = true;
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
+            conn.Open();
+
+            NpgsqlCommand cmd = new NpgsqlCommand("getmyaithmata", conn);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue(userid);
+
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            int lastPos = 3;
+            aithmataCVPanel.Controls.Clear();
+            while (dr.Read())
+            {
+
+                if (dr.IsDBNull(0))
+                {
+                }
+                else
+                {
+                    int u_id = dr.GetInt32(0);
+                    string db_firstName = dr.GetString(1);
+                    string db_lastName = dr.GetString(2);
+                    string db_gender = dr.GetString(3);
+                    string db_city = dr.GetString(4);
+                    string db_phone = dr.GetString(5);
+                    NpgsqlDate db_birthDate = dr.GetDate(6);
+
+                    Panel adPanel = new Panel();
+                    adPanel.BackColor = Color.LightSkyBlue;
+                    adPanel.Click += new System.EventHandler(this.aithmaPanel_Click);
+                    Label name = new Label();
+                    Label gender = new Label();
+                    Label city = new Label();
+                    Label phone = new Label();
+                    Label birthDate = new Label();
+                    name.Text = db_lastName + " " + db_firstName;
+                    name.AutoSize = true;
+                    name.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+                    name.Location = new Point(206, 13);
+                    name.Name = "adName" + u_id;
+                    name.Size = new Size(113, 16);
+                    gender.Text = (db_gender == "M") ? "Αρρεν" : "Θηλυ";
+                    gender.AutoSize = true;
+                    gender.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                    gender.Location = new Point(206, 70);
+                    gender.Name = "adGender" + u_id;
+                    gender.Size = new Size(95, 16);
+                    city.Text = "Πόλη: " + db_city;
+                    city.AutoSize = true;
+                    city.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+                    city.Location = new Point(206, 43);
+                    city.Name = "adCity" + u_id;
+                    city.Size = new Size(127, 16);
+                    phone.Text = "Τηλέφωνο: " + db_phone;
+                    phone.AutoSize = true;
+                    phone.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+                    phone.Location = new Point(4, 43);
+                    phone.Name = "adPhone" + u_id;
+                    phone.Size = new Size(147, 16);
+                    birthDate.Text = "Ημ. Γέννησης: " + db_birthDate.ToString();
+                    birthDate.AutoSize = true;
+                    birthDate.Font = new Font("Microsoft Sans Serif", 9.75F);
+                    birthDate.Location = new Point(4, 70);
+                    birthDate.Name = "adDate" + u_id;
+                    birthDate.Size = new Size(159, 16);
+                    adPanel.Controls.Add(name);
+                    adPanel.Controls.Add(gender);
+                    adPanel.Controls.Add(city);
+                    adPanel.Controls.Add(phone);
+                    adPanel.Controls.Add(birthDate);
+                    adPanel.Size = new Size(537, 100);
+                    adPanel.Name = "adPanel" + u_id;
+                    adPanel.Location = new Point(3, lastPos);
+                    lastPos += 106;
+                    aithmataCVPanel.Controls.Add(adPanel);
+                    adPanel.Show();
+                }
+            }
+
+            conn.Close();
         }
 
         private void registerButton_Click(object sender, EventArgs e)
