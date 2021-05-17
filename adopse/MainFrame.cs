@@ -56,6 +56,7 @@ namespace adopse
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
             aithmataPanel.Visible = false;
+            managementPanel.Visible = false;
             loadAds();
         }
 
@@ -151,6 +152,7 @@ namespace adopse
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
             aithmataPanel.Visible = false;
+            managementPanel.Visible = false;
             mainPanel.Visible = true;
         }
 
@@ -279,6 +281,7 @@ namespace adopse
                 type = UserType.Guest;
                 myAggeliesNav.Visible = false;
                 myFavoritesNav.Visible = false;
+                managementNav.Visible = false;
                 aithmataNav.Visible = false;
                 userAggeliesFrame.Visible = false;
                 myFavoritesPanel.Visible = false;
@@ -288,6 +291,7 @@ namespace adopse
                 viografikoPanel.Visible = false;
                 rythmiseisPanel.Visible = false;
                 aithmataPanel.Visible = false;
+                managementPanel.Visible = false;
                 loginNav.Text = "Σύνδεση";
                 loginNav.Name = "login";
                 loginPanel.Visible = false;
@@ -303,6 +307,7 @@ namespace adopse
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
             aithmataPanel.Visible = false;
+            managementPanel.Visible = false;
             loginPanel.Visible = true;
         }
 
@@ -333,6 +338,7 @@ namespace adopse
                     sendCVButton.Visible = true;
                     if (type == UserType.Employer)
                         aithmataNav.Visible = true;
+                    managementNav.Visible = true;
                     loginNav.Text = "Αποσύνδεση";
                     loginNav.Name = "logout";
                     loginPanel.Visible = false;
@@ -513,6 +519,7 @@ namespace adopse
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
             aithmataPanel.Visible = false;
+            managementPanel.Visible = false;
 
             NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
             conn.Open();
@@ -605,7 +612,7 @@ namespace adopse
             rythmiseisPanel.Visible = false;
             aithmataPanel.Visible = false;
             myFavoritesPanel.Visible = true;
-
+            managementPanel.Visible = false;
 
             NpgsqlConnection conn = new NpgsqlConnection("Server=dblabs.it.teithe.gr;port=5432;Database=it185244;User Id=it185244;Password=adopse21");
             conn.Open();
@@ -713,6 +720,7 @@ namespace adopse
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
             aithmataPanel.Visible = false;
+            managementPanel.Visible = false;
             registerPanel.Visible = true;
         }
 
@@ -754,6 +762,7 @@ namespace adopse
             viografikoPanel.Visible = false;
             rythmiseisPanel.Visible = false;
             aithmataPanel.Visible = false;
+            managementPanel.Visible = false;
             createAdPanel.Visible = true;
         }
 
@@ -1058,6 +1067,64 @@ namespace adopse
                         fileStream.Write(buffer, 0, (int)len);
                     }
                     fileStream.Close();
+                }
+            }
+        }
+
+        private void managementNav_Click(object sender, EventArgs e)
+        {
+            mainPanel.Visible = false;
+            loginPanel.Visible = false;
+            myFavoritesPanel.Visible = false;
+            registerPanel.Visible = false;
+            createAdPanel.Visible = false;
+            viografikoPanel.Visible = false;
+            rythmiseisPanel.Visible = false;
+            aithmataPanel.Visible = false;
+            managementPanel.Visible = true;
+        }
+
+        private void ConnectionButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("sundesh2 Clicked!");
+            string username = adminUsername.Text;
+            string password = adminPassword.Text;
+
+            string sql = "select * from admin where email='" + username + "'" + "and pwd='" + password + "'";
+
+            using (var connection = dbConnector.GetConnection())
+            {
+                Console.Out.WriteLine("Opening connection");
+                connection.Open();
+
+                using (var command = new NpgsqlCommand("select * from admin where email = @u and pwd = @p", connection))
+                {
+                    command.Parameters.AddWithValue("u", username);
+                    command.Parameters.AddWithValue("p", password);
+                    var dataReader = command.ExecuteReader();
+                    if (dataReader.HasRows)
+                    {
+                        System.Diagnostics.Debug.WriteLine("sidethike o admin");
+                        AdministratorForm administratorForm = new AdministratorForm();
+                        administratorForm.ShowDialog();
+                        dataReader.Close();
+                        return;
+                    }
+                    dataReader.Close();
+                }
+
+                using (var command = new NpgsqlCommand("select * from users where username = @u and pwd = @p and type = 'moderator'", connection))
+                {
+                    command.Parameters.AddWithValue("u", username);
+                    command.Parameters.AddWithValue("p", password);
+                    var dataReader = command.ExecuteReader();
+                    if (dataReader.HasRows)
+                    {
+                        System.Diagnostics.Debug.WriteLine("sidethike o moderator");
+                        ModeratorForm moderatorForm = new ModeratorForm();
+                        moderatorForm.ShowDialog();
+                        dataReader.Close();
+                    }
                 }
             }
         }

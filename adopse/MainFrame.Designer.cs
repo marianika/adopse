@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.navigationBar = new System.Windows.Forms.Panel();
+            this.managementNav = new System.Windows.Forms.Button();
             this.myFavoritesNav = new System.Windows.Forms.Button();
             this.myAggeliesNav = new System.Windows.Forms.Button();
             this.aithmataNav = new System.Windows.Forms.Button();
@@ -150,6 +151,13 @@
             this.tempTemp = new System.Windows.Forms.Label();
             this.tempName = new System.Windows.Forms.Label();
             this.aithmataLabel = new System.Windows.Forms.Label();
+            this.managementPanel = new System.Windows.Forms.Panel();
+            this.adminPassword = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.adminUsername = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.ConnectionButton = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
             this.navigationBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -174,11 +182,13 @@
             this.aithmataPanel.SuspendLayout();
             this.aithmataCVPanel.SuspendLayout();
             this.tempWorkPanel.SuspendLayout();
+            this.managementPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationBar
             // 
             this.navigationBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.navigationBar.Controls.Add(this.managementNav);
             this.navigationBar.Controls.Add(this.myFavoritesNav);
             this.navigationBar.Controls.Add(this.myAggeliesNav);
             this.navigationBar.Controls.Add(this.aithmataNav);
@@ -193,6 +203,23 @@
             this.navigationBar.Size = new System.Drawing.Size(207, 577);
             this.navigationBar.TabIndex = 0;
             this.navigationBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // managementNav
+            // 
+            this.managementNav.Dock = System.Windows.Forms.DockStyle.Top;
+            this.managementNav.FlatAppearance.BorderSize = 0;
+            this.managementNav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.managementNav.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managementNav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.managementNav.Location = new System.Drawing.Point(0, 444);
+            this.managementNav.Name = "managementNav";
+            this.managementNav.Size = new System.Drawing.Size(207, 45);
+            this.managementNav.TabIndex = 7;
+            this.managementNav.Text = "Management";
+            this.managementNav.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.managementNav.UseVisualStyleBackColor = true;
+            this.managementNav.Visible = false;
+            this.managementNav.Click += new System.EventHandler(this.managementNav_Click);
             // 
             // myFavoritesNav
             // 
@@ -1544,12 +1571,92 @@
             this.aithmataLabel.TabIndex = 4;
             this.aithmataLabel.Text = "Αιτήματα Εργασίας";
             // 
+            // managementPanel
+            // 
+            this.managementPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.managementPanel.Controls.Add(this.adminPassword);
+            this.managementPanel.Controls.Add(this.label36);
+            this.managementPanel.Controls.Add(this.adminUsername);
+            this.managementPanel.Controls.Add(this.label38);
+            this.managementPanel.Controls.Add(this.ConnectionButton);
+            this.managementPanel.Controls.Add(this.label39);
+            this.managementPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.managementPanel.Location = new System.Drawing.Point(207, 129);
+            this.managementPanel.Name = "managementPanel";
+            this.managementPanel.Size = new System.Drawing.Size(744, 448);
+            this.managementPanel.TabIndex = 7;
+            // 
+            // adminPassword
+            // 
+            this.adminPassword.Location = new System.Drawing.Point(20, 113);
+            this.adminPassword.Name = "adminPassword";
+            this.adminPassword.Size = new System.Drawing.Size(265, 20);
+            this.adminPassword.TabIndex = 21;
+            this.adminPassword.UseSystemPasswordChar = true;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label36.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label36.Location = new System.Drawing.Point(17, 90);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(78, 20);
+            this.label36.TabIndex = 20;
+            this.label36.Text = "Password";
+            // 
+            // adminUsername
+            // 
+            this.adminUsername.Location = new System.Drawing.Point(19, 67);
+            this.adminUsername.Name = "adminUsername";
+            this.adminUsername.Size = new System.Drawing.Size(265, 20);
+            this.adminUsername.TabIndex = 19;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label38.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label38.Location = new System.Drawing.Point(16, 44);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(83, 20);
+            this.label38.TabIndex = 18;
+            this.label38.Text = "Username";
+            // 
+            // ConnectionButton
+            // 
+            this.ConnectionButton.Location = new System.Drawing.Point(19, 150);
+            this.ConnectionButton.Name = "ConnectionButton";
+            this.ConnectionButton.Size = new System.Drawing.Size(75, 23);
+            this.ConnectionButton.TabIndex = 17;
+            this.ConnectionButton.Text = "Σύνδεση!";
+            this.ConnectionButton.UseVisualStyleBackColor = true;
+            this.ConnectionButton.Click += new System.EventHandler(this.ConnectionButton_Click);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label39.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label39.Location = new System.Drawing.Point(17, 14);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(295, 16);
+            this.label39.TabIndex = 16;
+            this.label39.Text = "Αν είστε διαχειριστής, κάντε σύνδεση παρακάτω:";
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.managementPanel);
             this.Controls.Add(this.aithmataPanel);
             this.Controls.Add(this.myFavoritesPanel);
             this.Controls.Add(this.rythmiseisPanel);
@@ -1605,6 +1712,8 @@
             this.aithmataCVPanel.ResumeLayout(false);
             this.tempWorkPanel.ResumeLayout(false);
             this.tempWorkPanel.PerformLayout();
+            this.managementPanel.ResumeLayout(false);
+            this.managementPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1733,6 +1842,14 @@
         private System.Windows.Forms.Label tempGender;
         private System.Windows.Forms.Label tempCity;
         private System.Windows.Forms.Label tempPhone;
+        private System.Windows.Forms.Button managementNav;
+        private System.Windows.Forms.Panel managementPanel;
+        private System.Windows.Forms.TextBox adminPassword;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox adminUsername;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button ConnectionButton;
+        private System.Windows.Forms.Label label39;
     }
 }
 
