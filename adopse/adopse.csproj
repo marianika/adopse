@@ -64,10 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbConnector.cs" />
-    <Compile Include="Forms\AdministratorForm.cs">
+    <Compile Include="Forms\AdminForms\AdministratorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdministratorForm.Designer.cs">
+    <Compile Include="Forms\AdminForms\AdministratorForm.Designer.cs">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AggeliesForm.cs">
@@ -82,10 +82,10 @@
     <Compile Include="Forms\DiaxeirisiForm.Designer.cs">
       <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ModeratorForm.cs">
+    <Compile Include="Forms\AdminForms\ModeratorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ModeratorForm.Designer.cs">
+    <Compile Include="Forms\AdminForms\ModeratorForm.Designer.cs">
       <DependentUpon>ModeratorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ProsthikiNeasAggeliasForm.cs">
@@ -108,7 +108,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AdministratorForm.resx">
+    <EmbeddedResource Include="Forms\AdminForms\AdministratorForm.resx">
       <DependentUpon>AdministratorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AggeliesForm.resx">
@@ -117,7 +117,7 @@
     <EmbeddedResource Include="Forms\DiaxeirisiForm.resx">
       <DependentUpon>DiaxeirisiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ModeratorForm.resx">
+    <EmbeddedResource Include="Forms\AdminForms\ModeratorForm.resx">
       <DependentUpon>ModeratorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProsthikiNeasAggeliasForm.resx">
