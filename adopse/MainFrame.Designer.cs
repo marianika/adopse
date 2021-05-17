@@ -50,7 +50,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.loginPanel = new System.Windows.Forms.Panel();
             this.usernameText = new System.Windows.Forms.TextBox();
@@ -75,7 +75,7 @@
             this.myFavoritesPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.deleteFavAdButton = new System.Windows.Forms.Button();
             this.myFavoritesAdPanel = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
@@ -118,9 +118,10 @@
             this.viografikoPanel = new System.Windows.Forms.Panel();
             this.selectedCVTextBox = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
+            this.downloadCVButton = new System.Windows.Forms.Button();
             this.uploadCVButton = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
-            this.downloadCVButton = new System.Windows.Forms.Button();
+            this.sendCVButton = new System.Windows.Forms.Button();
             this.navigationBar.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -337,18 +338,19 @@
             this.label2.Location = new System.Drawing.Point(0, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(428, 55);
+            this.label2.Size = new System.Drawing.Size(669, 55);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Το βιογραφικό μου";
+            this.label2.Text = "Καλώς ήρθατε στο JobFinder!";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.mainPanel.Controls.Add(this.sendCVButton);
             this.mainPanel.Controls.Add(this.addToFavoritesButton);
             this.mainPanel.Controls.Add(this.aggeliesPanel);
             this.mainPanel.Controls.Add(this.pictureBox2);
-            this.mainPanel.Controls.Add(this.textBox3);
+            this.mainPanel.Controls.Add(this.searchTextBox);
             this.mainPanel.Controls.Add(this.searchButton);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(207, 129);
@@ -359,9 +361,9 @@
             // 
             // addToFavoritesButton
             // 
-            this.addToFavoritesButton.Location = new System.Drawing.Point(588, 88);
+            this.addToFavoritesButton.Location = new System.Drawing.Point(607, 81);
             this.addToFavoritesButton.Name = "addToFavoritesButton";
-            this.addToFavoritesButton.Size = new System.Drawing.Size(145, 35);
+            this.addToFavoritesButton.Size = new System.Drawing.Size(125, 35);
             this.addToFavoritesButton.TabIndex = 3;
             this.addToFavoritesButton.Text = "Προσθήκη στα Αγαπημένα";
             this.addToFavoritesButton.UseVisualStyleBackColor = true;
@@ -374,7 +376,7 @@
             this.aggeliesPanel.Controls.Add(this.panel5);
             this.aggeliesPanel.Location = new System.Drawing.Point(39, 30);
             this.aggeliesPanel.Name = "aggeliesPanel";
-            this.aggeliesPanel.Size = new System.Drawing.Size(543, 405);
+            this.aggeliesPanel.Size = new System.Drawing.Size(563, 405);
             this.aggeliesPanel.TabIndex = 2;
             this.aggeliesPanel.MouseEnter += new System.EventHandler(this.aggeliesPanel_MouseEnter);
             // 
@@ -404,11 +406,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(435, 9);
+            this.label3.Location = new System.Drawing.Point(448, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 16);
+            this.label3.Size = new System.Drawing.Size(86, 16);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Μισθός: 4€/ώρα";
+            this.label3.Text = "Μισθός: 200$";
             // 
             // label5
             // 
@@ -444,12 +446,12 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // textBox3
+            // searchTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(614, 6);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 20);
-            this.textBox3.TabIndex = 0;
+            this.searchTextBox.Location = new System.Drawing.Point(614, 6);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(125, 20);
+            this.searchTextBox.TabIndex = 0;
             // 
             // searchButton
             // 
@@ -604,7 +606,7 @@
             this.userAggeliesPanel.Controls.Add(this.panel8);
             this.userAggeliesPanel.Location = new System.Drawing.Point(20, 37);
             this.userAggeliesPanel.Name = "userAggeliesPanel";
-            this.userAggeliesPanel.Size = new System.Drawing.Size(543, 396);
+            this.userAggeliesPanel.Size = new System.Drawing.Size(563, 405);
             this.userAggeliesPanel.TabIndex = 3;
             this.userAggeliesPanel.MouseEnter += new System.EventHandler(this.userAggeliesPanel_MouseEnter);
             // 
@@ -698,20 +700,21 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel3.Controls.Add(this.button5);
+            this.panel3.Controls.Add(this.deleteFavAdButton);
             this.panel3.Location = new System.Drawing.Point(635, 37);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(101, 103);
             this.panel3.TabIndex = 4;
             // 
-            // button5
+            // deleteFavAdButton
             // 
-            this.button5.Location = new System.Drawing.Point(3, 39);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 25);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "Διαγραφή";
-            this.button5.UseVisualStyleBackColor = true;
+            this.deleteFavAdButton.Location = new System.Drawing.Point(3, 39);
+            this.deleteFavAdButton.Name = "deleteFavAdButton";
+            this.deleteFavAdButton.Size = new System.Drawing.Size(95, 25);
+            this.deleteFavAdButton.TabIndex = 0;
+            this.deleteFavAdButton.Text = "Διαγραφή";
+            this.deleteFavAdButton.UseVisualStyleBackColor = true;
+            this.deleteFavAdButton.Click += new System.EventHandler(this.deleteFavAdButton_Click);
             // 
             // myFavoritesAdPanel
             // 
@@ -1142,13 +1145,23 @@
             this.label35.TabIndex = 10;
             this.label35.Text = "Τελευταία ενημέρωση βιογραφικού DD/MM/YYYY";
             // 
+            // downloadCVButton
+            // 
+            this.downloadCVButton.Location = new System.Drawing.Point(494, 94);
+            this.downloadCVButton.Name = "downloadCVButton";
+            this.downloadCVButton.Size = new System.Drawing.Size(222, 23);
+            this.downloadCVButton.TabIndex = 9;
+            this.downloadCVButton.Text = "Αποθήκευση Βιογραφικού";
+            this.downloadCVButton.UseVisualStyleBackColor = true;
+            this.downloadCVButton.Click += new System.EventHandler(this.downloadCVButton_Click);
+            // 
             // uploadCVButton
             // 
             this.uploadCVButton.Location = new System.Drawing.Point(494, 67);
             this.uploadCVButton.Name = "uploadCVButton";
             this.uploadCVButton.Size = new System.Drawing.Size(222, 23);
             this.uploadCVButton.TabIndex = 9;
-            this.uploadCVButton.Text = "Άνοιγμα Βιογραφικού";
+            this.uploadCVButton.Text = "Αποστολή Βιογραφικού";
             this.uploadCVButton.UseVisualStyleBackColor = true;
             this.uploadCVButton.Click += new System.EventHandler(this.selectCVButton_Click);
             // 
@@ -1166,15 +1179,16 @@
             this.label34.Text = "Για να ανεβάσετε το βιογραφικό σας για πρώτη φορά ή να ενημερώσετε το ήδη υπάρχον" +
     ", πατήστε \"Άνοιγμα Βιογραφικού\"";
             // 
-            // downloadCVButton
+            // sendCVButton
             // 
-            this.downloadCVButton.Location = new System.Drawing.Point(494, 94);
-            this.downloadCVButton.Name = "downloadCVButton";
-            this.downloadCVButton.Size = new System.Drawing.Size(222, 23);
-            this.downloadCVButton.TabIndex = 9;
-            this.downloadCVButton.Text = "Αποθήκευση Βιογραφικού";
-            this.downloadCVButton.UseVisualStyleBackColor = true;
-            this.downloadCVButton.Click += new System.EventHandler(this.downloadCVButton_Click);
+            this.sendCVButton.Location = new System.Drawing.Point(607, 123);
+            this.sendCVButton.Name = "sendCVButton";
+            this.sendCVButton.Size = new System.Drawing.Size(126, 35);
+            this.sendCVButton.TabIndex = 3;
+            this.sendCVButton.Text = "Αποστολή Βιογραφικού";
+            this.sendCVButton.UseVisualStyleBackColor = true;
+            this.sendCVButton.Visible = false;
+            this.sendCVButton.Click += new System.EventHandler(this.sendCVButton_Click);
             // 
             // MainFrame
             // 
@@ -1183,9 +1197,9 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(951, 577);
             this.Controls.Add(this.viografikoPanel);
+            this.Controls.Add(this.myFavoritesPanel);
             this.Controls.Add(this.userAggeliesFrame);
             this.Controls.Add(this.createAdPanel);
-            this.Controls.Add(this.myFavoritesPanel);
             this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.registerPanel);
             this.Controls.Add(this.mainPanel);
@@ -1252,7 +1266,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button loginNav;
         private System.Windows.Forms.Panel loginPanel;
         private System.Windows.Forms.TextBox usernameText;
@@ -1280,7 +1294,7 @@
         private System.Windows.Forms.Panel myFavoritesPanel;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button deleteFavAdButton;
         private System.Windows.Forms.Panel myFavoritesAdPanel;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label15;
@@ -1327,6 +1341,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox selectedCVTextBox;
         private System.Windows.Forms.Button downloadCVButton;
+        private System.Windows.Forms.Button sendCVButton;
     }
 }
 
